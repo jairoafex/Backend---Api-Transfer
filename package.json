@@ -1,0 +1,17 @@
+{
+  "name": "backend-testing---afex",
+  "version": "1.0.0",
+  "description": "Pruebas backend realizado a los endpoints de afex plus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "backend"
+  ],
+  "author": "Jairo Bermudez",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.2.0"
+  }
+}
