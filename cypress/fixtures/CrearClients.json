@@ -1,0 +1,105 @@
+{
+    "address": {
+        "apartment": "AVENIDA 5 DE ABRIL #148-1'",
+        "city": {
+            "alpha2CountryCode": "CL",
+            "alpha3CountryCode": "CHL",
+            "callingCode": 2,
+            "code": "SCL",
+            "countryId": 43,
+            "id": 322,
+            "name": "SANTIAGO"
+        },
+        "commune": {
+            "callingCode": 2,
+            "cityCode": "SCL",
+            "cityId": 322,
+            "code": "STG",
+            "id": 317,
+            "name": "SANTIAGO"
+        },
+        "postalCode": "952657",
+        "residence": {
+            "alpha2Code": "CL",
+            "alpha3Code": "CHL",
+            "callingCode": 56,
+            "id": 43,
+            "name": "CHILE"
+        },
+        "streetName": "Calle 851",
+        "streetNumber": "963"
+    },
+    "biometrics": {
+        "documentFront": "{{test-file-content}}",
+        "editedFields": [
+            "firstName"
+        ],
+        "fingerPrint": "{{fingerprint}}",
+        "refuseDocument": false,
+        "refuseFingerPrint": false
+    },
+    "branch": {
+        "branchCode": "AG",
+        "branchId": 23,
+        "branchName": "AFEX MATIAS COUSIÑO",
+        "userAfexId": "237902165",
+        "userFullName": "MILIXA SIRA"
+    },
+    "categorization": {
+        "isGiroClub": false,
+        "isPreferential": false
+    },
+    "compliance": {
+        "isPEP": false,
+        "relationshipPEP": false,
+        "transactionPurpose": 3
+    },
+    "contact": {
+        "email": "prueba",
+        "mobilePhone": {
+            "areaCode": 9,
+            "countryCode": 56,
+            "number": 9874117
+        },
+        "landline": {
+            "areaCode": 9,
+            "countryCode": 56,
+            "number": 897410
+        },
+        "verifyEmail": true,
+        "verifyMobile": true
+    },
+    "clientType": 0,
+    "identification": {
+        "firstName": "MARCO",
+        "middleName": "ANTONIO",
+        "surname": "SOLIS",
+        "secondSurname": "ROJAS",
+        "gender": 1,
+        "identification": {
+            "country": {
+                "alpha2Code": "CL",
+                "alpha3Code": "CHL",
+                "callingCode": 56,
+                "id": 43,
+                "name": "CHILE"
+            },
+            "number": "057623",
+            "serie": "12346",
+            "type": "rut"
+        },
+        "birthday": "1983-06-22",
+        "nationality": {
+            "alpha2Code": "CO",
+            "alpha3Code": "COL",
+            "callingCode": 57,
+            "id": 46,
+            "name": "COLOMBIA"
+        },
+        "occupations": [
+            {
+                "id": 5
+            }
+        ]
+    }
+}
