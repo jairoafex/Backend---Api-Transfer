@@ -1,0 +1,10 @@
+{
+    "amount": "150",
+    "branchId": "23",
+    "branchCode": "AG",
+    "receiverCountry": "COL",
+    "receiverCity": "BOG",
+    "includeFee":false,
+    "methodPayment": "",
+    "originCurrency": "USD"
+}
