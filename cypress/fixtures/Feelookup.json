@@ -1,9 +1,9 @@
 {
-    "amount": "150",
+    "amount": "200",
     "branchId": "23",
     "branchCode": "AG",
-    "receiverCountry": "COL",
-    "receiverCity": "BOG",
+    "receiverCountry": "PE",
+    "receiverCity": "LIM",
     "includeFee":false,
     "methodPayment": "",
     "originCurrency": "USD"

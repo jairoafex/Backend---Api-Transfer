@@ -1,6 +1,10 @@
 {
-    "id":"a5b019d9-14da-41a0-bc0f-15ebddb07780",
+    "id":"cb8bb22e-9f4e-4de4-83c2-a1bcfacf73bb",
     "idquote":2,
-    "idCliente":1127054
+    "idCliente":1127054,
+    "branchName": "AFEX MATIAS COUSIÑO",
+    "cityName": "LIMA",
+    "countryName": "PERU",
+    "userFullName": "MILIXA SIRA"
 
 }

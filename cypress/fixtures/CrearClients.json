@@ -1,6 +1,6 @@
 {
     "address": {
-        "apartment": "AVENIDA 5 DE ABRIL #148-1'",
+        "apartment": "404'",
         "city": {
             "alpha2CountryCode": "CL",
             "alpha3CountryCode": "CHL",
@@ -18,7 +18,7 @@
             "id": 317,
             "name": "SANTIAGO"
         },
-        "postalCode": "952657",
+        "postalCode": "992657",
         "residence": {
             "alpha2Code": "CL",
             "alpha3Code": "CHL",
@@ -30,11 +30,12 @@
         "streetNumber": "963"
     },
     "biometrics": {
-        "documentFront": "{{test-file-content}}",
+        "documentFront": "documento_frontal_enero11",
+        "documentBack": "documento_trasero_enero11",
         "editedFields": [
             "firstName"
         ],
-        "fingerPrint": "{{fingerprint}}",
+        "fingerPrint": "huella_enero11",
         "refuseDocument": false,
         "refuseFingerPrint": false
     },
@@ -71,10 +72,10 @@
     },
     "clientType": 0,
     "identification": {
-        "firstName": "CARLOS",
-        "middleName": "MIGUEL",
-        "surname": "ARIZA",
-        "secondSurname": "GONZALEZ",
+        "firstName": "JOSE",
+        "middleName": "ANTONIO",
+        "surname": "CONTRERAS",
+        "secondSurname": "PEREZ",
         "gender": 1,
         "identification": {
             "country": {
@@ -84,11 +85,11 @@
                 "id": 43,
                 "name": "CHILE"
             },
-            "number": "318079676",
-            "serie": "452124",
+            "number": "2577359233",
+            "serie": "100323",
             "type": "rut"
         },
-        "birthday": "1983-06-22",
+        "birthday": "1973-09-22",
         "nationality": {
             "alpha2Code": "CO",
             "alpha3Code": "COL",
