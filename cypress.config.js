@@ -7,6 +7,6 @@ module.exports = defineConfig({
 
       
     },
-    //baseUrl: 'https://he9n83rsg0.execute-api.us-west-2.amazonaws.com/staging'
+    baseUrl: 'https://he9n83rsg0.execute-api.us-west-2.amazonaws.com/staging'
   },
 });

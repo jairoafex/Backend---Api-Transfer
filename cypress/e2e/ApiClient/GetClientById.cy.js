@@ -1,6 +1,6 @@
 /// <reference types ="Cypress" />
 
-describe("Probando Endpoint para traer un cliente", () => {
+describe("Probando Endpoint para consultar cliente por ID", () => {
   it("Get Client By id", () => {
     cy.fixture("ClientesCreados").then(function (datos) {
       this.datos = datos;

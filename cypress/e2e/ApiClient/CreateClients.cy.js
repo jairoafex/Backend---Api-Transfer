@@ -1,5 +1,5 @@
 /// <reference types ="Cypress" />
-const datos=require('../fixtures/CrearClients.json')
+const datos=require('../../fixtures/CrearClients.json')
 
 describe("Probando endpoint para crear cliente", () => {
     it("probando",()=>{

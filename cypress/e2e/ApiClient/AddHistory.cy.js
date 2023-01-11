@@ -1,4 +1,4 @@
-describe("Probando Endpoint para agregar documento al cliente", () => {
+describe("Probando Endpoint para agregar historia al cliente", () => {
   it("Agregar nuevo documento", () => {
     cy.fixture("AddHistory").then(function (datos) {
       this.datos = datos;

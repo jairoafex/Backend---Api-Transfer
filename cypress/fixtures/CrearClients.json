@@ -71,10 +71,10 @@
     },
     "clientType": 0,
     "identification": {
-        "firstName": "MARCO",
-        "middleName": "ANTONIO",
-        "surname": "SOLIS",
-        "secondSurname": "ROJAS",
+        "firstName": "CARLOS",
+        "middleName": "MIGUEL",
+        "surname": "ARIZA",
+        "secondSurname": "GONZALEZ",
         "gender": 1,
         "identification": {
             "country": {
@@ -84,8 +84,8 @@
                 "id": 43,
                 "name": "CHILE"
             },
-            "number": "057623",
-            "serie": "12346",
+            "number": "318079676",
+            "serie": "452124",
             "type": "rut"
         },
         "birthday": "1983-06-22",

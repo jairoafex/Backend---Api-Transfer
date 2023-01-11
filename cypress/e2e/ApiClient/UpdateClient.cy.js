@@ -1,7 +1,7 @@
 /// <reference types ="Cypress" />
 describe("Probando Endpoint para actualizr clientes", () => {
     it("Agregar nuevo documento", () => {
-      cy.fixture("DatosActualizados").then(function (datos) {
+      cy.fixture("ActualizarCliente").then(function (datos) {
         this.datos = datos;
         cy.log("Data", this.datos.id);
         cy.request({
@@ -9,20 +9,20 @@ describe("Probando Endpoint para actualizr clientes", () => {
           method: "PUT",
           headers: { "x-api-key": "9RubKS6Sir1pNh1Mv7Zhp8JDxIoOkn0VnSKjQs25" },
           body: {
-            "contact": {
-                "email": "prueba",
-                "mobilePhone": {
-                    "areaCode": 9,
-                    "countryCode": 56,
-                    "number": 9874117
+            contact: {
+                email: this.datos.email,
+                mobilePhone: {
+                    areaCode: this.datos.mobilePhone.areaCode,
+                    countryCode: this.datos.mobilePhone.countryCode,
+                    number: this.datos.mobile.Phonenumber
                 },
-                "landline": {
-                    "areaCode": 9,
-                    "countryCode": 56,
-                    "number": 897410
+                landline: {
+                    areaCode: this.datos.landline.areaCode,
+                    countryCode: this.datos.landline.countryCode,
+                    number: this.datos.landline.number
                 },
-                "verifyEmail": true,
-                "verifyMobile": true
+                verifyEmail: this.datos.verifyEmail,
+                verifyMobile: this.datos.verifyMobile
             },
           },
         }).then((response) => {
