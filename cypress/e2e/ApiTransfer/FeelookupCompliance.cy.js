@@ -8,6 +8,7 @@ describe("Probando Endpoint para validar cumplimiento en cotizacion", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER')}/v1/transfers/feelookup/compliance`,
           method: "POST",
+          failOnStatusCode:false,
           headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}` },
           body: {
             
@@ -17,7 +18,7 @@ describe("Probando Endpoint para validar cumplimiento en cotizacion", () => {
             
           },
         }).then((response) => {
-          //expect(response.status).to.eq(200);
+          expect(response.status).to.eq(400);
           expect(response.body).to.have.property("messages");
           const messages = response.body.messages
           cy.log("messages", messages);
