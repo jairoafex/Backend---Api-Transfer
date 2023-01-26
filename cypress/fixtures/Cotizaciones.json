@@ -1,10 +1,11 @@
 {
-    "id":"cb8bb22e-9f4e-4de4-83c2-a1bcfacf73bb",
+    "id":"33a2a7ed-e5e3-402e-8b49-fb8a14ef0ed3",
     "idquote":2,
     "idCliente":1127054,
     "branchName": "AFEX MATIAS COUSIÑO",
     "cityName": "LIMA",
     "countryName": "PERU",
-    "userFullName": "MILIXA SIRA"
+    "userFullName": "MILIXA SIRA",
+    "promocode": "Ilimitado123"
 
 }

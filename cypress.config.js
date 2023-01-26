@@ -4,7 +4,6 @@ module.exports = defineConfig({
   projectId: "9qjzf8",
   e2e: {
     setupNodeEvents(on, config) {},
-    baseUrl: "https://he9n83rsg0.execute-api.us-west-2.amazonaws.com/staging",
   },
   env:{
     API_TRANSFER:'https://wo8s5y6tnc.execute-api.us-west-2.amazonaws.com/staging',
