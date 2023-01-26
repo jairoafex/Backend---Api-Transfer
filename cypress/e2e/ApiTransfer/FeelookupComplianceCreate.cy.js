@@ -1,17 +1,14 @@
 /// <reference types ="Cypress" />
-describe("Probando Endpoint para obtener campos adiciones segun cotizacion", () => {
-    it("Crear nueva cotizacion",{
-        env: {
-            api:'https://wo8s5y6tnc.execute-api.us-west-2.amazonaws.com/staging/v1/transfers'
-        },
+describe("Probando Endpoint para crear tarea de cumplimiento", () => {
+    it("Crear tarea de cumplimiento para cotizacion",{
     }, () => {
       cy.fixture("Cotizaciones").then(function (datos) {
         this.datos = datos;
         cy.log("Data", this.datos.id);
         cy.request({
-          url: `${Cypress.env('api')}/feelookup/compliance/create`,
+          url: `${Cypress.env('API_TRANSFER')}/v1/transfers/feelookup/compliance/create`,
           method: "POST",
-          headers: { "x-api-key": "l48r2vlY0B9BdzsHzym6u3uxnHLug6023pcW203b" },
+          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}` },
           body: {
             
             feelookupId: this.datos.id,

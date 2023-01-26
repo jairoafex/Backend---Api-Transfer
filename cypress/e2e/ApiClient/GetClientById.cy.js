@@ -1,6 +1,6 @@
 /// <reference types ="Cypress" />
 
-describe("Probando Endpoint para consultar cliente por ID", () => {
+describe("Probando Endpoint para consultar clientes", () => {
   it("Get Client By id", () => {
     cy.fixture("ClientesCreados").then(function (datos) {
       this.datos = datos;
@@ -21,14 +21,15 @@ describe("Probando Endpoint para consultar cliente por ID", () => {
       });
     });
   });
-  it("Get Client By Documento", () => {
+  it("Get Client By Document", () => {
     cy.fixture("ClientesCreados").then(function (datos) {
       this.datos = datos;
       cy.log("Data", this.datos.id);
       cy.request({
-        url: "/clients/search/identification",
+        //url: "/clients/search/identification",
+        url: `${Cypress.env("API_CLIENTS")}/clients/search/identification`,
         method: "POST",
-        headers: { "x-api-key": "9RubKS6Sir1pNh1Mv7Zhp8JDxIoOkn0VnSKjQs25" },
+        headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}`,},
         body: {
           number: this.datos.documento,
           type: this.datos.tipo,

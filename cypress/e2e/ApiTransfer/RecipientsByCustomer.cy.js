@@ -9,9 +9,9 @@ describe("Probando Endpoint para beneficiarios de giro de cliente", () => {
         this.datos = datos;
         cy.log("Data", this.datos.id);
         cy.request({
-          url: `${Cypress.env('api')}/customers/${this.datos.idCliente}/recipients`,
+          url: `${Cypress.env('API_TRANSFER')}/v1/transfers/customers/${this.datos.idCliente}/recipients`,
           method: "GET",
-          headers: { "x-api-key": "l48r2vlY0B9BdzsHzym6u3uxnHLug6023pcW203b" }
+          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}` }
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("status");
