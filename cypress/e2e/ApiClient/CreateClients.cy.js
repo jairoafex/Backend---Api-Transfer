@@ -4,9 +4,10 @@ const datos=require('../../fixtures/CrearClients.json')
 describe("Probando endpoint para crear cliente", () => {
     it("probando",()=>{
     cy.request({
-        url: '/clients',
+        //url: '/clients',
+        url: `${Cypress.env("API_CLIENTS")}/clients`,
         method: "POST",
-        headers: { "x-api-key": "9RubKS6Sir1pNh1Mv7Zhp8JDxIoOkn0VnSKjQs25" },
+        headers: {  "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}`},
         body:{
             "address": {
                 "apartment": datos.address.apartment,

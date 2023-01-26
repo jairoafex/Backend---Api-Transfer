@@ -4,9 +4,10 @@ describe("Probando Endpoint para agregar historia al cliente", () => {
       this.datos = datos;
       cy.log("Data", this.datos.id);
       cy.request({
-        url: `/client/${this.datos.id}/history`,
+        //url: `/client/${this.datos.id}/history`,
+        url: `${Cypress.env("API_CLIENTS")}/client/${this.datos.id}/history`,
         method: "POST",
-        headers: { "x-api-key": "9RubKS6Sir1pNh1Mv7Zhp8JDxIoOkn0VnSKjQs25" },
+        headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}` },
         body: {
           branchCode: this.datos.branchCode,
           date: this.datos.date,

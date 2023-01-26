@@ -72,10 +72,10 @@
     },
     "clientType": 0,
     "identification": {
-        "firstName": "JOSE",
-        "middleName": "ANTONIO",
+        "firstName": "JANETH",
+        "middleName": "LOPEZ",
         "surname": "CONTRERAS",
-        "secondSurname": "PEREZ",
+        "secondSurname": "GARCIA",
         "gender": 1,
         "identification": {
             "country": {
@@ -85,8 +85,8 @@
                 "id": 43,
                 "name": "CHILE"
             },
-            "number": "2577359233",
-            "serie": "100323",
+            "number": "495784304",
+            "serie": "1091323",
             "type": "rut"
         },
         "birthday": "1973-09-22",

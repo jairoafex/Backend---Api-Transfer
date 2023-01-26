@@ -1,9 +1,10 @@
 describe("Probando Endpoint para buscar cliente", () => {
     it("Get Client By Documento", () => {
           cy.request({
-            url: '/clients/search',
+            url: `${Cypress.env("API_CLIENTS")}/clients/search`,
+            //url: '/clients/search',
             method: "POST",
-            headers: { "x-api-key": "9RubKS6Sir1pNh1Mv7Zhp8JDxIoOkn0VnSKjQs25" },
+            headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}` },
             body:{
                     search: `${Math.floor(Math.random() * 100)}`
                 }

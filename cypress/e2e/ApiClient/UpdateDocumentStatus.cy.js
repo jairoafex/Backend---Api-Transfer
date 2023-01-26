@@ -5,10 +5,10 @@ describe("Probando Endpoint para agregar documento al cliente", () => {
       this.datos = datos;
       cy.log("Data", this.datos.id);
       cy.request({
-        url: `/client/${this.datos.idCliente}/documents/${this.datos.idDocument}/status`,
-        method: "POST",
+        url: `${Cypress.env("API_CLIENTS")}/client/${this.datos.idCliente}/documents/${this.datos.idDocument}/status`,
+        method: "PUT",
         headers: {
-          "x-api-key": "9RubKS6Sir1pNh1Mv7Zhp8JDxIoOkn0VnSKjQs25",
+          "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}`,
         },
         body: {
           status: this.datos.status,
