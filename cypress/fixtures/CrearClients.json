@@ -72,9 +72,9 @@
     },
     "clientType": 0,
     "identification": {
-        "firstName": "MARISOL",
+        "firstName": "GUSTAVO",
         "middleName": "LOPEZ",
-        "surname": "NUZART",
+        "surname": "D1",
         "secondSurname": "GARCIA",
         "gender": 1,
         "identification": {
@@ -85,8 +85,8 @@
                 "id": 43,
                 "name": "CHILE"
             },
-            "number": "875184314",
-            "serie": "3191929",
+            "number": "275484514",
+            "serie": "3101029",
             "type": "rut"
         },
         "birthday": "1973-09-22",
