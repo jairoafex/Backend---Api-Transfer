@@ -1,9 +1,6 @@
 /// <reference types ="Cypress" />
 describe("Probando Endpoint para beneficiarios de giro de cliente", () => {
     it("Crear nueva cotizacion",{
-        env: {
-            api:'https://wo8s5y6tnc.execute-api.us-west-2.amazonaws.com/staging/v1/transfers'
-        },
     }, () => {
       cy.fixture("ClientesCreados").then(function (datos) {
         this.datos = datos;

@@ -1,9 +1,6 @@
 /// <reference types ="Cypress" />
 describe("Probando Endpoint para obtener campos adiciones segun cotizacion", () => {
     it("Validar segun tipo de cotizacion la relacion de campos adicionales",{
-        env: {
-            api:'https://wo8s5y6tnc.execute-api.us-west-2.amazonaws.com/staging/v1/transfers'
-        },
     }, () => {
       cy.fixture("Cotizaciones").then(function (datos) {
         this.datos = datos;
