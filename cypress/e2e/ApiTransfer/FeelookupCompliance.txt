@@ -5,7 +5,6 @@ describe("Probando Endpoint para validar cumplimiento en cotizacion", () => {
       cy.fixture("Cotizaciones").then(function (datos) {
         this.datos = datos;
         cy.log("Data", this.datos.id);
-        
         cy.request({
           url: `${Cypress.env('API_TRANSFER')}/v1/transfers/feelookup/compliance`,
           method: "POST",
