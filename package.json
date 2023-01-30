@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run:server": "json-server --watch db.json --port 3001"
-    
+    "run:server": "json-server --watch db.json --port 3001",
+    "run:record": "cypress run --record --key fdd38ad3-8fcb-41c9-a111-ab794da06fc2"
+
   },
   "keywords": [
     "backend"
