@@ -9,6 +9,6 @@ jobs:
       - name: Cypress.io
         uses: cypress-io/github-action@37c511bc322f112c2dd629d3610f4f096bc80096
         with: 
-          start: npm start
+          start: npx cypress open
       
     
