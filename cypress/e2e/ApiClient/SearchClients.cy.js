@@ -8,7 +8,6 @@ describe("Probando Endpoint para buscar cliente", () => {
             body:{
                     search: `${Math.floor(Math.random() * 100)}`
                 }
-            
           }).then((response) => {
             expect(response.status).to.eq(200);
             expect(response.body.data[0]).to.have.property("id")

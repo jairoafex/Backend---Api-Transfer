@@ -1,6 +1,6 @@
 /// <reference types ="Cypress" />
 describe("Probando Endpoint para beneficiarios de giro de cliente", () => {
-    it("Crear nueva cotizacion",{
+    it("Consultar beneficiarios de por cliente",{
     }, () => {
       cy.fixture("ClientesCreados").then(function (datos) {
         this.datos = datos;

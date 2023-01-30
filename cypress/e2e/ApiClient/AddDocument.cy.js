@@ -1,26 +1,15 @@
+const userData=require('../../fixtures/AddDocuments')
 describe("Probando Endpoint para agregar documento al cliente", () => {
     it("Agregar nuevo documento", () => {
-        cy.fixture("AddDocuments").then(function (datos) {
+        cy.fixture("data_test").then(function (datos) {
           this.datos = datos;
           cy.log("Data", this.datos.id);
           cy.request({
            // url: `/client/${this.datos.id}/documents`,
-            url: `${Cypress.env("API_CLIENTS")}/client/${this.datos.id}/documents`,
+            url: `${Cypress.env("API_CLIENTS")}/client/${this.datos.idCliente}/documents`,
             method: "POST",
             headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}`},
-            body:{
-                branchCode: this.datos.branchCode,
-                branchId: this.datos.branchId,
-                branchName: this.datos.branchName,
-                data: {
-                    base64: this.datos.data.base64,
-                    contentType: this.datos.data.contentType,
-                    name: this.datos.data.name,
-                    type: this.datos.data.type
-                },
-                userAfexId: this.datos.userAfexId,
-                userFullName: this.datos.userFullName
-                }
+            body: userData
           }).then((response) => {
             expect(response.status).to.eq(200);
             expect(response.body.data).to.have.property("id")

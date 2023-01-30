@@ -4,7 +4,9 @@
   "description": "Pruebas backend realizado a los endpoints de afex plus",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run:server": "json-server --watch db.json --port 3001"
+    
   },
   "keywords": [
     "backend"
@@ -12,6 +14,9 @@
   "author": "Jairo Bermudez",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.3.0"
+    "@faker-js/faker": "^7.6.0",
+    "cypress": "^12.3.0",
+    "faker": "^6.6.6",
+    "json-server": "^0.17.1"
   }
 }

@@ -1,21 +1,16 @@
+/// <reference types ="Cypress" />
+const userData=require('../../fixtures/AddHistory')
 describe("Probando Endpoint para agregar historia al cliente", () => {
-  it("Agregar nuevo documento", () => {
-    cy.fixture("AddHistory").then(function (datos) {
-      this.datos = datos;
-      cy.log("Data", this.datos.id);
+  it("Agregar nueva Historia", () => {
+    cy.fixture("data_test").then(function (datos) {
+    this.datos = datos;
+    cy.log("Data", this.datos.idCliente);
       cy.request({
         //url: `/client/${this.datos.id}/history`,
-        url: `${Cypress.env("API_CLIENTS")}/client/${this.datos.id}/history`,
+        url: `${Cypress.env("API_CLIENTS")}/client/${this.datos.idCliente}/history`,
         method: "POST",
         headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}` },
-        body: {
-          branchCode: this.datos.branchCode,
-          date: this.datos.date,
-          branchName: this.datos.branchName,
-          description: this.datos.description,
-          type: this.datos.type,
-          userAfexId: this.datos.userAfexId
-        },
+        body: userData
       }).then((response) => {
         expect(response.status).to.eq(200);
         expect(response.body).to.have.property("messages");
@@ -24,4 +19,4 @@ describe("Probando Endpoint para agregar historia al cliente", () => {
       });
     });
   });
-});
+})

@@ -2,12 +2,11 @@
 
 describe("Probando Endpoint para consultar clientes", () => {
   it("Get Client By id", () => {
-    cy.fixture("ClientesCreados").then(function (datos) {
+    cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
-      cy.log("Data", this.datos.id);
+      cy.log("Data", this.datos.idCliente);
       cy.request({
-        url: `${Cypress.env("API_CLIENTS")}/clients/${this.datos.id}`,
-        //url: `/clients/${this.datos.id}`,
+        url: `${Cypress.env("API_CLIENTS")}/clients/${this.datos.idCliente}`,
         method: "GET",
         headers: {
           "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}`,
@@ -15,18 +14,17 @@ describe("Probando Endpoint para consultar clientes", () => {
       }).then((response) => {
         expect(response.status).to.eq(200);
         expect(
-          response.body.data.identification.identifications[1].number
+          response.body.data.identification.identifications[0].number
         ).to.be.equal(this.datos.documento);
         cy.log(response);
       });
     });
   });
   it("Get Client By Document", () => {
-    cy.fixture("ClientesCreados").then(function (datos) {
+    cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
       cy.log("Data", this.datos.id);
       cy.request({
-        //url: "/clients/search/identification",
         url: `${Cypress.env("API_CLIENTS")}/clients/search/identification`,
         method: "POST",
         headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}`,},
@@ -36,7 +34,7 @@ describe("Probando Endpoint para consultar clientes", () => {
         },
       }).then((response) => {
         expect(response.status).to.eq(200);
-        expect(response.body.data.id).to.be.equal(this.datos.id);
+        expect(response.body.data.id).to.be.equal(this.datos.idCliente);
         cy.log(response);
       });
     });
