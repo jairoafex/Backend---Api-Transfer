@@ -2,11 +2,10 @@
 describe("Probando Endpoint para consultar envios por sucursal", () => {
     it("consultar envios por sucursal",{
     }, () => {
-      cy.fixture("Agentes").then(function (datos) {
+      cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
-        cy.log("Data", this.datos.id);
         cy.request({
-          url: `${Cypress.env('API_TRANSFER')}/v1/transfers/branches/${this.datos.id}/sent`,
+          url: `${Cypress.env('API_TRANSFER')}/v1/transfers/branches/${this.datos.branchCode}/sent?startDate=${this.datos.starDate}&endDate=${this.datos.endDate}`,
           method: "GET",
           headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}` }
         }).then((response) => {

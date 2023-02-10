@@ -1,18 +1,20 @@
 {
-  "idCliente": "02f3d325-6faf-426c-b114-950883d021b2",
+  "idCliente": "6eeb9b1b-5d3a-4232-ba97-9e0dc841466a",
   "idCotizacion": "050c0e1a-6d56-48df-90e2-ec22c4e509d1",
-  "idDocument": "e68b53a4-41c6-4a6d-b11b-2a716557e6b4",
+  "idDocument": "1c361189-db9e-4b88-b972-01f9cc261f96",
   "status": 1,
   "idquote": 0,
-  "codigo_cliente": 1127243,
-  "documento": "243457114",
-  "tipo": 1,
+  "codigo_cliente": 1127389,
+  "documento": "322222214",
+  "tipo": "rut",
   "branchId": 23,
   "branchCode": "AG",
   "branchName": "AFEX MATIAS COUSIÑO",
   "userAfexId": "2",
   "userFullName": "Guido Solar",
   "countryName": "PERU",
-  "cityName": "LIMA"
+  "cityName": "LIMA",
+  "starDate" :"2023-02-01",
+  "endDate" : "2023-02-07"
 
 }
