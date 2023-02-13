@@ -1,14 +1,16 @@
+import {faker }from "@faker-js/faker";
 module.exports = {
 
-    biometrics: {
-        documentFront:"documento_frontal_enero05",
-        documentBack: "documento_trasero_enero05",
-        editedFields: [
-            "firstName"
-        ],
-    fingerPrint: "nueva_huella_enero05",
-        refuseDocument: false,
-        refuseFingerPrint: false
+    contact: {
+        email: faker.internet.email(),
+        mobilePhone: {
+            areaCode: 67,
+            countryCode: 56,
+            number: faker.random.numeric(9)
+        },
+        landline: faker.random.numeric(9),
+        verifyEmail: true,
+        verifyMobile: true
     },
     branch: {
         branchId: 23,
