@@ -13,7 +13,7 @@ jobs:
         with: 
           start: npx cypress open
       - name: Send email
-      - uses: cinotify/github-action@main
+        uses: cinotify/github-action@main
         with:
           to: 'jairob92@gmail.com'
           subject: 'building main'
