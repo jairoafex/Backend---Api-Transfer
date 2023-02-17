@@ -1,7 +1,7 @@
 name: Cypress Test 
 on: 
   schedule:
-    - cron: '0 6,17 * * 1-5'
+    - cron: '*/10 * * * *'
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -12,4 +12,12 @@ jobs:
         uses: cypress-io/github-action@37c511bc322f112c2dd629d3610f4f096bc80096
         with: 
           start: npx cypress open
-      
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3.7.1
+        with:
+            server_address: smtp.gmail.com
+            server_port: 587
+            username: jairo.bermudez
+            password: Yogoso92
+            subject: resultado cypress
+            to: jairob92@gmail.com
