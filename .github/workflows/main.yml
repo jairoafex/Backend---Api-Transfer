@@ -13,9 +13,13 @@ jobs:
         with: 
           start: npx cypress open
       - name: Send email
-        uses: cinotify/github-action@main
+        uses: dawidd6/action-send-mail@v3
         with:
-          to: 'jairob92@gmail.com'
-          subject: 'building main'
-          body: 'This is a notification from GitHub actions.'
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Pruebas ${GITHUB_REPOSITORY}
+          body: El resultado de las pruebas fue ${{ job.status }}
+          to: jairob92@gmail.com
 
