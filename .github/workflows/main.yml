@@ -1,7 +1,7 @@
 name: Cypress Test 
 on: 
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/20 * * * *'
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
