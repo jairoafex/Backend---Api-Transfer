@@ -12,12 +12,18 @@ jobs:
         uses: cypress-io/github-action@37c511bc322f112c2dd629d3610f4f096bc80096
         with: 
           start: npx cypress open
-      - name: Send email
-        uses: dawidd6/action-send-mail@v3
+        env:
+          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_SERVICE_ACCOUNT }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_SERVICE_ACCOUNT }}
+          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_SERVICE_ACCOUNT }}
+      - name: Send email with results
+        uses: dawidd6/action-send-mail@v2
         with:
           server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
+          server_port: 465
+          username: ${{ secrets.GMAIL_USERNAME }}
+          password: ${{ secrets.GMAIL_PASSWORD }}
+          subject: 'Resultados de las pruebas de Cypress'
+          body: 'Los resultados de las pruebas de Cypress'
           to: jairob92@gmail.com
-
+          from: jairo.bermudez@afex.cl
