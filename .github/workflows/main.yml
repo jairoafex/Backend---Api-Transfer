@@ -12,10 +12,6 @@ jobs:
         uses: cypress-io/github-action@37c511bc322f112c2dd629d3610f4f096bc80096
         with: 
           start: npx cypress open
-        env:
-          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_SERVICE_ACCOUNT }}
-          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_SERVICE_ACCOUNT }}
-          GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_SERVICE_ACCOUNT }}
       - name: Send email with results
         uses: dawidd6/action-send-mail@v2
         with:
