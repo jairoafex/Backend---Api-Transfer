@@ -44,4 +44,3 @@ jobs:
           SLACK_USERNAME: Deploy Bot
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         
->>>>>>> 32fc108ec136271cd190849c30e009cd1def709b
