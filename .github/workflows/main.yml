@@ -12,14 +12,20 @@ jobs:
         uses: cypress-io/github-action@37c511bc322f112c2dd629d3610f4f096bc80096
         with: 
           start: npx cypress open
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - name: Notify results by email
+        uses: dawidd6/action-send-mail@v3
         with:
-          python-version: 3.x
-      - name: Run email code
-        env:
-          USER_EMAIL: ${{ secrets.USER_EMAIL }}
-          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
-        run: python send_email.py
+          SMTP_HOST: smtp.gmail.com
+          SMTP_PORT: 587
+          SMTP_USERNAME: ${{ secrets.GMAIL_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+          MAIL_FROM: jairob92@gmail.com
+          MAIL_TO: jairo.bermudez@afex.cl
+          MAIL_SUBJECT: Cypress test results
+          MAIL_BODY: |
+            The Cypress tests have finished. Here are the results:
 
-       
+            ${{ steps.test.outputs.cypressResults }}
+
+        env:
+          TZ: America/Los_Angeles
