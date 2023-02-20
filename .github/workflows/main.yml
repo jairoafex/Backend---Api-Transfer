@@ -12,14 +12,14 @@ jobs:
         uses: cypress-io/github-action@37c511bc322f112c2dd629d3610f4f096bc80096
         with: 
           start: npx cypress open
-      - name: Send email with results
-        uses: dawidd6/action-send-mail@v2
+        uses: actions/checkout@v2
+        uses: actions/setup-python@v2
         with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{ secrets.GMAIL_USERNAME }}
-          password: ${{ secrets.GMAIL_PASSWORD }}
-          subject: 'Resultados de las pruebas de Cypress'
-          body: 'Los resultados de las pruebas de Cypress'
-          to: jairob92@gmail.com
-          from: jairo.bermudez@afex.cl
+          python-version: 3.x
+      - name: Run email code
+        env:
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+        run: python send_email.py
+
+       
