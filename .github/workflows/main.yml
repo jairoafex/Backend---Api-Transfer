@@ -19,8 +19,8 @@ jobs:
           SMTP_PORT: 465
           SMTP_USERNAME: ${{ secrets.EMAIL_USERNAME }}
           SMTP_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-          MAIL_FROM: jairo.bermudez@afex.cl
-          MAIL_TO: jairob92@gmail.com
+          MAIL_FROM: jairob92@gmail.com
+          MAIL_TO: jairo.bermudez@afex.cl
           MAIL_SUBJECT: Cypress test results
           MAIL_BODY: |
             The Cypress tests have finished. Here are the results:
