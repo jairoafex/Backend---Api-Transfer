@@ -11,7 +11,7 @@ jobs:
       - name: Cypress.io
         uses: cypress-io/github-action@37c511bc322f112c2dd629d3610f4f096bc80096
         with: 
-          start: npx cypress open
+          start: npx cypress run
       - name: Notify results by email
         uses: dawidd6/action-send-mail@v3
         with:
