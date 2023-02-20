@@ -16,7 +16,7 @@ jobs:
         if: ${{ failure() }}
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: Jairo Bermudez
+          SLACK_CHANNEL: cypresstest
           SLACK_COLOR: "#9e2a2b"
           #SLACK_ICON: https://someurl.com/logo.png
           SLACK_MESSAGE: "Failed execution on production build"
