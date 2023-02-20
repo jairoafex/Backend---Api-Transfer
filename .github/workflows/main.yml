@@ -16,8 +16,8 @@ jobs:
         uses: dawidd6/action-send-mail@v3
         with:
           SMTP_HOST: smtp.gmail.com
-          SMTP_PORT: 587
-          SMTP_USERNAME: ${{ secrets.EMAIL_PASSWORD}}
+          SMTP_PORT: 465
+          SMTP_USERNAME: ${{ secrets.EMAIL_USERNAME }}
           SMTP_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           MAIL_FROM: jairo.bermudez@afex.cl
           MAIL_TO: jairob92@gmail.com
