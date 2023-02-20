@@ -11,15 +11,6 @@ jobs:
       - name: Cypress.io
         uses: cypress-io/github-action@37c511bc322f112c2dd629d3610f4f096bc80096
         with: 
-<<<<<<< HEAD
-          start: npx cypress openname: Upload test results
-        uses: actions/upload-artifact@v2
-        with:
-          name: cypress-results
-          path: cypress-results.json
-        
-       
-=======
           start: npx cypress open
       - name: Send Slack Notification on Failure
         if: ${{ always() }}
