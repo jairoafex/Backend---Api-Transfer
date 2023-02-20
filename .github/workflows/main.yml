@@ -34,6 +34,7 @@ jobs:
       - name: Send Slack notification
         env:
            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+           SLACK_CHANNEL: cypresstest
         run: |
           total=$(grep -oP '(\d+) total' ${{ steps.cypress.outputs.runLogs }} | cut -d' ' -f1)
           passed=$(grep -oP '(\d+) passing' ${{ steps.cypress.outputs.runLogs }} | cut -d' ' -f1)
