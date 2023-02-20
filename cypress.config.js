@@ -24,3 +24,17 @@ module.exports = defineConfig({
 });
 
 
+const slackWebhook = require('slack-webhook');
+
+const slack = new slackWebhook(process.env.SLACK_WEBHOOK_URL);
+
+after(() => {
+  const { totalTests, totalPassed, totalFailed } = Cypress.runner.stats;
+
+  const message = {
+    text: `Cypress tests summary:\n- Total tests: ${totalTests}\n- Passed tests: ${totalPassed}\n- Failed tests: ${totalFailed}`,
+  };
+
+  slack.send(message);
+});
+
