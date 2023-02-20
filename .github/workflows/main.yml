@@ -23,3 +23,20 @@ jobs:
           SLACK_TITLE: ${{ job.status }}
           SLACK_USERNAME: Deploy Bot
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      - name: Run Cypress tests
+        run: |
+          npx cypress run --headless --browser chrome
+        env:
+          CYPRESS_CACHE_FOLDER: ${{ runner.temp }}/.cache/Cypress
+          CYPRESS_VIDEO: false
+          id: cypress
+          
+      - name: Send Slack notification
+        env:
+           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          total=$(grep -oP '(\d+) total' ${{ steps.cypress.outputs.runLogs }} | cut -d' ' -f1)
+          passed=$(grep -oP '(\d+) passing' ${{ steps.cypress.outputs.runLogs }} | cut -d' ' -f1)
+          failed=$(grep -oP '(\d+) failing' ${{ steps.cypress.outputs.runLogs }} | cut -d' ' -f1)
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Cypress tests summary:\n- Total tests: '$total'\n- Passed tests: '$passed'\n- Failed tests: '$failed'"}' $SLACK_WEBHOOK_URL
+
