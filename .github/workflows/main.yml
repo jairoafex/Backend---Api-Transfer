@@ -28,7 +28,7 @@ jobs:
         if: ${{ always() }}
         run: |
           failed=$(jq '.runs[].totals.failed' cypress/results.json)
-          passed=$(jq '.runs[]..totals.passed' cypress/results.json)
+          passed=$(jq '.runs[].totals.passed' cypress/results.json)
           emoji=":white_check_mark:"
           if [ "$failed" -gt 0 ]; then
             emoji=":x:"
