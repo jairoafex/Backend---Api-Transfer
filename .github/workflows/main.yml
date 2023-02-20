@@ -23,24 +23,3 @@ jobs:
           SLACK_TITLE: ${{ job.status }}
           SLACK_USERNAME: Deploy Bot
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          
-      - name: Send Slack message
-        if: ${{ always() }}
-        run: |
-          failed=$(jq '.runs[].stats.failures' cypress/results.json)
-          passed=$(jq '.runs[].stats.passes' cypress/results.json)
-          emoji=":white_check_mark:"
-          if [ "$failed" -gt 0 ]; then
-            emoji=":x:"
-          fi
-          message="$emoji Cypress tests - Passed: $passed Failed: $failed"
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"'"$message"'"}' https://slack.com/api/chat.postMessage
-        env:
-          SLACK_CHANNEL: cypresstest
-          SLACK_COLOR: "#9e2a2b"
-          #SLACK_ICON: https://someurl.com/logo.png
-          SLACK_MESSAGE: "Failed execution on production build"
-          SLACK_TITLE: ${{ job.status }}
-          SLACK_USERNAME: Deploy Bot
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        
