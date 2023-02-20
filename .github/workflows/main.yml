@@ -1,7 +1,7 @@
 name: Cypress Test 
 on: 
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/5 * * * *'
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -12,8 +12,7 @@ jobs:
         uses: cypress-io/github-action@37c511bc322f112c2dd629d3610f4f096bc80096
         with: 
           start: npx cypress open
-        uses: actions/checkout@v2
-        uses: actions/setup-python@v2
+      - uses: actions/setup-python@v2
         with:
           python-version: 3.x
       - name: Run email code
