@@ -1,9 +1,19 @@
-const { defineConfig } = require("cypress");
+const { 
+  defineConfig
+
+} = require("cypress");
+
 
 module.exports = defineConfig({
   projectId: "9qjzf8",
   e2e: {
-    setupNodeEvents(on, config) {},
+    setupNodeEvents(on, config) {
+      require('cypress-json-results')({
+        on,
+        filename: 'results.json', // default filename
+      })
+
+    },
   },
   env:{
     API_TRANSFER:'https://wo8s5y6tnc.execute-api.us-west-2.amazonaws.com/staging',
@@ -12,3 +22,5 @@ module.exports = defineConfig({
     API_TRANSFERS_VALUE:'l48r2vlY0B9BdzsHzym6u3uxnHLug6023pcW203b' 
   }
 });
+
+

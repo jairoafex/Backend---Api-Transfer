@@ -1,0 +1,81 @@
+{
+  "cypress\\e2e\\ApiClient\\AddDocument.cy.js": {
+    "Probando Endpoint para agregar documento al cliente Agregar nuevo documento": "passed"
+  },
+  "cypress\\e2e\\ApiClient\\AddHistory.cy.js": {
+    "Probando Endpoint para agregar historia al cliente Agregar nueva Historia": "passed"
+  },
+  "cypress\\e2e\\ApiClient\\CreateClients.cy.js": {
+    "Testing API service [createClient] Test #1 : Create new client": "passed"
+  },
+  "cypress\\e2e\\ApiClient\\GetClientById.cy.js": {
+    "Probando Endpoint para consultar clientes Get Client By id": "passed",
+    "Probando Endpoint para consultar clientes Get Client By Document": "passed"
+  },
+  "cypress\\e2e\\ApiClient\\GetDocumentContent.cy.js": {
+    "Probando Endpoint para agregar documento al cliente Get document Content": "passed"
+  },
+  "cypress\\e2e\\ApiClient\\GetDocumentUrl.cy.js": {
+    "Probando Endpoint para agregar documento al cliente Get document Content": "passed"
+  },
+  "cypress\\e2e\\ApiClient\\GetHistory.cy.js": {
+    "Probando Endpoint para agregar documento al cliente Get document Content": "passed"
+  },
+  "cypress\\e2e\\ApiClient\\SearchClients.cy.js": {
+    "Probando Endpoint para buscar cliente Get Client By Documento": "passed"
+  },
+  "cypress\\e2e\\ApiClient\\UpdateClient.cy.js": {
+    "Probando Endpoint para actualizar clientes Actualizar datos de contacto": "passed"
+  },
+  "cypress\\e2e\\ApiClient\\UpdateDocumentStatus.cy.js": {
+    "Probando Endpoint para agregar documento al cliente Get document Content": "passed"
+  },
+  "cypress\\e2e\\ApiTransfer\\AgentConditions.cy.js": {
+    "Probando Endpoint para obtener sucursales por agente Obtiene las sucursales de pago de un agente en un país y ciudad.": "passed"
+  },
+  "cypress\\e2e\\ApiTransfer\\AgentsByCountry.cy.js": {
+    "Probando Endpoint para consultar agentes por pais y ciudad especifico Busca los agentes disponibles para enviar giros al país y ciudad indicados.": "passed"
+  },
+  "cypress\\e2e\\ApiTransfer\\ExchangeRateByBranch.cy.js": {
+    "Probando Endpoint para giros enviados por cliente Crear nueva cotizacion": "passed"
+  },
+  "cypress\\e2e\\ApiTransfer\\Feelookup [Compliance and Create].cy.js": {
+    "Probando Endpoint para cotizar y validar cumplimiento Crear nueva cotizacion[Feelookup]": "passed",
+    "Probando Endpoint para cotizar y validar cumplimiento Validar cumplimiento en cotizacion [FeelookupCompliance]": "passed",
+    "Probando Endpoint para cotizar y validar cumplimiento Crear tarea de cumplimiento para cotizacion": "passed"
+  },
+  "cypress\\e2e\\ApiTransfer\\Feelookup(Movii).cy.js": {
+    "Testing API service Movii Test #1 : Feelookup": "passed",
+    "Testing API service Movii Test #2 : CreateTransfer": "failed",
+    "Testing API service Movii Test #2 : ConfirmTransfer": "failed"
+  },
+  "cypress\\e2e\\ApiTransfer\\FeelookupFields.cy.js": {
+    "Probando Endpoint para obtener campos adiciones segun cotizacion Validar segun tipo de cotizacion la relacion de campos adicionales": "passed"
+  },
+  "cypress\\e2e\\ApiTransfer\\Recieve.cy.js": {
+    "Testing Endpoint de pago beneficairio Validar segun tipo de cotizacion la relacion de campos adicionales": "passed"
+  },
+  "cypress\\e2e\\ApiTransfer\\RecievedByBranch.cy.js": {
+    "Probando Endpoint para giros recibidos por una sucursal Consultar giros recibidos por sucursal": "passed"
+  },
+  "cypress\\e2e\\ApiTransfer\\RecievedByCostumer.cy.js": {
+    "Probando Endpoint para giros recibidos por un cliente Consultar giros recibidos por cliente": "passed"
+  },
+  "cypress\\e2e\\ApiTransfer\\RecipientsByCustomer.cy.js": {
+    "Probando Endpoint para beneficiarios de giro de cliente Consultar beneficiarios de por cliente": "passed"
+  },
+  "cypress\\e2e\\ApiTransfer\\SentByBranch.cy.js": {
+    "Probando Endpoint para consultar envios por sucursal consultar envios por sucursal": "passed"
+  },
+  "cypress\\e2e\\ApiTransfer\\SentByCustomer.cy.js": {
+    "Probando Endpoint para giros enviados por cliente Consultar envios realizados por cliente": "passed"
+  },
+  "totals": {
+    "suites": 22,
+    "tests": 27,
+    "failed": 2,
+    "passed": 25,
+    "pending": 0,
+    "skipped": 0
+  }
+}

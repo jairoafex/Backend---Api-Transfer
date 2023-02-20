@@ -11,15 +11,10 @@ jobs:
       - name: Cypress.io
         uses: cypress-io/github-action@37c511bc322f112c2dd629d3610f4f096bc80096
         with: 
-          start: npx cypress open
-        uses: actions/checkout@v2
-        uses: actions/setup-python@v2
+          start: npx cypress openname: Upload test results
+        uses: actions/upload-artifact@v2
         with:
-          python-version: 3.x
-      - name: Run email code
-        env:
-          USER_EMAIL: ${{ secrets.USER_EMAIL }}
-          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
-        run: python send_email.py
-
+          name: cypress-results
+          path: cypress-results.json
+        
        
