@@ -10,7 +10,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       require('cypress-json-results')({
         on,
-        filename: '/cypress/results.json', // default filename
+        filename: 'cypress/results.json', // default filename
       })
 
     },
