@@ -1,7 +1,7 @@
 name: Cypress Test 
 on: 
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/5 * * * *'
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -17,10 +17,10 @@ jobs:
         with:
           SMTP_HOST: smtp.gmail.com
           SMTP_PORT: 587
-          SMTP_USERNAME: ${{ secrets.GMAIL_USERNAME }}
-          SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
-          MAIL_FROM: jairob92@gmail.com
-          MAIL_TO: jairo.bermudez@afex.cl
+          SMTP_USERNAME: ${{ secrets.EMAIL_PASSWORD}}
+          SMTP_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          MAIL_FROM: jairo.bermudez@afex.cl
+          MAIL_TO: jairob92@gmail.com
           MAIL_SUBJECT: Cypress test results
           MAIL_BODY: |
             The Cypress tests have finished. Here are the results:
