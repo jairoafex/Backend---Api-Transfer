@@ -12,21 +12,15 @@ jobs:
         uses: cypress-io/github-action@37c511bc322f112c2dd629d3610f4f096bc80096
         with: 
           start: npx cypress open
-      - name: Notify results by email
-        uses: dawidd6/action-send-mail@v3
-        if: always()
-        with:
-          SMTP_HOST: smtp.gmail.com
-          SMTP_PORT: 465
-          SMTP_USERNAME: ${{ secrets.EMAIL_USERNAME }}
-          SMTP_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-          MAIL_FROM: jairob92@gmail.com
-          MAIL_TO: jairo.bermudez@afex.cl
-          MAIL_SUBJECT: Cypress test results
-          MAIL_BODY: |
-            The Cypress tests have finished. Here are the results:
-
-            ${{ steps.test.outputs.cypressResults }}
-
+      - name: Send Slack Notification on Failure
+        if: ${{ failure() }}
+        uses: rtCamp/action-slack-notify@v2
         env:
-          TZ: America/Los_Angeles
+          SLACK_CHANNEL: Jairo Bermudez
+          SLACK_COLOR: "#9e2a2b"
+          #SLACK_ICON: https://someurl.com/logo.png
+          SLACK_MESSAGE: "Failed execution on production build"
+          SLACK_TITLE: Failed execution
+          SLACK_USERNAME: Deploy Bot
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        
