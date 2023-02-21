@@ -17,9 +17,12 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_CHANNEL: cypresstest
-          SLACK_COLOR: "#9e2a2b"
-          #SLACK_ICON: https://someurl.com/logo.png
-          SLACK_MESSAGE: "Failed execution on production build"
-          SLACK_TITLE: ${{ job.status }}
+          SLACK_COLOR: ${{ steps.cypress.outputs.passed == 'true' && '#36a64f' || '#9e2a2b' }}
+          SLACK_TITLE: ${{ steps.cypress.outputs.passed == 'true' && 'Cypress Tests Passed' || 'Cypress Tests Failed' }}
           SLACK_USERNAME: Deploy Bot
           SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
+          SLACK_MESSAGE: |
+            Total Tests: `${{ steps.cypress.outputs.totalTests }}`
+            Passed: `${{ steps.cypress.outputs.passes }}`
+            Failed: `${{ steps.cypress.outputs.failures }}`
+
