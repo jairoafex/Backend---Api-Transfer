@@ -36,10 +36,10 @@ jobs:
       - name: Print test results
         if: ${{ always() }}
         run: |
-          echo "Suites: suites"
-          echo "Tests: tests"
-          echo "Passed: passed"
-          echo "Failed: failed"
+          echo "Suites: suites
+          echo "Tests: tests
+          echo "Passed: passed
+          echo "Failed: failed
           
       - name: Send Slack notification
         if: ${{ always() }}
