@@ -27,6 +27,7 @@ jobs:
         env:
           SLACK_MESSAGE: "Se ejecutaron $tests tests, $passed pasaron y $failed fallaron"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_CHANNEL: cypresstest
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{"text": "'"${SLACK_MESSAGE}"'"}' $SLACK_WEBHOOK_URL
 
