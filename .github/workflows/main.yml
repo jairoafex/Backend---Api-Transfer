@@ -40,7 +40,7 @@ jobs:
           echo "Suites: ${{ env.SUITES }}"
           echo "Tests: ${{ env.TESTS }}"
           echo "Passed: ${{ env.PASSED }}"
-          echo "Failed: ${{ env.FAILED }}
+          echo "Failed: ${{ env.FAILED }}"
        
 
           
