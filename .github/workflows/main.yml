@@ -18,7 +18,6 @@ jobs:
 
       - name: Extract test results
         if: ${{ always() }}
-        id: extract_results
         run: |
          node -e '
          const fs = require("fs");
@@ -37,7 +36,6 @@ jobs:
          ' 
       - name: Print test results
         if: ${{ always() }}
-        needs: extract_results
         run: |
           echo "Suites: ${{ env.SUITES }}"
           echo "Tests: ${{ env.TESTS }}"
