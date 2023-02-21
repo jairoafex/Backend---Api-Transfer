@@ -32,12 +32,15 @@ jobs:
          const passed = data.totals.passed;
          const failed = data.totals.failed;
          console.log(suites, tests, passed, failed); // debug message to print the extracted values
-         console.log(suites, tests, passed, failed); // debug message to print the extracted values
-         console.log(`::set-output name=suites::${suites}`);
-         console.log(`::set-output name=tests::${tests}`);
-         console.log(`::set-output name=passed::${passed}`);
-         console.log(`::set-output name=failed::${failed}`);
-         ' 
+         '
+        env:
+          SLACK_MESSAGE: "Se ejecutaron ${tests} tests, ${passed} pasaron y ${failed} fallaron"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}}
+          SLACK_TITLE: ${{ job.status }}
+          SLACK_USERNAME: Deploy Bot
+          SLACK_CHANNEL: cypresstest
+          SLACK_EMOJI: ":robot_face:"
+         
       - name: Print test results
         if: ${{ always() }}
         run: |
