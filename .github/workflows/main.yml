@@ -15,18 +15,18 @@ jobs:
       - name: Run tests
         run: npm run cypress:run-json
 
-      - name: Extract test results
-        run: |
-          suites=$(cat cypress/results.json | jq '.totalSuites')
-          tests=$(cat cypress/results.json | jq '.totalTests')
-          passes=$(cat cypress/results.json | jq '.totalPassed')
-          failures=$(cat cypress/results.json | jq '.totalFailed')
-          echo "Cypress results:"
-          echo "Suites: $suites"
-          echo "Tests: $tests"
-          echo "Passed: $passes"
-          echo "Failed: $failures"
+      - name: Print test results
+        if: ${{ always() }}
+        run: echo 'Imprimiendo resultados de prueba' && cat cypress/results.json
 
+      - name: Extract test results
+        if: ${{ always() }}
+        run: |
+          suites=$(jq -r '.totals.suites' cypress/results.json)
+          tests=$(jq -r '.totals.tests' cypress/results.json)
+          passed=$(jq -r '.totals.passed' cypress/results.json)
+          failed=$(jq -r '.totals.failed' cypress/results.json)
+         
       - name: Send Slack Notification on Failure
         if: ${{ always() }}
         uses: rtCamp/action-slack-notify@v2
