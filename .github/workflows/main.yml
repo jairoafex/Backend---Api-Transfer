@@ -27,10 +27,10 @@ jobs:
 
          const data = JSON.parse(fs.readFileSync("cypress/results.json"));
 
-         const suites = data.totals.suites;
-         const tests = data.totals.tests;
-         const passed = data.totals.passed;
-         const failed = data.totals.failed;
+         const suites = totals.suites;
+         const tests =  totals.tests;
+         const passed = totals.passed;
+         const failed = totals.failed;
          ' 
       - name: Print test results
         if: ${{ always() }}
