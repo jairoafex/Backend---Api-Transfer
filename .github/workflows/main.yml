@@ -23,3 +23,12 @@ jobs:
           SLACK_TITLE: ${{ job.status }}
           SLACK_USERNAME: Deploy Bot
           SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
+      - name: Run Cypress tests
+        run: |
+          export SLACK_WEBHOOK=$SLACK_WEBHOOK
+          npx cypress run --headless --browser chrome
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}}
+          CYPRESS_CACHE_FOLDER: ${{ runner.temp }}/.cache/Cypress
+          CYPRESS_VIDEO: false
+          SLACK_CHANNEL: cypresstest
