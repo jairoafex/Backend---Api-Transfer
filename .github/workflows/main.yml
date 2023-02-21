@@ -25,7 +25,7 @@ jobs:
       - name: Send Slack notification
         env:
           SLACK_MESSAGE: "Se ejecutaron $tests tests, $passed pasaron y $failed fallaron"
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{"text": "'"${SLACK_MESSAGE}"'"}' $SLACK_WEBHOOK_URL
 
