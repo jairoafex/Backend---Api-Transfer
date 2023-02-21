@@ -28,7 +28,7 @@ module.exports = defineConfig({
 
 const {IncomingWebhook } = require('@slack/webhook');
 
-const url = "https://hooks.slack.com/services/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";
+const url = "https://hooks.slack.com/services/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";
 const webhook = new IncomingWebhook(url);
 
 (async () => {
