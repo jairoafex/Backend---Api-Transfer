@@ -39,6 +39,14 @@ jobs:
          console.log(`PASSED=${passed}`);
          console.log(`FAILED=${failed}`);
          '
+      - name: Set environment variables
+        if: ${{ always() }}
+        run: |
+          echo "SUITES=${suites}" >> $GITHUB_ENV
+          echo "TESTS=${tests}" >> $GITHUB_ENV
+          echo "PASSED=${passed}" >> $GITHUB_ENV
+          echo "FAILED=${failed}" >> $GITHUB_ENV
+
       - name: Send Slack notification
         if: ${{ always() }}
         env:
