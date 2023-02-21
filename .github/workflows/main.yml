@@ -31,7 +31,7 @@ jobs:
         if: ${{ always() }}
         env:
           SLACK_MESSAGE: "Se ejecutaron $tests tests, $passed pasaron y $failed fallaron"
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_}}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}}
           SLACK_TITLE: ${{ job.status }}
           SLACK_USERNAME: Deploy Bot
           SLACK_CHANNEL: cypresstest
