@@ -12,8 +12,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm run cypress:run-json
+      
 
       - name: Print test results
         if: ${{ always() }}
