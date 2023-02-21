@@ -29,5 +29,5 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_CHANNEL: cypresstest
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text": "'"${SLACK_MESSAGE}"'"}' $SLACK_WEBHOOK_URL
+          curl -X POST -H 'Content-type: application/json' --data '{"text": "'"${SLACK_MESSAGE}"'"}' $SLACK_WEBHOOK
 
