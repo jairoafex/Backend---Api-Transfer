@@ -13,10 +13,10 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: npx cypress run
+        run: npm run cypress:run-json
 
       - name: Print test results
-        run: cat cypress/results.json
+        run: echo 'Imprimiendo resultados de prueba' && cat cypress/results.json
         
       - name: Extract test results
         run: |
