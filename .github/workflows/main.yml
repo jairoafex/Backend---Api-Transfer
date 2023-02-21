@@ -35,7 +35,7 @@ jobs:
          console.log(`::set-env name=TESTS::${tests}`); // set environment variable
          console.log(`::set-env name=PASSED::${passed}`); // set environment variable
          console.log(`::set-env name=FAILED::${failed}`); // set environment variable
-
+         '
       - name: Print test results
         if: ${{ always() }}
         env:
