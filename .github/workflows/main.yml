@@ -36,18 +36,18 @@ jobs:
          console.log(`::set-env name=PASSED::${passed}`); // set environment variable
          console.log(`::set-env name=FAILED::${failed}`); // set environment variable
 
-         - name: Print test results
-           if: ${{ always() }}
-           env:
-             SUITES: ${{ env.SUITES }}
-             TESTS: ${{ env.TESTS }}
-             PASSED: ${{ env.PASSED }}
-             FAILED: ${{ env.FAILED }}
-           run: |
-             echo "Suites: $SUITES"
-             echo "Tests: $TESTS"
-             echo "Passed: $PASSED"
-             echo "Failed: $FAILED"
+      - name: Print test results
+        if: ${{ always() }}
+        env:
+           SUITES: ${{ env.SUITES }}
+           TESTS: ${{ env.TESTS }}
+           PASSED: ${{ env.PASSED }}
+           FAILED: ${{ env.FAILED }}
+        run: |
+           echo "Suites: $SUITES"
+           echo "Tests: $TESTS"
+           echo "Passed: $PASSED"
+           echo "Failed: $FAILED"
 
       
       - name: Send Slack notification
