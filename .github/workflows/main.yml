@@ -27,16 +27,15 @@ jobs:
           passed=$(jq -r '.totals.passed' cypress/results.json)
           failed=$(jq -r '.totals.failed' cypress/results.json)
          
-      - name: Send Slack Notification on Failure
+      - name: Send Slack notification
         if: ${{ always() }}
-        uses: rtCamp/action-slack-notify@v2
-        with:
-          status: ${{ job.status }}
         env:
-          SLACK_CHANNEL: cypresstest
-          SLACK_COLOR: "#9e2a2b"
-          #SLACK_ICON: https://someurl.com/logo.png
-          SLACK_MESSAGE: "Failed execution on production build"
+          SLACK_MESSAGE: "Se ejecutaron $tests tests, $passed pasaron y $failed fallaron"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_TITLE: ${{ job.status }}
           SLACK_USERNAME: Deploy Bot
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_CHANNEL: cypresstest
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text": "'"${SLACK_MESSAGE}"'"}' $SLACK_WEBHOOK_URL
+
+          
