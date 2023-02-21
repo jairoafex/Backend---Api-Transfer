@@ -1,29 +1,32 @@
+name: Cypress Tests
 
-name: Cypress Test 
 on: 
   schedule:
-    - cron: '0 11,21 * * *'
+    - cron: '0 5 * * *'
 jobs:
-  cypress-run:
+  cypress:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3.3.0
-      - name: Cypress.io
-        uses: cypress-io/github-action@37c511bc322f112c2dd629d3610f4f096bc80096
-        with: 
-          start: npx cypress open
-      - name: Send Slack Notification on Failure
-        if: ${{ always() }}
-        uses: rtCamp/action-slack-notify@v2
-        with:
-          status: ${{ job.status }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npx cypress run
+
+      - name: Extract test results
+        run: |
+          suites=$(jq -r '.totals.suites' cypress/results.json)
+          tests=$(jq -r '.totals.tests' cypress/results.json)
+          passed=$(jq -r '.totals.passed' cypress/results.json)
+          failed=$(jq -r '.totals.failed' cypress/results.json)
+
+      - name: Send Slack notification
         env:
-          SLACK_CHANNEL: cypresstest
-          SLACK_COLOR: "#9e2a2b"
-          #SLACK_ICON: https://someurl.com/logo.png
-          SLACK_MESSAGE: "Failed execution on production build"
-          SLACK_TITLE: ${{ job.status }}
-          SLACK_USERNAME: Deploy Bot
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        
+          SLACK_MESSAGE: "Se ejecutaron $tests tests, $passed pasaron y $failed fallaron"
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text": "'"${SLACK_MESSAGE}"'"}' $SLACK_WEBHOOK_URL
+
