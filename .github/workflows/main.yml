@@ -22,10 +22,10 @@ jobs:
       - name: Extract test results
         if: ${{ always() }}
         run: |
-         suites=$(grep -o '"suites":[0-9]*' cypress/results.json | cut -d':' -f2)
-         tests=$(grep -o '"tests":[0-9]*' cypress/results.json | cut -d':' -f2)
-         passed=$(grep -o '"passed":[0-9]*' cypress/results.json | cut -d':' -f2)
-         failed=$(grep -o '"failed":[0-9]*' cypress/results.json | cut -d':' -f2)
+          suites=$(awk -F'[:,]' '/"suites"/{print $2}' cypress/results.json)
+          tests=$(awk -F'[:,]' '/"tests"/{print $2}' cypress/results.json)
+          passed=$(awk -F'[:,]' '/"passed"/{print $2}' cypress/results.json)
+          failed=$(awk -F'[:,]' '/"failed"/{print $2}' cypress/results.json)
         
       - name: Print test results
         if: ${{ always() }}
