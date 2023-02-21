@@ -32,14 +32,22 @@ jobs:
          const passed = data.totals.passed;
          const failed = data.totals.failed;
          console.log(suites, tests, passed, failed); // debug message to print the extracted values
+          process.stdout.write(`::set-env name=SUITES::${suites}\n`);
+          process.stdout.write(`::set-env name=TESTS::${tests}\n`);
+          process.stdout.write(`::set-env name=PASSED::${passed}\n`);
+          process.stdout.write(`::set-env name=FAILED::${failed}\n`);
          ' 
       - name: Print test results
         if: ${{ always() }}
+        env:
+          SUITES: ${{ env.SUITES }}
+          TESTS: ${{ env.TESTS }}
+          PASSED: ${{ env.PASSED }}
+          FAILED: ${{ env.FAILED }}
         run: |
-          echo "Suites: suites
-          echo "Tests: tests
-          echo "Passed: passed
-          echo "Failed: failed
+          echo "Suites: $SUITES"
+          echo "Tests: $TESTS"
+          echo "Passed: $PASSED"
           
       - name: Send Slack notification
         if: ${{ always() }}
