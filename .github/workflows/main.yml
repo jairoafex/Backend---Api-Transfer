@@ -41,13 +41,11 @@ jobs:
           echo "Tests: ${{ env.TESTS }}"
           echo "Passed: ${{ env.PASSED }}"
           echo "Failed: ${{ env.FAILED }}"
-       
-
-          
+      
       - name: Send Slack notification
         if: ${{ always() }}
         env:
-          SLACK_MESSAGE: "Se ejecutaron ${tests} tests, ${passed} pasaron y ${failed} fallaron"
+          SLACK_MESSAGE: "Se ejecutaron ${{ env.TESTS }} tests, ${{ env.PASSED }} pasaron y ${{ env.FAILED }} fallaron"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}}
           SLACK_TITLE: ${{ job.status }}
           SLACK_USERNAME: Deploy Bot
