@@ -15,15 +15,17 @@ jobs:
       - name: Run tests
         run: npm run cypress:run-json
 
-      - name: Print test results
-        run: echo 'Imprimiendo resultados de prueba' && cat cypress/results.json
-        
       - name: Extract test results
         run: |
-          suites=$(jq -r '.totals.suites' cypress/results.json)
-          tests=$(jq -r '.totals.tests' cypress/results.json)
-          passed=$(jq -r '.totals.passed' cypress/results.json)
-          failed=$(jq -r '.totals.failed' cypress/results.json)
+          suites=$(cat cypress/results.json | jq '.totalSuites')
+          tests=$(cat cypress/results.json | jq '.totalTests')
+          passes=$(cat cypress/results.json | jq '.totalPassed')
+          failures=$(cat cypress/results.json | jq '.totalFailed')
+          echo "Cypress results:"
+          echo "Suites: $suites"
+          echo "Tests: $tests"
+          echo "Passed: $passes"
+          echo "Failed: $failures"
 
       - name: Send Slack Notification on Failure
         if: ${{ always() }}
