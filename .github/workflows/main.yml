@@ -15,6 +15,9 @@ jobs:
       - name: Run tests
         run: npx cypress run
 
+      - name: Print test results
+        run: cat cypress/results.json
+        
       - name: Extract test results
         run: |
           suites=$(jq -r '.totals.suites' cypress/results.json)
