@@ -39,10 +39,10 @@ jobs:
       - name: Print test results
         if: ${{ always() }}
         run: |
-          echo "Suites: ${{ steps.extract_results.outputs.suites }}"
-          echo "Tests: ${{ steps.extract_results.outputs.tests }}"
-          echo "Passed: ${{ steps.extract_results.outputs.passed }}"
-          echo "Failed: ${{ steps.extract_results.outputs.failed }}"
+         echo "Suites: ${{ env.SUITES }}"
+         echo "Tests: ${{ env.TESTS }}"
+         echo "Passed: ${{ env.PASSED }}"
+         echo "Failed: ${{ env.FAILED }}"
 
           
       - name: Send Slack notification
