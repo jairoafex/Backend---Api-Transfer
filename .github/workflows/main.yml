@@ -22,11 +22,16 @@ jobs:
       - name: Extract test results
         if: ${{ always() }}
         run: |
-          suites=$(awk -F'[:,]' '/"suites"/{print $2}' cypress/results.json)
-          tests=$(awk -F'[:,]' '/"tests"/{print $2}' cypress/results.json)
-          passed=$(awk -F'[:,]' '/"passed"/{print $2}' cypress/results.json)
-          failed=$(awk -F'[:,]' '/"failed"/{print $2}' cypress/results.json)
-        
+         node -e '
+         const fs = require("fs");
+
+         const data = JSON.parse(fs.readFileSync("cypress/results.json"));
+
+         const suites = data.totals.suites;
+         const tests = data.totals.tests;
+         const passed = data.totals.passed;
+         const failed = data.totals.failed;
+         ' 
       - name: Print test results
         if: ${{ always() }}
         run: |
