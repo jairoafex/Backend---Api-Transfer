@@ -39,24 +39,10 @@ jobs:
          console.log(`PASSED=${passed}`);
          console.log(`FAILED=${failed}`);
          '
-      - name: Print test results
-        if: ${{ always() }}
-        env:
-           SUITES: ${{ env.SUITES }}
-           TESTS: ${{ env.TESTS }}
-           PASSED: ${passed}
-           FAILED: ${{ env.FAILED }}
-        run: |
-           echo "Suites: $SUITES"
-           echo "Tests: $TESTS"
-           echo "Passed: $PASSED"
-           echo "Failed: $FAILED"
-
-      
       - name: Send Slack notification
         if: ${{ always() }}
         env:
-          SLACK_MESSAGE: "Se ejecutaron ${{ env.TESTS }} tests, ${{ env.PASSED }} pasaron y ${{ env.FAILED }} fallaron"
+          SLACK_MESSAGE: "Se ejecutaron ${{env.TESTS}} tests, ${{ env.PASSED }} pasaron y ${{ env.FAILED }} fallaron"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}}
           SLACK_TITLE: ${{ job.status }}
           SLACK_USERNAME: Deploy Bot
