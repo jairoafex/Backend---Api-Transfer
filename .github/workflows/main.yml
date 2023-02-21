@@ -22,12 +22,13 @@ jobs:
           SLACK_MESSAGE: "Failed execution on production build"
           SLACK_TITLE: ${{ job.status }}
           SLACK_USERNAME: Deploy Bot
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
       - name: Run Cypress tests
         run: |
-          export SLACK_WEBHOOK_URL=$SLACK_WEBHOOK_URL
+          export SLACK_WEBHOOK=$SLACK_WEBHOOK
            npx cypress run --headless --browser chrome
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}}
           CYPRESS_CACHE_FOLDER: ${{ runner.temp }}/.cache/Cypress
           CYPRESS_VIDEO: false
+          SLACK_CHANNEL: cypresstest
