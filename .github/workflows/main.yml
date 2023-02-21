@@ -29,10 +29,14 @@ jobs:
          const passed = data.totals.passed;
          const failed = data.totals.failed;
          console.log(suites, tests, passed, failed); // debug message to print the extracted values
-         console.log(`SUITES=${suites}`); // set environment variable
-         console.log(`TESTS=${tests}`); // set environment variable
-         console.log(`PASSED=${passed}`); // set environment variable
-         console.log(`FAILED=${failed}`); // set environment variable
+         console.log(`Suites: ${suites}`);
+         console.log(`Tests: ${tests}`);
+         console.log(`Passed: ${passed}`);
+         console.log(`Failed: ${failed}`);
+         console.log(`SUITES=${suites}`);
+         console.log(`TESTS=${tests}`);
+         console.log(`PASSED=${passed}`);
+         console.log(`FAILED=${failed}`);
          ' 
       - name: Print test results
         if: ${{ always() }}
