@@ -15,6 +15,7 @@ jobs:
       - name: Print test results
         if: ${{ always() }}
         run: echo 'Imprimiendo resultados de prueba' && cat cypress/results.json
+    
 
       - name: Extract test results
         if: ${{ always() }}
@@ -34,14 +35,20 @@ jobs:
          console.log(`::set-env name=TESTS::${tests}`); // set environment variable
          console.log(`::set-env name=PASSED::${passed}`); // set environment variable
          console.log(`::set-env name=FAILED::${failed}`); // set environment variable
-              ' 
-      - name: Print test results
-        if: ${{ always() }}
-        run: |
-          echo "Suites: ${{ env.SUITES }}"
-          echo "Tests: ${{ env.TESTS }}"
-          echo "Passed: ${{ env.PASSED }}"
-          echo "Failed: ${{ env.FAILED }}"
+
+         - name: Print test results
+           if: ${{ always() }}
+           env:
+             SUITES: ${{ env.SUITES }}
+             TESTS: ${{ env.TESTS }}
+             PASSED: ${{ env.PASSED }}
+             FAILED: ${{ env.FAILED }}
+           run: |
+             echo "Suites: $SUITES"
+             echo "Tests: $TESTS"
+             echo "Passed: $PASSED"
+             echo "Failed: $FAILED"
+
       
       - name: Send Slack notification
         if: ${{ always() }}
