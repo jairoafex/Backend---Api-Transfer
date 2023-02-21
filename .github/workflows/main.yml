@@ -44,7 +44,7 @@ jobs:
         env:
            SUITES: ${{ env.SUITES }}
            TESTS: ${{ env.TESTS }}
-           PASSED: ${{ env.PASSED }}
+           PASSED: ${passed}
            FAILED: ${{ env.FAILED }}
         run: |
            echo "Suites: $SUITES"
