@@ -38,6 +38,9 @@ jobs:
          console.log(`TESTS=${tests}`);
          console.log(`PASSED=${passed}`);
          console.log(`FAILED=${failed}`);
+         echo "TESTS=${tests}" >> $GITHUB_ENV
+         echo "PASSED=${passed}" >> $GITHUB_ENV
+         echo "FAILED=${failed}" >> $GITHUB_ENV
          '
       - name: Set environment variables
         if: ${{ always() }}
