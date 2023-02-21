@@ -23,12 +23,6 @@ jobs:
           SLACK_TITLE: ${{ job.status }}
           SLACK_USERNAME: Deploy Bot
           SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
-      - name: Send Slack notification
-        if: always()
-        uses: slack/webhook@v1
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_CHANNEL: cypresstest
-          SLACK_TITLE: ${{ job.status }}
         with:
           payload: '{"text": "Cypress tests result:\n\nTotal tests: ${{ env.CYPRESS_TOTAL_TESTS }}\nSuccessful tests: ${{ env.CYPRESS_PASSED_TESTS }}\nFailed tests: ${{ env.CYPRESS_FAILED_TESTS }}"}'
+ 
