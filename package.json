@@ -22,5 +22,8 @@
     "faker": "^6.6.6",
     "json-server": "^0.17.1",
     "slack-webhook": "^1.0.0"
+  },
+  "dependencies": {
+    "@slack/webhook": "^6.1.0"
   }
 }
