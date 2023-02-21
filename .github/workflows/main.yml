@@ -9,8 +9,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3.3.0
         
-      - name: Install dependencies
-        run: npm install
 
       
 
@@ -31,10 +29,11 @@ jobs:
          const passed = data.totals.passed;
          const failed = data.totals.failed;
          console.log(suites, tests, passed, failed); // debug message to print the extracted values
-         console.log(`{suites}={suites}" >> $GITHUB_STATE`);
-         console.log(`::set-output name=tests::${tests}`);
-         console.log(`::set-output name=passed::${passed}`);
-         console.log(`::set-output name=failed::${failed}`);
+         echo "SUITES=${suites}"
+         echo "TESTS=${tests}" >> $GITHUB_ENV
+         echo "PASSED=${passed}" >> $GITHUB_ENV
+         echo "FAILED=${failed}" >> $GITHUB_ENV
+
          '
          
       - name: Print test results
