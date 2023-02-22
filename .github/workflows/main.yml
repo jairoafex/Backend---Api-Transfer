@@ -9,57 +9,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3.3.0
         
-
-      
-
-      - name: Print test results
-        if: ${{ always() }}
-        run: echo 'Imprimiendo resultados de prueba' && cat cypress/results.json
-    
-
-      - name: Extract test results
-        if: ${{ always() }}
-        run: |
-         node -e '
-         const fs = require("fs");
-
-         const data = JSON.parse(fs.readFileSync("cypress/results.json"));
-
-         const suites = data.totals.suites;
-         const tests =  data.totals.tests;
-         const passed = data.totals.passed;
-         const failed = data.totals.failed;
-         console.log(suites, tests, passed, failed); // debug message to print the extracted values
-         console.log(`Suites: ${suites}`);
-         console.log(`Tests: ${tests}`);
-         console.log(`Passed: ${passed}`);
-         console.log(`Failed: ${failed}`);
-         console.log(`SUITES=${suites}`);
-         console.log(`TESTS=${tests}`);
-         console.log(`PASSED=${passed}`);
-         console.log(`FAILED=${failed}`);
-         echo "TESTS=${tests}" >> $GITHUB_ENV
-         echo "PASSED=${passed}" >> $GITHUB_ENV
-         echo "FAILED=${failed}" >> $GITHUB_ENV
-         '
-         
-      - name: Set environment variables
-        if: ${{ always() }}
-        run: |
-          echo "TESTS=${tests}" >> $GITHUB_ENV
-          echo "PASSED=${passed}" >> $GITHUB_ENV
-          echo "FAILED=${failed}" >> $GITHUB_ENV
-
-      - name: Send Slack notification
-        if: ${{ always() }}
-        env:
-          SLACK_MESSAGE: "Se ejecutaron ${{env.TESTS}} tests, ${{ env.PASSED }} pasaron y ${{ env.FAILED }} fallaron"
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}}
-          SLACK_TITLE: ${{ job.status }}
-          SLACK_USERNAME: Deploy Bot
-          SLACK_CHANNEL: cypresstest
-          SLACK_EMOJI: ":robot_face:"
-        run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text": "'"${SLACK_MESSAGE}"'"}' $SLACK_WEBHOOK
-
-          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Run tests
+        run: npm run run:record
