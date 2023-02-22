@@ -73,7 +73,7 @@ module.exports = {
         transferFee: 1.0,
         taxBasis: 1.8,
         transferExchangeRate: 825.0,
-        transferSenderCustomerCode: "AF2341579",
+        transferSenderCustomerCode: "1127372",
         transferReceiverCustomerCode: "",
         ticketNumber: 0
     }

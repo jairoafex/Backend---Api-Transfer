@@ -46,8 +46,8 @@
   },
   "cypress\\e2e\\ApiTransfer\\Feelookup(Movii).cy.js": {
     "Testing API service Movii Test #1 : Feelookup": "passed",
-    "Testing API service Movii Test #2 : CreateTransfer": "failed",
-    "Testing API service Movii Test #2 : ConfirmTransfer": "failed"
+    "Testing API service Movii Test #2 : CreateTransfer": "passed",
+    "Testing API service Movii Test #2 : ConfirmTransfer": "passed"
   },
   "cypress\\e2e\\ApiTransfer\\FeelookupFields.cy.js": {
     "Probando Endpoint para obtener campos adiciones segun cotizacion Validar segun tipo de cotizacion la relacion de campos adicionales": "passed"
@@ -73,8 +73,8 @@
   "totals": {
     "suites": 22,
     "tests": 27,
-    "failed": 2,
-    "passed": 25,
+    "failed": 0,
+    "passed": 27,
     "pending": 0,
     "skipped": 0
   }
