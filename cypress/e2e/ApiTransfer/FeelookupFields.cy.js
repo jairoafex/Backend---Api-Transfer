@@ -1,16 +1,35 @@
 /// <reference types ="Cypress" />
 describe("Probando Endpoint para obtener campos adiciones segun cotizacion", () => {
-    it("Validar segun tipo de cotizacion la relacion de campos adicionales",{
+    it("Feelookup Fields [Staging]",{
     }, () => {
-      cy.fixture("Cotizaciones").then(function (datos) {
+      cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
-        cy.log("Data", this.datos.id);
         cy.request({
           url: `${Cypress.env('API_TRANSFER')}/v1/transfers/feelookup/fields`,
           method: "POST",
           headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}` },
           body: {   
-            feelookupId: this.datos.id,
+            feelookupId: this.datos.idCotizacion,
+            quoteId: this.datos.idquote, 
+          },
+        }).then((response) => {
+          expect(response.status).to.eq(200);
+          expect(response.body).to.have.property("status");
+          const status = response.body.status
+          cy.log("status", status);
+        });
+      });
+    });
+    it.only("Feelookup Fields [Sandbox]",{
+    }, () => {
+      cy.fixture("data_test").then(function (datos) {
+        this.datos = datos;
+        cy.request({
+          url: `${Cypress.env('API_TRANSFER_SANDBOX')}/v1/transfers/feelookup/fields`,
+          method: "POST",
+          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE_SANDBOX")}` },
+          body: {   
+            feelookupId: this.datos.idCotizacion_sanbox,
             quoteId: this.datos.idquote, 
           },
         }).then((response) => {

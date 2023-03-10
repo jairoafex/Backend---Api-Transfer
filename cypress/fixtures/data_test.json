@@ -1,12 +1,19 @@
 {
-  "idCliente": "c9796ece-fc6e-4b08-9d0f-494152e84840",
-  "idCotizacion": "51100461-9fbb-4ae3-958d-dc8a97c7dd9a",
-  "idDocument": "3aee7844-52df-4eb9-bd22-cde0bd2748f8",
+  "idCliente": "598fbc1a-2882-4233-ac22-4da1dc1af789",
+  "idCotizacion": "10442ed2-6efc-4a82-b7a6-63a44eb77dc7",
+  "idCotizacion_sanbox": "9a482751-eeb3-4c00-9dbd-73c78d027995",
+  "idCotizacion_produccion":"d4c44c1c-2f3d-494c-896d-eec730ceee7e",
+  "idDocument": "2223ffac-cba6-4426-810d-bd098c0a5f30",
+  "idDocumentSandbox": "9f95e61c-2e67-41c5-90ab-7031e3c2e957",
   "status": 1,
-  "idquote": 0,
+  "idquote": 1,
   "codigo_cliente": 1127389,
-  "documento": "332591653",
+  "codigo_cliente_produccion":1587464,
+  "documento": "121266040",
   "tipo": "rut",
+  "idCliente_produccion": "688f022b-3c36-48a7-a922-52382f98b4a9",
+  "documento_produccion":"271236735",
+  "documento_tipo":"rut",
   "branchId": 23,
   "branchCode": "AG",
   "branchName": "AFEX MATIAS COUSIÑO",
@@ -15,6 +22,8 @@
   "countryName": "PERU",
   "cityName": "LIMA",
   "starDate" :"2023-02-01",
-  "endDate" : "2023-02-07"
+  "endDate" : "2023-02-07",
+  "country": "PE",
+  "city":"LIM"
 
 }

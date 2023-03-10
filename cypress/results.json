@@ -1,80 +1,124 @@
 {
-  "cypress\\e2e\\ApiClient\\AddDocument.cy.js": {
-    "Probando Endpoint para agregar documento al cliente Agregar nuevo documento": "passed"
+  "cypress/e2e/ApiClient/AddDocument.cy.js": {
+    "Probando Endpoint para agregar documento al cliente Agregar nuevo documentom [Staging]": "passed",
+    "Probando Endpoint para agregar documento al cliente Agregar nuevo documento[SandBox]": "passed",
+    "Probando Endpoint para agregar documento al cliente Agregar nuevo documento[Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiClient\\AddHistory.cy.js": {
-    "Probando Endpoint para agregar historia al cliente Agregar nueva Historia": "passed"
+  "cypress/e2e/ApiClient/AddHistory.cy.js": {
+    "Probando Endpoint para agregar historia al cliente Agregar nueva Historia [Staging]": "passed",
+    "Probando Endpoint para agregar historia al cliente Agregar nueva Historia[Sandbox]": "passed",
+    "Probando Endpoint para agregar historia al cliente Agregar nueva Historia[Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiClient\\CreateClients.cy.js": {
-    "Testing API service [createClient] Test #1 : Create new client": "passed"
+  "cypress/e2e/ApiClient/CreateClients.cy.js": {
+    "Testing API service [createClient] Create new Client [Staging]": "passed",
+    "Testing API service [createClient] Create new Client [Sandbox]": "passed"
   },
-  "cypress\\e2e\\ApiClient\\GetClientById.cy.js": {
-    "Probando Endpoint para consultar clientes Get Client By id": "passed",
-    "Probando Endpoint para consultar clientes Get Client By Document": "passed"
+  "cypress/e2e/ApiClient/GetClientById.cy.js": {
+    "Probando Endpoint para consultar clientes Get Client By id [Staging]": "passed",
+    "Probando Endpoint para consultar clientes Get Client By Document[Staging]": "passed",
+    "Probando Endpoint para consultar clientes Get Client By id [Sandbox]": "passed",
+    "Probando Endpoint para consultar clientes Get Client By Document[Sandbox]": "passed",
+    "Probando Endpoint para consultar clientes Get Client By id [Produccion]": "passed",
+    "Probando Endpoint para consultar clientes Get Client By Document[Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiClient\\GetDocumentContent.cy.js": {
-    "Probando Endpoint para agregar documento al cliente Get document Content": "passed"
+  "cypress/e2e/ApiClient/GetDocumentContent.cy.js": {
+    "Probando Endpoint para agregar documento al cliente Get document Content [Staging]": "passed",
+    "Probando Endpoint para agregar documento al cliente Get document Content[Sandbox]": "failed",
+    "Probando Endpoint para agregar documento al cliente Get document Content[Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiClient\\GetDocumentUrl.cy.js": {
-    "Probando Endpoint para agregar documento al cliente Get document Content": "passed"
+  "cypress/e2e/ApiClient/GetDocumentUrl.cy.js": {
+    "Probando Endpoint para agregar documento al cliente Get document Content[Staging]": "passed",
+    "Probando Endpoint para agregar documento al cliente Get document Content[Sandbox]": "passed",
+    "Probando Endpoint para agregar documento al cliente Get document Content[Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiClient\\GetHistory.cy.js": {
-    "Probando Endpoint para agregar documento al cliente Get document Content": "passed"
+  "cypress/e2e/ApiClient/GetHistory.cy.js": {
+    "Probando Endpoint para agregar documento al cliente Get history [Staging]": "passed",
+    "Probando Endpoint para agregar documento al cliente Get History [Sandbox]": "passed",
+    "Probando Endpoint para agregar documento al cliente Get History [Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiClient\\SearchClients.cy.js": {
-    "Probando Endpoint para buscar cliente Get Client By Documento": "passed"
+  "cypress/e2e/ApiClient/SearchClients.cy.js": {
+    "Probando Endpoint para buscar cliente Search Clients [Staging]": "passed",
+    "Probando Endpoint para buscar cliente Search Clients [Sandbox]": "passed",
+    "Probando Endpoint para buscar cliente Search Clients [Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiClient\\UpdateClient.cy.js": {
-    "Probando Endpoint para actualizar clientes Actualizar datos de contacto": "passed"
+  "cypress/e2e/ApiClient/UpdateClient.cy.js": {
+    "Actualizar cliente Actualizar datos de contacto [Staging]": "passed",
+    "Actualizar cliente Actualizar cliente [Sandbox]": "passed",
+    "Actualizar cliente Actualizar cliente [Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiClient\\UpdateDocumentStatus.cy.js": {
-    "Probando Endpoint para agregar documento al cliente Get document Content": "passed"
+  "cypress/e2e/ApiClient/UpdateDocumentStatus.cy.js": {
+    "Probando Endpoint para actualizar estado del documento Actualizando estado del documento [Staging]": "passed",
+    "Probando Endpoint para actualizar estado del documento Actualizando estado del documento [Sandbox]": "passed",
+    "Probando Endpoint para actualizar estado del documento Actualizando estado del documento [Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiTransfer\\AgentConditions.cy.js": {
-    "Probando Endpoint para obtener sucursales por agente Obtiene las sucursales de pago de un agente en un país y ciudad.": "passed"
+  "cypress/e2e/ApiTransfer/AgentConditions.cy.js": {
+    "Probando Endpoint para obtener sucursales por agente Agents Conditions [Stating]": "passed",
+    "Probando Endpoint para obtener sucursales por agente Agents Conditions [Sandbox]": "passed",
+    "Probando Endpoint para obtener sucursales por agente Agents Conditions [Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiTransfer\\AgentsByCountry.cy.js": {
-    "Probando Endpoint para consultar agentes por pais y ciudad especifico Busca los agentes disponibles para enviar giros al país y ciudad indicados.": "passed"
+  "cypress/e2e/ApiTransfer/AgentsByCountry.cy.js": {
+    "Probando Endpoint para consultar agentes por pais y ciudad especifico Agents By Country [Stating]": "passed",
+    "Probando Endpoint para consultar agentes por pais y ciudad especifico Agents By Country [Sandbox]": "passed",
+    "Probando Endpoint para consultar agentes por pais y ciudad especifico Agents By Country [Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiTransfer\\ExchangeRateByBranch.cy.js": {
-    "Probando Endpoint para giros enviados por cliente Crear nueva cotizacion": "passed"
+  "cypress/e2e/ApiTransfer/ExchangeRateByBranch.cy.js": {
+    "Probando endpoint que obtiene valor de cambio Exchange by rate [Staging]": "passed",
+    "Probando endpoint que obtiene valor de cambio Exchange by rate [Sandbox]": "passed",
+    "Probando endpoint que obtiene valor de cambio Exchange by rate [Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiTransfer\\Feelookup [Compliance and Create].cy.js": {
-    "Probando Endpoint para cotizar y validar cumplimiento Crear nueva cotizacion[Feelookup]": "passed",
-    "Probando Endpoint para cotizar y validar cumplimiento Validar cumplimiento en cotizacion [FeelookupCompliance]": "passed",
-    "Probando Endpoint para cotizar y validar cumplimiento Crear tarea de cumplimiento para cotizacion": "passed"
+  "cypress/e2e/ApiTransfer/Feelookup [Compliance and Create].cy.js": {
+    "Probando Endpoint para cotizar y validar cumplimiento Feelookup[Staging]": "passed",
+    "Probando Endpoint para cotizar y validar cumplimiento Feelookup Compliance[Staging]": "passed",
+    "Probando Endpoint para cotizar y validar cumplimiento FeelookupComplianceCreate[Staging]": "passed",
+    "Probando Endpoint para cotizar y validar cumplimiento Feelookup[Sandbox]": "passed",
+    "Probando Endpoint para cotizar y validar cumplimiento Feelookup Compliance[Sandbox]": "passed",
+    "Probando Endpoint para cotizar y validar cumplimiento FeelookupComplianceCreate[Sandbox]": "passed",
+    "Probando Endpoint para cotizar y validar cumplimiento Feelookup[Produccion]": "passed",
+    "Probando Endpoint para cotizar y validar cumplimiento Feelookup Compliance[Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiTransfer\\Feelookup(Movii).cy.js": {
+  "cypress/e2e/ApiTransfer/Feelookup(Movii).cy.js": {
     "Testing API service Movii Test #1 : Feelookup": "passed",
     "Testing API service Movii Test #2 : CreateTransfer": "passed",
     "Testing API service Movii Test #2 : ConfirmTransfer": "passed"
   },
-  "cypress\\e2e\\ApiTransfer\\FeelookupFields.cy.js": {
-    "Probando Endpoint para obtener campos adiciones segun cotizacion Validar segun tipo de cotizacion la relacion de campos adicionales": "passed"
+  "cypress/e2e/ApiTransfer/FeelookupFields.cy.js": {
+    "Probando Endpoint para obtener campos adiciones segun cotizacion Feelookup Fields [Sandbox]": "passed"
   },
-  "cypress\\e2e\\ApiTransfer\\Recieve.cy.js": {
-    "Testing Endpoint de pago beneficairio Validar segun tipo de cotizacion la relacion de campos adicionales": "passed"
+  "cypress/e2e/ApiTransfer/Recieve.cy.js": {
+    "Testing Endpoint de pago beneficairio Pago beneficiario [Staging]": "passed",
+    "Testing Endpoint de pago beneficairio Pago beneficiario [Sandbox]": "passed",
+    "Testing Endpoint de pago beneficairio Pago beneficiario [Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiTransfer\\RecievedByBranch.cy.js": {
-    "Probando Endpoint para giros recibidos por una sucursal Consultar giros recibidos por sucursal": "passed"
+  "cypress/e2e/ApiTransfer/RecievedByBranch.cy.js": {
+    "Probando Endpoint para giros recibidos por una sucursal Recieved By Branch [Staging]": "passed",
+    "Probando Endpoint para giros recibidos por una sucursal Recieved By Branch [Sanbox]": "passed",
+    "Probando Endpoint para giros recibidos por una sucursal Recieved By Branch [Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiTransfer\\RecievedByCostumer.cy.js": {
-    "Probando Endpoint para giros recibidos por un cliente Consultar giros recibidos por cliente": "passed"
+  "cypress/e2e/ApiTransfer/RecievedByCostumer.cy.js": {
+    "Probando Endpoint para giros recibidos por un cliente Recieved By Customer [Staging]": "passed",
+    "Probando Endpoint para giros recibidos por un cliente Recieved By Customer [Sandbox]": "passed",
+    "Probando Endpoint para giros recibidos por un cliente Recieved By Customer [Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiTransfer\\RecipientsByCustomer.cy.js": {
-    "Probando Endpoint para beneficiarios de giro de cliente Consultar beneficiarios de por cliente": "passed"
+  "cypress/e2e/ApiTransfer/RecipientsByCustomer.cy.js": {
+    "Probando Endpoint para beneficiarios de giro de cliente Recipients by Customer [Staging]": "passed",
+    "Probando Endpoint para beneficiarios de giro de cliente Recipients by Customer [Sandbox]": "passed",
+    "Probando Endpoint para beneficiarios de giro de cliente Recipients by Customer [Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiTransfer\\SentByBranch.cy.js": {
-    "Probando Endpoint para consultar envios por sucursal consultar envios por sucursal": "passed"
+  "cypress/e2e/ApiTransfer/SentByBranch.cy.js": {
+    "Probando Endpoint para consultar envios por sucursal Sent By Branch [Staging]": "passed",
+    "Probando Endpoint para consultar envios por sucursal Sent By Branch [Sandbox]": "passed",
+    "Probando Endpoint para consultar envios por sucursal Sent By Branch [Produccion]": "passed"
   },
-  "cypress\\e2e\\ApiTransfer\\SentByCustomer.cy.js": {
-    "Probando Endpoint para giros enviados por cliente Consultar envios realizados por cliente": "passed"
+  "cypress/e2e/ApiTransfer/SentByCustomer.cy.js": {
+    "Probando Endpoint para giros enviados por cliente Sent by Customer [Staging]": "passed",
+    "Probando Endpoint para giros enviados por cliente Sent by Customer [Sandbox]": "passed",
+    "Probando Endpoint para giros enviados por cliente Sent by Customer [Produccion]": "passed"
   },
   "totals": {
     "suites": 22,
-    "tests": 27,
-    "failed": 0,
-    "passed": 27,
+    "tests": 71,
+    "failed": 1,
+    "passed": 70,
     "pending": 0,
     "skipped": 0
   }
