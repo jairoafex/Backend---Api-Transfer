@@ -172,9 +172,9 @@ describe("Probando Endpoint para cotizar y validar cumplimiento", () => {
             corporateCode: this.datos.codigo_cliente_produccion
           },
         }).then((response) => {
-          expect(response.status).to.eq(200);
+          expect(response.status).to.eq(400);
           expect(response.body).to.have.property("messages");
-          expect(response.body.messages).have.to.eq("transaction allowed")
+          expect(response.body.messages).have.to.eq("transaction not allowed")
           const messages = response.body.messages
           cy.log("messages", messages);
         });
