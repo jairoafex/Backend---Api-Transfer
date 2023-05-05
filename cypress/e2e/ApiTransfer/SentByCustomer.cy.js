@@ -7,7 +7,7 @@ describe("Probando Endpoint para giros enviados por cliente", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER')}/v1/transfers/customers/${this.datos.codigo_cliente}/sent?startDate=${this.datos.starDate}&endDate=${this.datos.endDate}`,
           method: "GET",
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}` }
+          headers: { "Authorization": `${Cypress.env("Authorization")}` }
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("status");
@@ -23,7 +23,7 @@ describe("Probando Endpoint para giros enviados por cliente", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_SANDBOX')}/v1/transfers/customers/${this.datos.codigo_cliente}/sent?startDate=${this.datos.starDate}&endDate=${this.datos.endDate}`,
           method: "GET",
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE_SANDBOX")}` }
+          headers: { "Authorization": `${Cypress.env("Authorization")}` }
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("status");
@@ -39,7 +39,7 @@ describe("Probando Endpoint para giros enviados por cliente", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_PRODUCCION')}/v1/transfers/customers/${this.datos.codigo_cliente_produccion}/sent?startDate=${this.datos.starDate}&endDate=${this.datos.endDate}`,
           method: "GET",
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFER_VALUE_PRODUCCION")}` }
+          headers: { "Authorization": `${Cypress.env("Authorization")}` }
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("status");

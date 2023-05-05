@@ -17,7 +17,6 @@
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
-    "cypress": "^12.7.0",
     "cypress-json-results": "^1.2.1",
     "cypress-slack-notify": "^1.14.0",
     "faker": "^6.6.6",
@@ -26,6 +25,8 @@
     "slack-webhook": "^1.0.0"
   },
   "dependencies": {
-    "@slack/webhook": "^6.1.0"
+    "@slack/webhook": "^6.1.0",
+    "cypress": "^12.11.0",
+    "instead": "^1.0.3"
   }
 }

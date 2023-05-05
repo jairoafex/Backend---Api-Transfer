@@ -9,7 +9,7 @@ describe("Probando Endpoint para consultar clientes", () => {
         url: `${Cypress.env("API_CLIENTS")}/clients/${this.datos.idCliente}`,
         method: "GET",
         headers: {
-          "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}`,
+          "Authorization": `${Cypress.env("Authorization")}`,
         },
       }).then((response) => {
         expect(response.status).to.eq(200);
@@ -27,7 +27,10 @@ describe("Probando Endpoint para consultar clientes", () => {
       cy.request({
         url: `${Cypress.env("API_CLIENTS")}/clients/search/identification`,
         method: "POST",
-        headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}`,},
+        headers: { 
+          "Authorization": `${Cypress.env("Authorization")}`,
+        
+        },
         body: {
           number: this.datos.documento,
           type: this.datos.tipo,
@@ -47,7 +50,7 @@ describe("Probando Endpoint para consultar clientes", () => {
         url: `${Cypress.env("API_CLIENTS_SANDBOX")}/clients/${this.datos.idCliente}`,
         method: "GET",
         headers: {
-          "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_SANDBOX")}`,
+          "Authorization": `${Cypress.env("Authorization")}`,
         },
       }).then((response) => {
         expect(response.status).to.eq(200);
@@ -65,7 +68,7 @@ describe("Probando Endpoint para consultar clientes", () => {
       cy.request({
         url: `${Cypress.env("API_CLIENTS_SANDBOX")}/clients/search/identification`,
         method: "POST",
-        headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_SANDBOX")}`,},
+        headers: { "Authorization": `${Cypress.env("Authorization")}`,},
         body: {
           number: this.datos.documento,
           type: this.datos.tipo,
@@ -85,7 +88,7 @@ describe("Probando Endpoint para consultar clientes", () => {
         url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/clients/${this.datos.idCliente_produccion}`,
         method: "GET",
         headers: {
-          "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_PRODUCCION")}`,
+          "Authorization": `${Cypress.env("Authorization")}`,
         },
       }).then((response) => {
         expect(response.status).to.eq(200);
@@ -104,7 +107,7 @@ describe("Probando Endpoint para consultar clientes", () => {
       cy.request({
         url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/clients/search/identification`,
         method: "POST",
-        headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_PRODUCCION")}`,},
+        headers: { "Authorization": `${Cypress.env("Authorization")}`,},
         body: {
           number: this.datos.documento_produccion,
           type: this.datos.documento_tipo,

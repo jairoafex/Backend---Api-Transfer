@@ -7,7 +7,7 @@ describe("Probando Endpoint para obtener campos adiciones segun cotizacion", () 
         cy.request({
           url: `${Cypress.env('API_TRANSFER')}/v1/transfers/feelookup/fields`,
           method: "POST",
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}` },
+          headers: { "Authorization": `${Cypress.env("Authorization")}` },
           body: {   
             feelookupId: this.datos.idCotizacion,
             quoteId: this.datos.idquote, 
@@ -20,14 +20,14 @@ describe("Probando Endpoint para obtener campos adiciones segun cotizacion", () 
         });
       });
     });
-    it.only("Feelookup Fields [Sandbox]",{
+    it("Feelookup Fields [Sandbox]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
         cy.request({
           url: `${Cypress.env('API_TRANSFER_SANDBOX')}/v1/transfers/feelookup/fields`,
           method: "POST",
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE_SANDBOX")}` },
+          headers: { "Authorization": `${Cypress.env("Authorization")}` },
           body: {   
             feelookupId: this.datos.idCotizacion_sanbox,
             quoteId: this.datos.idquote, 

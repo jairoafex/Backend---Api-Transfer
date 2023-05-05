@@ -5,7 +5,7 @@ describe("Testing Endpoint de pago beneficairio", () => {
       url: `${Cypress.env("API_TRANSFER")}/v1/transfers/receive`,
       method: "POST",
       headers: {
-        "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}`,
+        "Authorization": `${Cypress.env("Authorization")}`,
         "x-afex-user-id": 237902165,
         "x-afex-branch-code": "AG",
       },
@@ -13,12 +13,13 @@ describe("Testing Endpoint de pago beneficairio", () => {
       body: {
         corporateCode: 1127208,
         transferCode: "OG80029901",
+        paymentToOther:false,
       },
     }).then((response) => {
       expect(response.status).to.eq(400);
       expect(response.body).to.have.property("status", "error");
-      const messages = response.body.messages;
-      expect(response.body).to.have.property("messages", messages);
+      const messages = response.body.message;
+      expect(response.body).to.have.property("message", messages);
     });
   });
   it("Pago beneficiario [Sandbox]", {}, () => {
@@ -26,7 +27,7 @@ describe("Testing Endpoint de pago beneficairio", () => {
       url: `${Cypress.env("API_TRANSFER")}/v1/transfers/receive`,
       method: "POST",
       headers: {
-        "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}`,
+        "Authorization": `${Cypress.env("Authorization")}`,
         "x-afex-user-id": 237902165,
         "x-afex-branch-code": "AG",
       },
@@ -34,12 +35,13 @@ describe("Testing Endpoint de pago beneficairio", () => {
       body: {
         corporateCode: 1127208,
         transferCode: "OG80029901",
+        paymentToOther:false,
       },
     }).then((response) => {
       expect(response.status).to.eq(400);
       expect(response.body).to.have.property("status", "error");
-      const messages = response.body.messages;
-      expect(response.body).to.have.property("messages", messages);
+      const messages = response.body.message;
+      expect(response.body).to.have.property("message", messages);
     });
   });
   it("Pago beneficiario [Produccion]", {}, () => {
@@ -47,7 +49,7 @@ describe("Testing Endpoint de pago beneficairio", () => {
       url: `${Cypress.env("API_TRANSFER_PRODUCCION")}/v1/transfers/receive`,
       method: "POST",
       headers: {
-        "x-api-key": `${Cypress.env("API_TRANSFER_VALUE_PRODUCCION")}`,
+        "Authorization": `${Cypress.env("Authorization")}`,
         "x-afex-user-id": 237902165,
         "x-afex-branch-code": "AG",
       },
@@ -59,8 +61,8 @@ describe("Testing Endpoint de pago beneficairio", () => {
     }).then((response) => {
       expect(response.status).to.eq(400);
       expect(response.body).to.have.property("status", "error");
-      const messages = response.body.messages;
-      expect(response.body).to.have.property("messages", messages);
+      const message = response.body.message;
+      expect(response.body).to.have.property("message", message);
     });
   });
 });

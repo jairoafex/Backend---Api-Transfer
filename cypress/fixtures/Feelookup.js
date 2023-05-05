@@ -5,6 +5,5 @@ module.exports={
     receiverCountry: "PE",
     receiverCity: "LIM",
     includeFee:false,
-    methodPayment: "",
     originCurrency: "USD"
 }

@@ -8,7 +8,7 @@ describe("Probando Endpoint para agregar documento al cliente", () => {
             url: `${Cypress.env("API_CLIENTS")}/client/${this.datos.idCliente}/documents/${this.datos.idDocument}`,
             method: "GET",
             headers: { 
-              "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}`
+              "Authorization": `${Cypress.env("Authorization")}`
             },
           }).then((response) => {
             expect(response.status).to.eq(200);
@@ -24,7 +24,7 @@ describe("Probando Endpoint para agregar documento al cliente", () => {
         url: `${Cypress.env("API_CLIENTS_SANDBOX")}/client/${this.datos.idCliente}/documents/${this.datos.idDocumentSandbox}`,
         method: "GET",
         headers: { 
-          "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_SANDBOX")}`
+          "Authorization": `${Cypress.env("Authorization")}`
         },
       }).then((response) => {
         expect(response.status).to.eq(200);
@@ -41,7 +41,7 @@ it("Get document Content[Produccion]", () => {
       method: "GET",
       failOnStatusCode:false,
       headers: { 
-        "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_PRODUCCION")}`
+        "Authorization": `${Cypress.env("Authorization")}`
       },
     }).then((response) => {
       expect(response.status).to.eq(400);

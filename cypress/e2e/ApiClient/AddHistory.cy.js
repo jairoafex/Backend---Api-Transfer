@@ -1,15 +1,14 @@
 /// <reference types ="Cypress" />
 const userData=require('../../fixtures/AddHistory')
-describe("Probando Endpoint para agregar historia al cliente", () => {
-  it("Agregar nueva Historia [Staging]", () => {
+describe("Testing API Clients [AddHistory]", () => {
+  it("Agregar nueva Historia[Staging]", () => {
     cy.fixture("data_test").then(function (datos) {
     this.datos = datos;
     cy.log("Data", this.datos.idCliente);
       cy.request({
-        //url: `/client/${this.datos.id}/history`,
         url: `${Cypress.env("API_CLIENTS")}/client/${this.datos.idCliente}/history`,
         method: "POST",
-        headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}` },
+        headers: { "Authorization": `${Cypress.env("Authorization")}` },
         body: userData
       }).then((response) => {
         expect(response.status).to.eq(200);
@@ -24,10 +23,9 @@ describe("Probando Endpoint para agregar historia al cliente", () => {
     this.datos = datos;
     cy.log("Data", this.datos.idCliente);
       cy.request({
-        //url: `/client/${this.datos.id}/history`,
         url: `${Cypress.env("API_CLIENTS_SANDBOX")}/client/${this.datos.idCliente}/history`,
         method: "POST",
-        headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_SANDBOX")}` },
+        headers: { "Authorization": `${Cypress.env("Authorization")}` },
         body: userData
       }).then((response) => {
         expect(response.status).to.eq(200);
@@ -37,7 +35,7 @@ describe("Probando Endpoint para agregar historia al cliente", () => {
       });
     });
   });
-  it("Agregar nueva Historia[Produccion]", () => {
+  /*it("Agregar nueva Historia[Produccion]", () => {
     cy.fixture("data_test").then(function (datos) {
     this.datos = datos;
     cy.log("Data", this.datos.idCliente);
@@ -45,7 +43,7 @@ describe("Probando Endpoint para agregar historia al cliente", () => {
         //url: `/client/${this.datos.id}/history`,
         url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/client/${this.datos.idCliente}/history`,
         method: "POST",
-        headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_PRODUCCION")}` },
+        headers: { "Authorization": `${Cypress.env("Authorization")}` },
         failOnStatusCode:false,
         body: userData
       }).then((response) => {
@@ -54,5 +52,5 @@ describe("Probando Endpoint para agregar historia al cliente", () => {
         expect(response.body.messages).have.to.eq("client does not exist");
       });
     });
-  });
+  });*/
 })

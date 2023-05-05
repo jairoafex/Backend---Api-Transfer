@@ -8,7 +8,7 @@ describe("Actualizar cliente", () => {
         cy.request({
           url: `${Cypress.env("API_CLIENTS")}/clients/${this.datos.idCliente}`,
           method: "PUT",
-          headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}` },
+          headers: { "Authorization": `${Cypress.env("Authorization")}` },
           body: userData
         }).then((response) => {
           expect(response.status).to.eq(200);
@@ -18,14 +18,14 @@ describe("Actualizar cliente", () => {
         });
       });
     });
-    it("Actualizar cliente [Sandbox]", () => {
+    it("Actualizar datos de contacto [Sandbox]", () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
         cy.log("Data", this.datos.id);
         cy.request({
           url: `${Cypress.env("API_CLIENTS_SANDBOX")}/clients/${this.datos.idCliente}`,
           method: "PUT",
-          headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_SANDBOX")}` },
+          headers: { "Authorization": `${Cypress.env("Authorization")}` },
           body: userData
         }).then((response) => {
           expect(response.status).to.eq(200);
@@ -43,7 +43,7 @@ describe("Actualizar cliente", () => {
           url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/clients/${this.datos.idCliente}`,
           method: "PUT",
           failOnStatusCode:false,
-          headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_PRODUCCION")}` },
+          headers: { "Authorization": `${Cypress.env("Authorization")}` },
           body: userData
         }).then((response) => {
           expect(response.status).to.eq(400);

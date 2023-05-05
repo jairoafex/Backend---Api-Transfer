@@ -7,7 +7,7 @@ describe("Testing API service Movii", () => {
     cy.request({
         url: `${Cypress.env("API_TRANSFER")}/feelookup`,
         method: "POST",
-        headers: {  "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}`},
+        headers: {   "Authorization": `${Cypress.env("Authorization")}`},
         body: requestData
     }
     ).then((response) => {
@@ -21,7 +21,7 @@ describe("Testing API service Movii", () => {
         cy.request({
             url: `${Cypress.env("API_TRANSFER")}/transfersv1`,
             method: "POST",
-            headers: {  "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}`},
+            headers: {   "Authorization": `${Cypress.env("Authorization")}`},
             body: requestTransfer
         }
         ).then((response) => {
@@ -40,7 +40,7 @@ describe("Testing API service Movii", () => {
             cy.request({
                 url: `${Cypress.env("API_TRANSFER")}/transfers/confirm`,
                 method: "POST",
-                headers: {  "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}`},
+                headers: {   "Authorization": `${Cypress.env("Authorization")}`},
                 body: {
                     id: id_transfer,
                     commissionTbk: 0,

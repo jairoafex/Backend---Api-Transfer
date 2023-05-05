@@ -1,5 +1,5 @@
 /// <reference types ="Cypress" />
-describe("Probando endpoint que obtiene valor de cambio", () => {
+describe("Testing API Transfer [ExchangeRateByBranch]", () => {
     it("Exchange by rate [Staging]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
@@ -8,7 +8,7 @@ describe("Probando endpoint que obtiene valor de cambio", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER')}/v1/transfers/exchangeRate/${this.datos.branchCode}`,
           method: "GET",
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}` }
+          headers: { "Authorization": `${Cypress.env("Authorization")}` }
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("data");
@@ -25,7 +25,7 @@ describe("Probando endpoint que obtiene valor de cambio", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_SANDBOX')}/v1/transfers/exchangeRate/${this.datos.branchCode}`,
           method: "GET",
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE_SANDBOX")}` }
+          headers: { "Authorization": `${Cypress.env("Authorization")}` }
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("data");
@@ -42,7 +42,7 @@ describe("Probando endpoint que obtiene valor de cambio", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_PRODUCCION')}/v1/transfers/exchangeRate/${this.datos.branchCode}`,
           method: "GET",
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFER_VALUE_PRODUCCION")}` }
+          headers: { "Authorization": `${Cypress.env("Authorization")}` }
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("data");

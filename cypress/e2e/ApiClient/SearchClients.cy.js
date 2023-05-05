@@ -4,7 +4,7 @@ describe("Probando Endpoint para buscar cliente", () => {
             url: `${Cypress.env("API_CLIENTS")}/clients/search`,
             //url: '/clients/search',
             method: "POST",
-            headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}` },
+            headers: { "Authorization": `${Cypress.env("Authorization")}` },
             body:{
                     search: `${Math.floor(Math.random() * 100)}`
                 }
@@ -20,7 +20,7 @@ describe("Probando Endpoint para buscar cliente", () => {
             url: `${Cypress.env("API_CLIENTS_SANDBOX")}/clients/search`,
             //url: '/clients/search',
             method: "POST",
-            headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_SANDBOX")}` },
+            headers: { "Authorization": `${Cypress.env("Authorization")}` },
             body:{
                     search: "Gina"
                 }
@@ -36,7 +36,7 @@ describe("Probando Endpoint para buscar cliente", () => {
             url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/clients/search`,
             //url: '/clients/search',
             method: "POST",
-            headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_PRODUCCION")}` },
+            headers: { "Authorization": `${Cypress.env("Authorization")}` },
             body:{
                     search: `${Math.floor(Math.random() * 1000)}`
                 }
@@ -47,6 +47,4 @@ describe("Probando Endpoint para buscar cliente", () => {
             cy.log(id);
           });
         });
-
-
   });

@@ -1,5 +1,5 @@
 /// <reference types ="Cypress" />
-describe("Probando Endpoint para obtener sucursales por agente", () => {
+describe("Testing API Transfer [AgentsConditions]", () => {
     it("Agents Conditions [Stating]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
@@ -8,7 +8,7 @@ describe("Probando Endpoint para obtener sucursales por agente", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER')}/v1/transfers/agent/${this.datos.branchCode}/conditions/${this.datos.country}/${this.datos.city}`,
           method: "GET",
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}` }
+          headers: { "Authorization": `${Cypress.env("Authorization")}` }
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("status");
@@ -25,7 +25,7 @@ describe("Probando Endpoint para obtener sucursales por agente", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_SANDBOX')}/v1/transfers/agent/${this.datos.branchCode}/conditions/${this.datos.country}/${this.datos.city}`,
           method: "GET",
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE_SANDBOX")}` }
+          headers: { "Authorization": `${Cypress.env("Authorization")}` }
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("status");
@@ -42,7 +42,7 @@ describe("Probando Endpoint para obtener sucursales por agente", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_PRODUCCION')}/v1/transfers/agent/${this.datos.branchCode}/conditions/${this.datos.country}/${this.datos.city}`,
           method: "GET",
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFER_VALUE_PRODUCCION")}` }
+          headers: { "Authorization": `${Cypress.env("Authorization")}` }
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("status");

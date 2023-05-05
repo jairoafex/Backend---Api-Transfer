@@ -8,7 +8,7 @@ describe("Probando Endpoint para actualizar estado del documento", () => {
         url: `${Cypress.env("API_CLIENTS")}/client/${this.datos.idCliente}/documents/${this.datos.idDocument}/status`,
         method: "PUT",
         headers: {
-          "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}`,
+          "Authorization": `${Cypress.env("Authorization")}`,
         },
         body: {
           status: this.datos.status,
@@ -29,7 +29,7 @@ describe("Probando Endpoint para actualizar estado del documento", () => {
         url: `${Cypress.env("API_CLIENTS_SANDBOX")}/client/${this.datos.idCliente}/documents/${this.datos.idDocumentSandbox}/status`,
         method: "PUT",
         headers: {
-          "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_SANDBOX")}`,
+          "Authorization": `${Cypress.env("Authorization")}`,
         },
         body: {
           status: this.datos.status,
@@ -51,7 +51,7 @@ describe("Probando Endpoint para actualizar estado del documento", () => {
         method: "PUT",
         failOnStatusCode:false,
         headers: {
-          "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_PRODUCCION")}`,
+          "Authorization": `${Cypress.env("Authorization")}`,
         },
         body: {
           status: this.datos.status,

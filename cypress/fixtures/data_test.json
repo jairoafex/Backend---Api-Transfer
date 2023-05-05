@@ -24,6 +24,12 @@
   "starDate" :"2023-02-01",
   "endDate" : "2023-02-07",
   "country": "PE",
-  "city":"LIM"
+  "city":"LIM",
+  "name":"NARONI ALTAGRACIA MEJIA REYES",
+  "birthdate":"1981-12-20",
+  "countryCode": "AR",
+  "identification": "aae850652",
+  "codigo_giro_sandbox":"AG30112152"
+
 
 }

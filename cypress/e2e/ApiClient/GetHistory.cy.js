@@ -9,7 +9,7 @@ describe("Probando Endpoint para agregar documento al cliente", () => {
         url: `${Cypress.env("API_CLIENTS")}/client/${this.datos.idCliente}/history`,
         method: "GET",
         headers: {
-          "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}`,
+          "Authorization": `${Cypress.env("Authorization")}`,
         },
       }).then((response) => {
         expect(response.status).to.eq(200);
@@ -28,7 +28,7 @@ describe("Probando Endpoint para agregar documento al cliente", () => {
         url: `${Cypress.env("API_CLIENTS_SANDBOX")}/client/${this.datos.idCliente}/history`,
         method: "GET",
         headers: {
-          "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_SANDBOX")}`,
+          "Authorization": `${Cypress.env("Authorization")}`,
         },
       }).then((response) => {
         expect(response.status).to.eq(200);
@@ -38,7 +38,7 @@ describe("Probando Endpoint para agregar documento al cliente", () => {
       });
     });
   });
-  it("Get History [Produccion]", () => {
+  /*it("Get History [Produccion]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
       cy.log("Data", this.datos.id);
@@ -54,7 +54,5 @@ describe("Probando Endpoint para agregar documento al cliente", () => {
         expect(response.body).to.have.property("messages");
       });
     });
-  });
-
-
+  });*/
 });

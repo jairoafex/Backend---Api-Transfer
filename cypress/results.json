@@ -23,7 +23,7 @@
   },
   "cypress/e2e/ApiClient/GetDocumentContent.cy.js": {
     "Probando Endpoint para agregar documento al cliente Get document Content [Staging]": "passed",
-    "Probando Endpoint para agregar documento al cliente Get document Content[Sandbox]": "failed",
+    "Probando Endpoint para agregar documento al cliente Get document Content[Sandbox]": "passed",
     "Probando Endpoint para agregar documento al cliente Get document Content[Produccion]": "passed"
   },
   "cypress/e2e/ApiClient/GetDocumentUrl.cy.js": {
@@ -54,12 +54,12 @@
   "cypress/e2e/ApiTransfer/AgentConditions.cy.js": {
     "Probando Endpoint para obtener sucursales por agente Agents Conditions [Stating]": "passed",
     "Probando Endpoint para obtener sucursales por agente Agents Conditions [Sandbox]": "passed",
-    "Probando Endpoint para obtener sucursales por agente Agents Conditions [Produccion]": "passed"
+    "Probando Endpoint para obtener sucursales por agente Agents Conditions [Produccion]": "failed"
   },
   "cypress/e2e/ApiTransfer/AgentsByCountry.cy.js": {
     "Probando Endpoint para consultar agentes por pais y ciudad especifico Agents By Country [Stating]": "passed",
     "Probando Endpoint para consultar agentes por pais y ciudad especifico Agents By Country [Sandbox]": "passed",
-    "Probando Endpoint para consultar agentes por pais y ciudad especifico Agents By Country [Produccion]": "passed"
+    "Probando Endpoint para consultar agentes por pais y ciudad especifico Agents By Country [Produccion]": "failed"
   },
   "cypress/e2e/ApiTransfer/ExchangeRateByBranch.cy.js": {
     "Probando endpoint que obtiene valor de cambio Exchange by rate [Staging]": "passed",
@@ -117,8 +117,8 @@
   "totals": {
     "suites": 22,
     "tests": 71,
-    "failed": 1,
-    "passed": 70,
+    "failed": 2,
+    "passed": 69,
     "pending": 0,
     "skipped": 0
   }

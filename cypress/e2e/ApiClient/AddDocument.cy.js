@@ -1,5 +1,5 @@
 const userData = require("../../fixtures/AddDocuments");
-describe("Probando Endpoint para agregar documento al cliente", () => {
+describe("Validando API-Client [AddDocument]", () => {
   it("Agregar nuevo documentom [Staging]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
@@ -10,7 +10,7 @@ describe("Probando Endpoint para agregar documento al cliente", () => {
           this.datos.idCliente
         }/documents`,
         method: "POST",
-        headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE")}` },
+        headers: { "Authorization": `${Cypress.env("Authorization")}` },
         body: userData,
       }).then((response) => {
         expect(response.status).to.eq(200);
@@ -30,7 +30,7 @@ describe("Probando Endpoint para agregar documento al cliente", () => {
           this.datos.idCliente
         }/documents`,
         method: "POST",
-        headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_SANDBOX")}` },
+        headers: { "Authorization": `${Cypress.env("Authorization")}`  },
         body: userData,
       }).then((response) => {
         expect(response.status).to.eq(200);
@@ -40,7 +40,7 @@ describe("Probando Endpoint para agregar documento al cliente", () => {
       });
     });
   });
-  it("Agregar nuevo documento[Produccion]", () => {
+    it("Agregar nuevo documento[Produccion]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
       cy.log("Data", this.datos.id);
@@ -50,13 +50,13 @@ describe("Probando Endpoint para agregar documento al cliente", () => {
           this.datos.idCliente
         }/documents`,
         method: "POST",
-        headers: { "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_PRODUCCION")}` },
-        failOnStatusCode:false,
+        headers: { "Authorization": `${Cypress.env("Authorization")}`  },
         body: userData,
       }).then((response) => {
-        expect(response.status).to.eq(400);
-        expect(response.body).to.have.property("messages");
-        expect(response.body.messages).have.to.eq("client does not exist");
+        expect(response.status).to.eq(200);
+        expect(response.body.data).to.have.property("id");
+        const id = response.body.data.id;
+        cy.log(id);
       });
     });
   });

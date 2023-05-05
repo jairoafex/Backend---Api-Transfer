@@ -22,6 +22,7 @@ module.exports = defineConfig({
     API_CLIENTS_VALUE:'9RubKS6Sir1pNh1Mv7Zhp8JDxIoOkn0VnSKjQs25',
     API_CLIENTS:'https://he9n83rsg0.execute-api.us-west-2.amazonaws.com/staging',
     API_TRANSFERS_VALUE:'l48r2vlY0B9BdzsHzym6u3uxnHLug6023pcW203b',
+    Authorization:'dummySessionToken',
     //SandBox
     API_TRANSFER_SANDBOX:'https://f9afcpjnd0.execute-api.us-west-2.amazonaws.com/sandbox',
     API_TRANSFERS_VALUE_SANDBOX:'3V8rrt7ky51Vf8y8czlpv8kmPvtFeA5K8Kk47ua3',

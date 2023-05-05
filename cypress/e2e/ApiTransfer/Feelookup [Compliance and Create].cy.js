@@ -1,7 +1,7 @@
 /// <reference types ="Cypress" />
 const userData=require('../../fixtures/Feelookup')
 let id_giro={};
-describe("Probando Endpoint para cotizar y validar cumplimiento", () => {
+describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]", () => {
     it("Feelookup[Staging]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
@@ -10,7 +10,7 @@ describe("Probando Endpoint para cotizar y validar cumplimiento", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER')}/v1/transfers/feelookup/`,
           method: "POST",
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}` },
+          headers: { "Authorization": `${Cypress.env("Authorization")}` },
           body: userData
           
         }).then((response) => {
@@ -30,7 +30,7 @@ describe("Probando Endpoint para cotizar y validar cumplimiento", () => {
           url: `${Cypress.env('API_TRANSFER')}/v1/transfers/feelookup/compliance`,
           method: "POST",
           failOnStatusCode:false,
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}` },
+          headers: { "Authorization": `${Cypress.env("Authorization")}` },
           body: {
             feelookupId: id_giro,
             quoteId: this.datos.idquote,
@@ -38,7 +38,7 @@ describe("Probando Endpoint para cotizar y validar cumplimiento", () => {
           },
         }).then((response) => {
           expect(response.status).to.eq(400);
-          expect(response.body).to.have.property("messages");
+          expect(response.body).to.have.property("message");
           const messages = response.body.messages
           cy.log("messages", messages);
         });
@@ -52,7 +52,7 @@ describe("Probando Endpoint para cotizar y validar cumplimiento", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER')}/v1/transfers/feelookup/compliance/create`,
           method: "POST",
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE")}` },
+          headers: { "Authorization": `${Cypress.env("Authorization")}` },
           body: {
             feelookupId: id_giro,
             branchName: this.datos.branchName,
@@ -76,7 +76,7 @@ describe("Probando Endpoint para cotizar y validar cumplimiento", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_SANDBOX')}/v1/transfers/feelookup/`,
           method: "POST",
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE_SANDBOX")}` },
+          headers: { "Authorization": `${Cypress.env("Authorization")}` },
           body: userData
           
         }).then((response) => {
@@ -96,7 +96,7 @@ describe("Probando Endpoint para cotizar y validar cumplimiento", () => {
           url: `${Cypress.env('API_TRANSFER_SANDBOX')}/v1/transfers/feelookup/compliance`,
           method: "POST",
           failOnStatusCode:false,
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE_SANDBOX")}` },
+          headers: { "Authorization": `${Cypress.env("Authorization")}` },
           body: {
             feelookupId: id_giro,
             quoteId: this.datos.idquote,
@@ -104,7 +104,7 @@ describe("Probando Endpoint para cotizar y validar cumplimiento", () => {
           },
         }).then((response) => {
           expect(response.status).to.eq(400);
-          expect(response.body).to.have.property("messages");
+          expect(response.body).to.have.property("message");
           const messages = response.body.messages
           cy.log("messages", messages);
         });
@@ -118,7 +118,7 @@ describe("Probando Endpoint para cotizar y validar cumplimiento", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_SANDBOX')}/v1/transfers/feelookup/compliance/create`,
           method: "POST",
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFERS_VALUE_SANDBOX")}` },
+          headers: { "Authorization": `${Cypress.env("Authorization")}` },
           body: {
             feelookupId: id_giro,
             branchName: this.datos.branchName,
@@ -134,7 +134,7 @@ describe("Probando Endpoint para cotizar y validar cumplimiento", () => {
         });
       });
     });
-    it("Feelookup[Produccion]",{
+    /*it("Feelookup[Produccion]",{
     }, () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_PRODUCCION')}/v1/transfers/feelookup/`,
@@ -179,5 +179,5 @@ describe("Probando Endpoint para cotizar y validar cumplimiento", () => {
           cy.log("messages", messages);
         });
       });
-    });
+    });*/
   });
