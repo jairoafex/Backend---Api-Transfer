@@ -1,7 +1,7 @@
 /// <reference types ="Cypress" />
 const userData=require('../../fixtures/ActualizarCliente')
-describe("Actualizar cliente", () => {
-    it("Actualizar datos de contacto [Staging]", () => {
+describe("Testing API Clients [UpdateClient]", () => {
+    it("Update Client [Staging]", () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
         cy.log("Data", this.datos.id);
@@ -18,7 +18,7 @@ describe("Actualizar cliente", () => {
         });
       });
     });
-    it("Actualizar datos de contacto [Sandbox]", () => {
+    it("UpdateClient [Sandbox]", () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
         cy.log("Data", this.datos.id);

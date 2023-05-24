@@ -1,5 +1,5 @@
 /// <reference types ="Cypress" />
-describe("Probando Endpoint para obtener campos adiciones segun cotizacion", () => {
+describe("Testing API Transfer [Feelookup Fields]", () => {
     it("Feelookup Fields [Staging]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {

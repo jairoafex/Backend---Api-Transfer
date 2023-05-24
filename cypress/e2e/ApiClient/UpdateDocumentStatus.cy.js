@@ -1,6 +1,6 @@
 /// <reference types ="Cypress" />
-describe("Probando Endpoint para actualizar estado del documento", () => {
-  it("Actualizando estado del documento [Staging]", () => {
+describe("Testing API Clients [UpdateDocumentStatus]", () => {
+  it("Update Documen Status [Staging]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
       cy.log("Data", this.datos.id);
@@ -21,7 +21,7 @@ describe("Probando Endpoint para actualizar estado del documento", () => {
       });
     });
   });
-  it("Actualizando estado del documento [Sandbox]", () => {
+  it("Update Documen Status [Sandbox]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
       cy.log("Data", this.datos.id);
@@ -42,7 +42,7 @@ describe("Probando Endpoint para actualizar estado del documento", () => {
       });
     });
   });
-  it("Actualizando estado del documento [Produccion]", () => {
+  it("Update Documen Status [Produccion]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
       cy.log("Data", this.datos.id);

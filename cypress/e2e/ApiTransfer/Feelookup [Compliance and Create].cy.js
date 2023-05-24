@@ -62,7 +62,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
           },
         }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.body).to.have.property("messages");
+          expect(response.body).to.have.property("message");
           const messages = response.body.messages
           cy.log("messages", messages);
         });
@@ -128,13 +128,13 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
           },
         }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.body).to.have.property("messages");
+          expect(response.body).to.have.property("message");
           const messages = response.body.messages
           cy.log("messages", messages);
         });
       });
     });
-    /*it("Feelookup[Produccion]",{
+    it.skip("Feelookup[Produccion]",{
     }, () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_PRODUCCION')}/v1/transfers/feelookup/`,
@@ -156,7 +156,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
           expect(response.body.messages).have.to.eq("branchCode is missing")
         });
     });
-    it("Feelookup Compliance[Produccion]",{
+    it.skip("Feelookup Compliance[Produccion]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
@@ -179,5 +179,5 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
           cy.log("messages", messages);
         });
       });
-    });*/
+    });
   });

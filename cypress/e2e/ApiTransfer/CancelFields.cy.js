@@ -1,5 +1,5 @@
 /// <reference types ="Cypress" />
-describe("Cancel fields", () => {
+describe("Testing API Transfer [CancelFields]", () => {
     it.only("CancelFields[Staging]", () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
@@ -12,8 +12,8 @@ describe("Cancel fields", () => {
         }
         }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.body).to.have.property("messages");
-          expect(response.body.messages).to.be.equal('fields for cancel')
+          expect(response.body).to.have.property("message");
+          expect(response.body.message).to.be.equal('Fields for cancel')
           const messages = response.body.messages
           cy.log("message=", messages);
         });
@@ -31,8 +31,8 @@ describe("Cancel fields", () => {
           }
           }).then((response) => {
             expect(response.status).to.eq(200);
-            expect(response.body).to.have.property("messages");
-            expect(response.body.messages).to.be.equal('fields for cancel')
+            expect(response.body).to.have.property("message");
+            expect(response.body.message).to.be.equal('Fields for cancel')
             const messages = response.body.messages
             cy.log("message=", messages);
           });

@@ -1,4 +1,4 @@
-describe("Probando Endpoint para buscar cliente", () => {
+describe("Testing API Clients [SearchClients]", () => {
     it("Search Clients [Staging]", () => {
           cy.request({
             url: `${Cypress.env("API_CLIENTS")}/clients/search`,

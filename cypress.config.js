@@ -2,17 +2,18 @@ const {
   defineConfig
 
 } = require("cypress");
-
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+const { cloudPlugin } = require("cypress-cloud/plugin");
 
 module.exports = defineConfig({
+  chromeWebSecurity: false,
   projectId: "9qjzf8",
   e2e: {
     setupNodeEvents(on, config) {
       
-      require('cypress-json-results')({
-        on,
-        filename: 'cypress/results.json', // default filename
-      })
+      allureWriter(on, config);
+      return cloudPlugin(on, config);
+      //return config;
 
     },
   },

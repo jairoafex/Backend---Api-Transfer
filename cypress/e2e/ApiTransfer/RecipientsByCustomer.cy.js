@@ -1,5 +1,5 @@
 /// <reference types ="Cypress" />
-describe("Probando Endpoint para beneficiarios de giro de cliente", () => {
+describe("Testing API Transfer [RecipientsByCustomer]", () => {
     it("Recipients by Customer [Staging]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {

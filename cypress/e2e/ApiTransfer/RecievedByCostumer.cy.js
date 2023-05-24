@@ -1,6 +1,6 @@
 /// <reference types ="Cypress" />
-describe("Probando Endpoint para giros recibidos por un cliente", () => {
-    it("Recieved By Customer [Staging]",{
+describe("Testing API Transfer [ReceiveByCostumer]", () => {
+    it("Recieved By Costomer [Staging]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
@@ -16,7 +16,7 @@ describe("Probando Endpoint para giros recibidos por un cliente", () => {
         });
       });
     });
-    it("Recieved By Customer [Sandbox]",{
+    it("Recieved By Costomer [Sandbox]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;

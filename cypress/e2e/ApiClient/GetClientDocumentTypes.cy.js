@@ -1,6 +1,6 @@
 /// <reference types ="Cypress" />
 describe("Testing API Clients [GetClientDocumentsTypes]", () => {
-    it.skip("GetClientDocumentType[Staging]", () => {
+    it("GetClientDocumentType[Staging]", () => {
         cy.request({
           url: `${Cypress.env("API_CLIENTS")}/client/documents/types`,
           method: "GET",

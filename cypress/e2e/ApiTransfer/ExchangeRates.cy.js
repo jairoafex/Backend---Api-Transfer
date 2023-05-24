@@ -1,6 +1,6 @@
 /// <reference types ="Cypress" />
-describe("ExchangesRates", () => {
-    it.only("Exchange Rate[Staging]", () => {
+describe("Testing API Transfer [ExchagesRates]", () => {
+    it.only("Exchanges Rates [Staging]", () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
         cy.log("Data", this.datos.id);
@@ -14,14 +14,14 @@ describe("ExchangesRates", () => {
         }
         }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.body).to.have.property("messages");
-          expect(response.body.messages).to.be.equal('success')
-          const messages = response.body.messages
-          cy.log("message=", messages);
+          expect(response.body).to.have.property("message");
+          expect(response.body.message).to.be.equal('agents exchange rates')
+          const messages = response.body.message
+          cy.log("message=", message);
         });
       });
     });
-    it.only("Exchange Rate[Sandbox]", () => {
+    it.only("Exchanges Rates [Sandbox]", () => {
         cy.fixture("data_test").then(function (datos) {
           this.datos = datos;
           cy.log("Data", this.datos.id);
@@ -35,8 +35,8 @@ describe("ExchangesRates", () => {
           }
           }).then((response) => {
             expect(response.status).to.eq(200);
-            expect(response.body).to.have.property("messages");
-            expect(response.body.messages).to.be.equal('success')
+            expect(response.body).to.have.property("message");
+            expect(response.body.message).to.be.equal('Agents exchange rates')
             const messages = response.body.messages
             cy.log("message=", messages);
           });

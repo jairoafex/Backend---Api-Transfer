@@ -1,7 +1,7 @@
 /// <reference types ="Cypress" />
 const userData=require('../../fixtures/EditTransfer')
-describe("Actualizar cliente", () => {
-    it.only("Actualizar datos de contacto [Sandbox]", () => {
+describe("Testing API Transfer [EditTransfers]", () => {
+    it.only("Edit Transfers [Sandbox]", () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
         cy.log("Data", this.datos.id);
@@ -16,14 +16,14 @@ describe("Actualizar cliente", () => {
           body: userData
         }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.body).to.have.property("messages");
-          expect(response.body.messages).to.be.equal('transfer updated')
+          expect(response.body).to.have.property("message");
+          expect(response.body.message).to.be.equal('Transfer edited')
           const messages = response.body.messages
           cy.log("message=", messages);
         });
       });
     });
-    it.only("Actualizar datos de contacto [Staging]", () => {
+    it.only("Edit Transfers [Staging]", () => {
         cy.fixture("data_test").then(function (datos) {
           this.datos = datos;
           cy.log("Data", this.datos.id);
@@ -38,8 +38,8 @@ describe("Actualizar cliente", () => {
             body: userData
           }).then((response) => {
             expect(response.status).to.eq(200);
-            expect(response.body).to.have.property("messages");
-            expect(response.body.messages).to.be.equal('transfer updated')
+            expect(response.body).to.have.property("message");
+            expect(response.body.message).to.be.equal('Transfer edited')
             const messages = response.body.messages
             cy.log("message=", messages);
           });

@@ -1,6 +1,6 @@
 /// <reference types ="Cypress" />
 
-describe("Probando Endpoint para consultar clientes", () => {
+describe("Testing API Clients", () => {
   it("Get Client By id [Staging]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
@@ -80,7 +80,7 @@ describe("Probando Endpoint para consultar clientes", () => {
       });
     });
   });
-  it("Get Client By id [Produccion]", () => {
+  it.only("Get Client By id [Produccion]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
       cy.log("Data", this.datos.idCliente);

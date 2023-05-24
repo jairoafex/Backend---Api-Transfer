@@ -1,5 +1,5 @@
 /// <reference types ="Cypress" />
-describe("Probando Endpoint para agregar documento al cliente", () => {
+describe("Testing API Clients [GetHistory]", () => {
   it("Get history [Staging]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
@@ -38,7 +38,7 @@ describe("Probando Endpoint para agregar documento al cliente", () => {
       });
     });
   });
-  /*it("Get History [Produccion]", () => {
+  it("Get History [Produccion]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
       cy.log("Data", this.datos.id);
@@ -47,12 +47,12 @@ describe("Probando Endpoint para agregar documento al cliente", () => {
         url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/client/${this.datos.idCliente_produccion}/history`,
         method: "GET",
         headers: {
-          "x-api-key": `${Cypress.env("API_CLIENTS_VALUE_PRODUCCION")}`,
+          "Authorization": `${Cypress.env("Authorization")}`,
         },
       }).then((response) => {
         expect(response.status).to.eq(200);
         expect(response.body).to.have.property("messages");
       });
     });
-  });*/
+  });
 });

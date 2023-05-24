@@ -16,6 +16,7 @@
   "documento_tipo":"rut",
   "branchId": 23,
   "branchCode": "AG",
+  "afexUserId":"23902165",
   "branchName": "AFEX MATIAS COUSIÑO",
   "userAfexId": "2",
   "userFullName": "Guido Solar",
@@ -29,7 +30,9 @@
   "birthdate":"1981-12-20",
   "countryCode": "AR",
   "identification": "aae850652",
-  "codigo_giro_sandbox":"AG30112152"
+  "codigo_giro_sandbox":"AG30112152",
+  "codigo_giro_staging":"ZB30063695",
+  "codigo_giro_produccion":"ZB30101373"
 
 
 }

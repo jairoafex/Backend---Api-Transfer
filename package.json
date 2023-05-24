@@ -8,7 +8,11 @@
     "run:server": "json-server --watch db.json --port 3001",
     "run:record": "cypress run --record --key fdd38ad3-8fcb-41c9-a111-ab794da06fc2",
     "test:ci": "cypress run --config video=false --env configFile=cypress.json --reporter mocha-junit-reporter --reporter-options junitFile=cypress/results/junit-[hash].xml,jsonFile=cypress/results/output-[hash].json && cat cypress/results/output-*.json | jq -r '.stats.tests' | xargs echo -n 'Total tests: '; cat cypress/results/output-*.json | jq -r '.stats.tests' | paste -sd+ - | bc && cat cypress/results/output-*.json | jq -r '.stats.failures' | xargs echo -n ', Failures: '; cat cypress/results/output-*.json | jq -r '.stats.failures' | paste -sd+ - | bc && cat cypress/results/output-*.json | jq -r '.stats.passes' | xargs echo -n ', Passed: '; cat cypress/results/output-*.json | jq -r '.stats.passes' | paste -sd+ - | bc && echo -e '\n' && npx cypress-slack-reporter --reporter-options configFile=cypress.json --config message=failedOnly --config channel=$SLACK_CHANNEL_ID --config botName=$SLACK_BOT_NAME --token $SLACK_BOT_TOKEN",
-    "cypress:run-json": "cypress run --headless --reporter json --reporter-options \"outputFile=cypress/results/results.json\""
+    "cypress:run-json": "cypress run --headless --reporter json --reporter-options \"outputFile=cypress/results/results.json\"",
+    "allure:report": "npx cypress run --env allure=true",
+    "allure:serve": "allure serve allure-results",
+    "allure:report:docker": "npx cypress run",
+    "allure:serve:docker": "allure serve dockerReports"
   },
   "keywords": [
     "backend"
@@ -17,6 +21,7 @@
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
+    "@shelex/cypress-allure-plugin": "^2.39.1",
     "cypress-json-results": "^1.2.1",
     "cypress-slack-notify": "^1.14.0",
     "faker": "^6.6.6",
@@ -26,7 +31,9 @@
   },
   "dependencies": {
     "@slack/webhook": "^6.1.0",
-    "cypress": "^12.11.0",
+    "cy2": "^4.0.6",
+    "cypress": "^12.13.0",
+    "cypress-cloud": "^1.7.4",
     "instead": "^1.0.3"
   }
 }

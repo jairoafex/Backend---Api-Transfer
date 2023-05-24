@@ -1,5 +1,5 @@
 /// <reference types ="Cypress" />
-describe("Probando Endpoint para agregar documento al cliente", () => {
+describe("Testing API Clients [GetDocumentContent]", () => {
     it("Get document Content [Staging]", () => {
         cy.fixture("data_test").then(function (datos) {
           this.datos = datos;

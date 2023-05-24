@@ -1,6 +1,6 @@
 /// <reference types ="Cypress" />
-describe("Testing Endpoint de pago beneficairio", () => {
-  it("Pago beneficiario [Staging]", {}, () => {
+describe("Testing API Transfer [Receive]", () => {
+  it("Receive [Staging]", {}, () => {
     cy.request({
       url: `${Cypress.env("API_TRANSFER")}/v1/transfers/receive`,
       method: "POST",
@@ -22,7 +22,7 @@ describe("Testing Endpoint de pago beneficairio", () => {
       expect(response.body).to.have.property("message", messages);
     });
   });
-  it("Pago beneficiario [Sandbox]", {}, () => {
+  it("Receive [Sandbox]", {}, () => {
     cy.request({
       url: `${Cypress.env("API_TRANSFER")}/v1/transfers/receive`,
       method: "POST",
