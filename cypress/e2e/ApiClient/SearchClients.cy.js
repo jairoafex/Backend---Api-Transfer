@@ -1,10 +1,10 @@
 describe("Testing API Clients [SearchClients]", () => {
     it("Search Clients [Staging]", () => {
           cy.request({
-            url: `${Cypress.env("API_CLIENTS")}/clients/search`,
-            //url: '/clients/search',
+            url: `${Cypress.env("API_CLIENTS_STAGING")}/clients/search`,
+
             method: "POST",
-            headers: { "Authorization": `${Cypress.env("Authorization")}` },
+            headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
             body:{
                     search: `${Math.floor(Math.random() * 100)}`
                 }
@@ -15,12 +15,11 @@ describe("Testing API Clients [SearchClients]", () => {
             cy.log(id);
           });
         });
-        it("Search Clients [Sandbox]", () => {
+        it("SearchClients[Sandbox]", () => {
           cy.request({
             url: `${Cypress.env("API_CLIENTS_SANDBOX")}/clients/search`,
-            //url: '/clients/search',
             method: "POST",
-            headers: { "Authorization": `${Cypress.env("Authorization")}` },
+            headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
             body:{
                     search: "Gina"
                 }
@@ -31,12 +30,11 @@ describe("Testing API Clients [SearchClients]", () => {
             cy.log(id);
           });
         });
-        it("Search Clients [Produccion]", () => {
+        it("SearchClients[Produccion]", () => {
           cy.request({
             url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/clients/search`,
-            //url: '/clients/search',
             method: "POST",
-            headers: { "Authorization": `${Cypress.env("Authorization")}` },
+            headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_PRODUCCION")}` },
             body:{
                     search: `${Math.floor(Math.random() * 1000)}`
                 }

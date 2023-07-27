@@ -3,18 +3,15 @@ describe("Testing API Clients [Similarity]", () => {
     it("Validando similitud[Sandbox]", () => {
         cy.fixture("data_test").then(function (datos) {
           this.datos = datos;
-          cy.log("Data", this.datos.id);
           cy.request({
             url: `${Cypress.env("API_CLIENTS_SANDBOX")}/clients/similarity-assessment`,
             method: "POST",
-            headers: {
-              "Authorization": `${Cypress.env("Authorization")}`,
-            },
+            headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
             body: {
-              status: this.datos.status,
-              birthday:this.datos.birthday,
-              identification:this.datos.identification,
-              name:this.datos.name
+              birthday:datos.birthday,
+              countryCode:datos.countryCode,
+              identification:datos.identification,
+              name:datos.name
             },
           }).then((response) => {
             expect(response.status).to.eq(200);
@@ -27,18 +24,37 @@ describe("Testing API Clients [Similarity]", () => {
       it("Validando similitud[Staging]", () => {
         cy.fixture("data_test").then(function (datos) {
           this.datos = datos;
-          cy.log("Data", this.datos.id);
           cy.request({
-            url: `${Cypress.env("API_CLIENTS")}/clients/similarity-assessment`,
+            url: `${Cypress.env("API_CLIENTS_STAGING")}/clients/similarity-assessment`,
             method: "POST",
-            headers: {
-              "Authorization": `${Cypress.env("Authorization")}`,
-            },
+            headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
             body: {
-              status: this.datos.status,
-              birthday:this.datos.birthday,
-              identification:this.datos.identification,
-              name:this.datos.name
+              status: datos.status,
+              birthday:datos.birthday,
+              countryCode:datos.countryCode,
+              identification:datos.identification,
+              name:datos.name
+            },
+          }).then((response) => {
+            expect(response.status).to.eq(200);
+            expect(response.body).to.have.property("messages");
+            const messages = response.body.messages;
+            cy.log(messages);
+          });
+        });
+      });
+      it("Validandosimilitud[Produccion]", () => {
+        cy.fixture("data_test").then(function (datos) {
+          this.datos = datos;
+          cy.request({
+            url: `${Cypress.env("API_CLIENTS_STAGING")}/clients/similarity-assessment`,
+            method: "POST",
+            headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
+            body: {
+              birthday:datos.birthday_produccion,
+              identification:datos.identification_produccion,
+              countryCode:datos.countryCode_produccion,
+              name:datos.name_produccion
             },
           }).then((response) => {
             expect(response.status).to.eq(200);

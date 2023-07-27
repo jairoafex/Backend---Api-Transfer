@@ -1,86 +1,79 @@
 /// <reference types ="Cypress" />
 
 describe("Testing API Clients", () => {
-  it("Get Client By id [Staging]", () => {
+  it("GetClientByid[Staging]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
-      cy.log("Data", this.datos.idCliente);
       cy.request({
-        url: `${Cypress.env("API_CLIENTS")}/clients/${this.datos.idCliente}`,
+        url: `${Cypress.env("API_CLIENTS_STAGING")}/clients/${datos.idCliente_staging}`,
         method: "GET",
-        headers: {
-          "Authorization": `${Cypress.env("Authorization")}`,
-        },
+        headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
       }).then((response) => {
         expect(response.status).to.eq(200);
         expect(
           response.body.data.identification.identifications[0].number
-        ).to.be.equal(this.datos.documento);
+        ).to.be.equal(datos.documento_cliente_staging);
+        expect(response.body).to.have.property("status", "success");
         cy.log(response);
       });
     });
   });
-  it("Get Client By Document[Staging]", () => {
+  it("GetClientByDocument[Staging]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
-      cy.log("Data", this.datos.id);
       cy.request({
-        url: `${Cypress.env("API_CLIENTS")}/clients/search/identification`,
+        url: `${Cypress.env("API_CLIENTS_STAGING")}/clients/search/identification`,
         method: "POST",
-        headers: { 
-          "Authorization": `${Cypress.env("Authorization")}`,
-        
-        },
+        headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
         body: {
-          number: this.datos.documento,
-          type: this.datos.tipo,
+          number: datos.documento_cliente_staging,
+          type: datos.tipo,
         },
       }).then((response) => {
         expect(response.status).to.eq(200);
-        expect(response.body.data.id).to.be.equal(this.datos.idCliente);
+        expect(response.body.data.id).to.be.equal(datos.idCliente_staging);
+        expect(response.body).to.have.property("status", "success");
         cy.log(response);
       });
     });
   });
-  it("Get Client By id [Sandbox]", () => {
+  it("GetClientByid[Sandbox]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
-      cy.log("Data", this.datos.idCliente);
       cy.request({
-        url: `${Cypress.env("API_CLIENTS_SANDBOX")}/clients/${this.datos.idCliente}`,
+        url: `${Cypress.env("API_CLIENTS_SANDBOX")}/clients/${this.datos.idCliente_sandbox}`,
         method: "GET",
-        headers: {
-          "Authorization": `${Cypress.env("Authorization")}`,
-        },
+        headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
       }).then((response) => {
         expect(response.status).to.eq(200);
         expect(
           response.body.data.identification.identifications[0].number
-        ).to.be.equal(this.datos.documento);
+        ).to.be.equal(datos.documento_cliente_sandbox);
         cy.log(response);
       });
     });
   });
-  it("Get Client By Document[Sandbox]", () => {
+  it("GetClientByDocument[Sandbox]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
       cy.log("Data", this.datos.id);
       cy.request({
         url: `${Cypress.env("API_CLIENTS_SANDBOX")}/clients/search/identification`,
         method: "POST",
-        headers: { "Authorization": `${Cypress.env("Authorization")}`,},
+headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
         body: {
-          number: this.datos.documento,
-          type: this.datos.tipo,
+          number: datos.documento_cliente_sandbox,
+          type: datos.tipo,
         },
       }).then((response) => {
         expect(response.status).to.eq(200);
-        expect(response.body.data.id).to.be.equal(this.datos.idCliente);
+        expect(response.body.data.id).to.be.equal(datos.idCliente_sandbox);
+        expect(response.body).to.have.property("status", "success");
         cy.log(response);
       });
     });
   });
-  it.only("Get Client By id [Produccion]", () => {
+  it("Get Client By id [Produccion]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
       cy.log("Data", this.datos.idCliente);
@@ -88,33 +81,34 @@ describe("Testing API Clients", () => {
         url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/clients/${this.datos.idCliente_produccion}`,
         method: "GET",
         headers: {
-          "Authorization": `${Cypress.env("Authorization")}`,
+          "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_PRODUCCION")}`,
         },
       }).then((response) => {
         expect(response.status).to.eq(200);
         expect(
           response.body.data.identification.identifications[0].number
         ).to.be.equal(this.datos.documento_produccion);
+        expect(response.body).to.have.property("status", "success");
         cy.log(response);
       });
     });
   });
 
-  it("Get Client By Document[Produccion]", () => {
+  it("GetClientByDocument[Produccion]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
-      cy.log("Data", this.datos.id);
       cy.request({
         url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/clients/search/identification`,
         method: "POST",
-        headers: { "Authorization": `${Cypress.env("Authorization")}`,},
+        headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_PRODUCCION")}`,},
         body: {
           number: this.datos.documento_produccion,
           type: this.datos.documento_tipo,
         },
       }).then((response) => {
         expect(response.status).to.eq(200);
-        expect(response.body.data.id).to.be.equal(this.datos.idCliente_produccion);
+        expect(response.body.data.id).to.be.equal(datos.idCliente_produccion);
+        expect(response.body).to.have.property("status", "success");
         cy.log(response);
       });
     });

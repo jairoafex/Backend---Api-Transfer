@@ -3,18 +3,15 @@ describe("Testing API Clients [AddDocument]", () => {
   it("Add Document [Staging]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
-      cy.log("Data", this.datos.id);
       cy.request({
-        // url: `/client/${this.datos.id}/documents`,
-        url: `${Cypress.env("API_CLIENTS")}/client/${
-          this.datos.idCliente
-        }/documents`,
+        url: `${Cypress.env("API_CLIENTS_STAGING")}/client/${datos.idCliente_staging}/documents`,
         method: "POST",
-        headers: { "Authorization": `${Cypress.env("Authorization")}` },
+        headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
         body: userData,
       }).then((response) => {
         expect(response.status).to.eq(200);
         expect(response.body.data).to.have.property("id");
+        expect(response.body).to.have.property("status", "success");
         const id = response.body.data.id;
         cy.log(id);
       });
@@ -23,18 +20,15 @@ describe("Testing API Clients [AddDocument]", () => {
   it("Add Document [SandBox]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
-      cy.log("Data", this.datos.id);
       cy.request({
-        // url: `/client/${this.datos.id}/documents`,
-        url: `${Cypress.env("API_CLIENTS_SANDBOX")}/client/${
-          this.datos.idCliente
-        }/documents`,
+        url: `${Cypress.env("API_CLIENTS_SANDBOX")}/client/${datos.idCliente_sandbox}/documents`,
         method: "POST",
-        headers: { "Authorization": `${Cypress.env("Authorization")}`  },
+        headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}`  },
         body: userData,
       }).then((response) => {
         expect(response.status).to.eq(200);
         expect(response.body.data).to.have.property("id");
+        expect(response.body).to.have.property("status", "success");
         const id = response.body.data.id;
         cy.log(id);
       });

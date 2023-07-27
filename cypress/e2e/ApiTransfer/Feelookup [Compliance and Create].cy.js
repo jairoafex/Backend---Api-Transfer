@@ -8,9 +8,9 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
         this.datos = datos;
         cy.log("Data", this.datos.id);
         cy.request({
-          url: `${Cypress.env('API_TRANSFER')}/v1/transfers/feelookup/`,
+          url: `${Cypress.env('API_TRANSFER_STAGING')}/v1/transfers/feelookup/`,
           method: "POST",
-          headers: { "Authorization": `${Cypress.env("Authorization")}` },
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_STAGING")}` },
           body: userData
           
         }).then((response) => {
@@ -27,10 +27,10 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
         this.datos = datos;
         cy.log("Data", id_giro);
         cy.request({
-          url: `${Cypress.env('API_TRANSFER')}/v1/transfers/feelookup/compliance`,
+          url: `${Cypress.env('API_TRANSFER_STAGING')}/v1/transfers/feelookup/compliance`,
           method: "POST",
           failOnStatusCode:false,
-          headers: { "Authorization": `${Cypress.env("Authorization")}` },
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_STAGING")}` },
           body: {
             feelookupId: id_giro,
             quoteId: this.datos.idquote,
@@ -50,7 +50,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
         this.datos = datos;
         cy.log("Data", this.datos.id);
         cy.request({
-          url: `${Cypress.env('API_TRANSFER')}/v1/transfers/feelookup/compliance/create`,
+          url: `${Cypress.env('API_TRANSFER_STAGING')}/v1/transfers/feelookup/compliance/create`,
           method: "POST",
           headers: { "Authorization": `${Cypress.env("Authorization")}` },
           body: {
@@ -76,7 +76,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
         cy.request({
           url: `${Cypress.env('API_TRANSFER_SANDBOX')}/v1/transfers/feelookup/`,
           method: "POST",
-          headers: { "Authorization": `${Cypress.env("Authorization")}` },
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_SANDBOX")}` },
           body: userData
           
         }).then((response) => {
@@ -96,7 +96,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
           url: `${Cypress.env('API_TRANSFER_SANDBOX')}/v1/transfers/feelookup/compliance`,
           method: "POST",
           failOnStatusCode:false,
-          headers: { "Authorization": `${Cypress.env("Authorization")}` },
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_SANDBOX")}` },
           body: {
             feelookupId: id_giro,
             quoteId: this.datos.idquote,
@@ -118,7 +118,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
         cy.request({
           url: `${Cypress.env('API_TRANSFER_SANDBOX')}/v1/transfers/feelookup/compliance/create`,
           method: "POST",
-          headers: { "Authorization": `${Cypress.env("Authorization")}` },
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_SANDBOX")}` },
           body: {
             feelookupId: id_giro,
             branchName: this.datos.branchName,
@@ -134,29 +134,27 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
         });
       });
     });
-    it.skip("Feelookup[Produccion]",{
+    it("Feelookup[Produccion]",{
     }, () => {
         cy.request({
-          url: `${Cypress.env('API_TRANSFER_PRODUCCION')}/v1/transfers/feelookup/`,
+          url: `${Cypress.env('API_TRANSFER_PRODUCCION')}/v1/transfers/feelookup`,
           method: "POST",
-          failOnStatusCode:false,
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFER_VALUE_PRODUCCION")}` },
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFERS_PRODUCCION")}` },
           body: {
-              amount: "200",
+              amount: 200,
               branchId: "00",
-              branchCode: "",
+              branchCode: "AG",
               receiverCountry: "CO",
               receiverCity: "BOG",
               includeFee:false,
-              methodPayment: "",
               originCurrency: "USD"
           }
         }).then((response) => {
-          expect(response.status).to.eq(400);
-          expect(response.body.messages).have.to.eq("branchCode is missing")
+          expect(response.status).to.eq(200);
+          expect(response.body.status).have.to.eq("success")
         });
     });
-    it.skip("Feelookup Compliance[Produccion]",{
+    it.only("Feelookup Compliance[Produccion]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
@@ -165,7 +163,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
           url: `${Cypress.env('API_TRANSFER_PRODUCCION')}/v1/transfers/feelookup/compliance`,
           method: "POST",
           failOnStatusCode:false,
-          headers: { "x-api-key": `${Cypress.env("API_TRANSFER_VALUE_PRODUCCION")}` },
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFERS_PRODUCCION")}` },
           body: {
             feelookupId: this.datos.idCotizacion_produccion,
             quoteId: this.datos.idquote,
@@ -173,9 +171,9 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
           },
         }).then((response) => {
           expect(response.status).to.eq(400);
-          expect(response.body).to.have.property("messages");
-          expect(response.body.messages).have.to.eq("transaction not allowed")
-          const messages = response.body.messages
+          expect(response.body).to.have.property("message");
+          expect(response.body.message).have.to.eq("Error trying to evaluate send transfer")
+          const messages = response.body.message
           cy.log("messages", messages);
         });
       });

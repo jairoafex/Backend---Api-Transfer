@@ -6,9 +6,9 @@ describe("Testing API Transfer [AgentsByCountry]", () => {
         this.datos = datos;
         cy.log("Data", this.datos.id);
         cy.request({
-          url: `${Cypress.env('API_TRANSFER')}/v1/transfers/agents/${this.datos.country}/${this.datos.city}`,
+          url: `${Cypress.env('API_TRANSFER_STAGING')}/v1/transfers/agents/${this.datos.country}/${this.datos.city}`,
           method: "GET",
-          headers: { "Authorization": `${Cypress.env("Authorization")}` }
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_STAGING")}` }
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("status");
@@ -25,7 +25,7 @@ describe("Testing API Transfer [AgentsByCountry]", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_SANDBOX')}/v1/transfers/agents/${this.datos.country}/${this.datos.city}`,
           method: "GET",
-          headers: { "Authorization": `${Cypress.env("Authorization")}` }
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_SANDBOX")}` }
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("status");
@@ -42,7 +42,7 @@ describe("Testing API Transfer [AgentsByCountry]", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_PRODUCCION')}/v1/transfers/agents/${this.datos.country}/${this.datos.city}`,
           method: "GET",
-          headers: { "Authorization": `${Cypress.env("Authorization")}` }
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFERS_PRODUCCION")}` }
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("status");

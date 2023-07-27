@@ -5,11 +5,9 @@ describe("Testing API Clients [UpdateDocumentStatus]", () => {
       this.datos = datos;
       cy.log("Data", this.datos.id);
       cy.request({
-        url: `${Cypress.env("API_CLIENTS")}/client/${this.datos.idCliente}/documents/${this.datos.idDocument}/status`,
+        url: `${Cypress.env("API_CLIENTS_STAGING")}/client/${this.datos.idCliente_staging}/documents/${this.datos.idDocument_staging}/status`,
         method: "PUT",
-        headers: {
-          "Authorization": `${Cypress.env("Authorization")}`,
-        },
+        headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
         body: {
           status: this.datos.status,
         },
@@ -26,11 +24,9 @@ describe("Testing API Clients [UpdateDocumentStatus]", () => {
       this.datos = datos;
       cy.log("Data", this.datos.id);
       cy.request({
-        url: `${Cypress.env("API_CLIENTS_SANDBOX")}/client/${this.datos.idCliente}/documents/${this.datos.idDocumentSandbox}/status`,
+        url: `${Cypress.env("API_CLIENTS_SANDBOX")}/client/${this.datos.idCliente_sandbox}/documents/${this.datos.idDocument_sandbox}/status`,
         method: "PUT",
-        headers: {
-          "Authorization": `${Cypress.env("Authorization")}`,
-        },
+        headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
         body: {
           status: this.datos.status,
         },
@@ -51,7 +47,7 @@ describe("Testing API Clients [UpdateDocumentStatus]", () => {
         method: "PUT",
         failOnStatusCode:false,
         headers: {
-          "Authorization": `${Cypress.env("Authorization")}`,
+          "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_PRODUCCION")}`,
         },
         body: {
           status: this.datos.status,

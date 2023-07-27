@@ -4,32 +4,32 @@ describe("Testing API Clients [AddHistory]", () => {
   it("Add History [Staging]", () => {
     cy.fixture("data_test").then(function (datos) {
     this.datos = datos;
-    cy.log("Data", this.datos.idCliente);
       cy.request({
-        url: `${Cypress.env("API_CLIENTS")}/client/${this.datos.idCliente}/history`,
+        url: `${Cypress.env("API_CLIENTS_STAGING")}/client/${datos.idCliente_staging}/history`,
         method: "POST",
-        headers: { "Authorization": `${Cypress.env("Authorization")}` },
+        headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
         body: userData
       }).then((response) => {
         expect(response.status).to.eq(200);
         expect(response.body).to.have.property("messages");
+        expect(response.body).to.have.property("status", "success");
         const messages = response.body.messages
         cy.log("message=", messages);
       });
     });
   });
-  it("Add history [Sandbox]", () => {
+  it("AddHistory[Sandbox]", () => {
     cy.fixture("data_test").then(function (datos) {
     this.datos = datos;
-    cy.log("Data", this.datos.idCliente);
       cy.request({
-        url: `${Cypress.env("API_CLIENTS_SANDBOX")}/client/${this.datos.idCliente}/history`,
+        url: `${Cypress.env("API_CLIENTS_SANDBOX")}/client/${datos.idCliente_sandbox}/history`,
         method: "POST",
-        headers: { "Authorization": `${Cypress.env("Authorization")}` },
+        headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
         body: userData
       }).then((response) => {
         expect(response.status).to.eq(200);
         expect(response.body).to.have.property("messages");
+        expect(response.body).to.have.property("status", "success");
         const messages = response.body.messages
         cy.log("message=", messages);
       });

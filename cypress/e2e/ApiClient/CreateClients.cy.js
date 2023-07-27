@@ -1,12 +1,12 @@
 /// <reference types ="Cypress" />
 
-describe("Testing API Clients [createClient]", () => {
-    it("Create new Client [Staging]",()=>{
+describe("Testing API Clients [CreateClient]", () => {
+    it("CreateClient[Staging]",()=>{
     const userData=require('../../fixtures/CreateClient')
     cy.request({
-        url: `${Cypress.env("API_CLIENTS")}/clients`,
+        url: `${Cypress.env("API_CLIENTS_STAGING")}/clients`,
         method: "POST",
-        headers: {  "Authorization": `${Cypress.env("Authorization")}`},
+        headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
         body: userData
     }
     ).then((response) => {
@@ -17,12 +17,12 @@ describe("Testing API Clients [createClient]", () => {
         cy.log(response.body.data.id);
       });
     })
-    it("Create new Client [Sandbox]",()=>{
+    it("CreatenewClient[Sandbox]",()=>{
         const userData=require('../../fixtures/CreateClient_sandbox')
         cy.request({
             url: `${Cypress.env("API_CLIENTS_SANDBOX")}/clients`,
             method: "POST",
-            headers: {  "Authorization": `${Cypress.env("Authorization")}`},
+            headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
             body: userData
         }
         ).then((response) => {

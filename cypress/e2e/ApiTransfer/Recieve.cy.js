@@ -2,10 +2,10 @@
 describe("Testing API Transfer [Receive]", () => {
   it("Receive [Staging]", {}, () => {
     cy.request({
-      url: `${Cypress.env("API_TRANSFER")}/v1/transfers/receive`,
+      url: `${Cypress.env("API_TRANSFER_STAGING")}/v1/transfers/receive`,
       method: "POST",
       headers: {
-        "Authorization": `${Cypress.env("Authorization")}`,
+        "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_STAGING")}`,
         "x-afex-user-id": 237902165,
         "x-afex-branch-code": "AG",
       },
@@ -18,16 +18,15 @@ describe("Testing API Transfer [Receive]", () => {
     }).then((response) => {
       expect(response.status).to.eq(400);
       expect(response.body).to.have.property("status", "error");
-      const messages = response.body.message;
-      expect(response.body).to.have.property("message", messages);
+      expect(response.body.description).to.contains('No se logró pagar el giro')
     });
   });
   it("Receive [Sandbox]", {}, () => {
     cy.request({
-      url: `${Cypress.env("API_TRANSFER")}/v1/transfers/receive`,
+      url: `${Cypress.env("API_TRANSFER_SANDBOX")}/v1/transfers/receive`,
       method: "POST",
       headers: {
-        "Authorization": `${Cypress.env("Authorization")}`,
+        "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_SANDBOX")}`,
         "x-afex-user-id": 237902165,
         "x-afex-branch-code": "AG",
       },
@@ -40,16 +39,15 @@ describe("Testing API Transfer [Receive]", () => {
     }).then((response) => {
       expect(response.status).to.eq(400);
       expect(response.body).to.have.property("status", "error");
-      const messages = response.body.message;
-      expect(response.body).to.have.property("message", messages);
+      expect(response.body.description).to.contains('No se logró pagar el giro')
     });
   });
-  it("Pago beneficiario [Produccion]", {}, () => {
+  it("Receive [Produccion]", {}, () => {
     cy.request({
       url: `${Cypress.env("API_TRANSFER_PRODUCCION")}/v1/transfers/receive`,
       method: "POST",
       headers: {
-        "Authorization": `${Cypress.env("Authorization")}`,
+        "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFERS_PRODUCCION")}`,
         "x-afex-user-id": 237902165,
         "x-afex-branch-code": "AG",
       },
@@ -57,12 +55,12 @@ describe("Testing API Transfer [Receive]", () => {
       body: {
         corporateCode: 1127208,
         transferCode: "AG30151203",
+        paymentToOther:false,
       },
     }).then((response) => {
       expect(response.status).to.eq(400);
       expect(response.body).to.have.property("status", "error");
-      const message = response.body.message;
-      expect(response.body).to.have.property("message", message);
+      expect(response.body.description).to.contains('No se logró pagar el giro')
     });
   });
 });

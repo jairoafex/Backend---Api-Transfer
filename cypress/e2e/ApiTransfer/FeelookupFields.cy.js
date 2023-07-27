@@ -5,9 +5,9 @@ describe("Testing API Transfer [Feelookup Fields]", () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
         cy.request({
-          url: `${Cypress.env('API_TRANSFER')}/v1/transfers/feelookup/fields`,
+          url: `${Cypress.env('API_TRANSFER_STAGING')}/v1/transfers/feelookup/fields`,
           method: "POST",
-          headers: { "Authorization": `${Cypress.env("Authorization")}` },
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_STAGING")}` },
           body: {   
             feelookupId: this.datos.idCotizacion,
             quoteId: this.datos.idquote, 
@@ -27,7 +27,7 @@ describe("Testing API Transfer [Feelookup Fields]", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_SANDBOX')}/v1/transfers/feelookup/fields`,
           method: "POST",
-          headers: { "Authorization": `${Cypress.env("Authorization")}` },
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_SANDBOX")}` },
           body: {   
             feelookupId: this.datos.idCotizacion_sanbox,
             quoteId: this.datos.idquote, 

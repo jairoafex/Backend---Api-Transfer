@@ -2,11 +2,9 @@
 describe("Testing API Clients [GetClientDocumentsTypes]", () => {
     it("GetClientDocumentType[Staging]", () => {
         cy.request({
-          url: `${Cypress.env("API_CLIENTS")}/client/documents/types`,
+          url: `${Cypress.env("API_CLIENTS_STAGING")}/client/documents/types`,
           method: "GET",
-          headers: {
-            "Authorization": `${Cypress.env("Authorization")}`,
-          },
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("messages");
@@ -19,9 +17,7 @@ describe("Testing API Clients [GetClientDocumentsTypes]", () => {
         cy.request({
           url: `${Cypress.env("API_CLIENTS_SANDBOX")}/client/documents/types`,
           method: "GET",
-          headers: {
-            "Authorization": `${Cypress.env("Authorization")}`,
-          },
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("messages");
@@ -35,7 +31,7 @@ describe("Testing API Clients [GetClientDocumentsTypes]", () => {
         url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/client/documents/types`,
         method: "GET",
         headers: {
-          "Authorization": `${Cypress.env("Authorization")}`,
+          "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_PRODUCCION")}`,
         },
       }).then((response) => {
         expect(response.status).to.eq(200);

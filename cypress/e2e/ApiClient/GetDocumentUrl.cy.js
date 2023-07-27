@@ -1,21 +1,17 @@
 /// <reference types ="Cypress" />
 describe("Testing API Clients [GetDocumentURL]", () => {
-    it("Get document Content[Staging]", () => {
+    it("GetDocumentUrl[Staging]", () => {
         cy.fixture("data_test").then(function (datos) {
           this.datos = datos;
-          cy.log("Data", this.datos.id);
           cy.request({
-            //url: `/client/${this.datos.idCliente}/documents/${this.datos.idDocument}/url`,
-            url: `${Cypress.env("API_CLIENTS")}/client/${this.datos.idCliente}/documents/${this.datos.idDocument}/url`,
+            url: `${Cypress.env("API_CLIENTS_STAGING")}/client/${datos.idCliente_staging}/documents/${datos.idDocument_staging}/url`,
             method: "GET",
-            headers: { 
-              "Authorization": `${Cypress.env("Authorization")}`
-            },
+            headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
           }).then((response) => {
             expect(response.status).to.eq(200);
             expect(response.body).to.have.property("data")
+            expect(response.body).to.have.property("status", "success");
             const id=response.body.data.id
-            cy.log(id)
           });
         });
   });
@@ -25,14 +21,13 @@ describe("Testing API Clients [GetDocumentURL]", () => {
       cy.log("Data", this.datos.id);
       cy.request({
         //url: `/client/${this.datos.idCliente}/documents/${this.datos.idDocument}/url`,
-        url: `${Cypress.env("API_CLIENTS_SANDBOX")}/client/${this.datos.idCliente}/documents/${this.datos.idDocumentSandbox}/url`,
+        url: `${Cypress.env("API_CLIENTS_SANDBOX")}/client/${this.datos.idCliente_sandbox}/documents/${this.datos.idDocument_sandbox}/url`,
         method: "GET",
-        headers: { 
-          "Authorization": `${Cypress.env("Authorization")}`
-        },
+        headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
       }).then((response) => {
         expect(response.status).to.eq(200);
         expect(response.body).to.have.property("data")
+        expect(response.body).to.have.property("status", "success");
         const id=response.body.data.id
         cy.log(id)
       });
@@ -48,7 +43,7 @@ it("Get document Content[Produccion]", () => {
       method: "GET",
       failOnStatusCode:false,
       headers: { 
-        "Authorization": `${Cypress.env("Authorization")}`
+        "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_PRODUCCION")}`
       },
     }).then((response) => {
       expect(response.status).to.eq(400);
