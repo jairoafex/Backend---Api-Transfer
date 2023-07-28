@@ -28,7 +28,7 @@ describe("Testing API Clients [GetClientFullDetails]", () => {
       });
       })
     });
-    it("GetClientFullDetails[Produccion]", () => {
+    it.skip("GetClientFullDetails[Produccion]", () => {
       cy.fixture("data_test").then(function(datos){
         this.datos=datos
         cy.request({

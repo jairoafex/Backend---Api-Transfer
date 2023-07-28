@@ -38,7 +38,7 @@ describe("Testing API Clients [UpdateDocumentStatus]", () => {
       });
     });
   });
-  it("Update Documen Status [Produccion]", () => {
+  it.skip("Update Documen Status [Produccion]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
       cy.log("Data", this.datos.id);

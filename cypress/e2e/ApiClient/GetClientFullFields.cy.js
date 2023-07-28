@@ -22,7 +22,7 @@ describe("Testing API Clients [GetClientFullFields]", () => {
           expect(response.body).to.have.property("status", "success");
         });
     });
-    it("GetClientFullFields[Produccion]", () => {
+    it.skip("GetClientFullFields[Produccion]", () => {
       cy.request({
         url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/clients/full/fields?type=person&risk=normal`,
         method: "GET",

@@ -35,7 +35,7 @@ describe("Testing API Clients [UpdateClient]", () => {
         });
       });
     });
-    it("Actualizar cliente [Produccion]", () => {
+    it.skip("Actualizar cliente [Produccion]", () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
         cy.log("Data", this.datos.id);

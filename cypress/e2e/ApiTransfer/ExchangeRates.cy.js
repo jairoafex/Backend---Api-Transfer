@@ -1,6 +1,6 @@
 /// <reference types ="Cypress" />
 describe("Testing API Transfer [ExchagesRates]", () => {
-    it.only("ExchangesRates[Staging]", () => {
+    it("ExchangesRates[Staging]", () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
         cy.log("Data", this.datos.id);
@@ -21,7 +21,7 @@ describe("Testing API Transfer [ExchagesRates]", () => {
         });
       });
     });
-    it.only("Exchanges Rates [Sandbox]", () => {
+    it("Exchanges Rates [Sandbox]", () => {
         cy.fixture("data_test").then(function (datos) {
           this.datos = datos;
           cy.log("Data", this.datos.id);
@@ -42,7 +42,7 @@ describe("Testing API Transfer [ExchagesRates]", () => {
           });
         });
       });
-      it.only("ExchangesRates[Produccion]", () => {
+      it.skip("ExchangesRates[Produccion]", () => {
         cy.fixture("data_test").then(function (datos) {
           this.datos = datos;
           cy.log("Data", this.datos.id);

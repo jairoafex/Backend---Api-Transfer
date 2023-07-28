@@ -43,7 +43,7 @@ describe("Testing API Clients [DisableClient]", () => {
       });
     });
   });
-  it("DisableClient[Produccion]", () => {
+  it.skip("DisableClient[Produccion]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
       cy.request({

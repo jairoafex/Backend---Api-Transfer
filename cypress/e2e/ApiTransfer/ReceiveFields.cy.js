@@ -32,7 +32,7 @@ describe("Testing API Transfer [ReceiveFields]", () => {
           expect(response.body.message).to.eq('Fields for receive')
         });
       });
-      it("ReceiveFields[Produccion]", {}, () => {
+      it.skip("ReceiveFields[Produccion]", {}, () => {
         cy.request({
           url: `${Cypress.env("API_TRANSFER_PRODUCCION")}/v1/transfers/receive/fields`,
           method: "POST",

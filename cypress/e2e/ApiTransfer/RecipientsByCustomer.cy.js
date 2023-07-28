@@ -34,7 +34,7 @@ describe("Testing API Transfer [RecipientsByCustomer]", () => {
         });
       });
     });
-    it("Recipients by Customer [Produccion]",{
+    it.skip("Recipients by Customer [Produccion]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;

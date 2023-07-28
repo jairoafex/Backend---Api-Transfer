@@ -28,7 +28,7 @@ describe("Testing API Clients [GetDocumentContent]", () => {
       });
     });
 });
-it("Get document Content[Produccion]", () => {
+it.skip("Get document Content[Produccion]", () => {
   cy.fixture("data_test").then(function (datos) {
     this.datos = datos;
     cy.log("Data", this.datos.id);

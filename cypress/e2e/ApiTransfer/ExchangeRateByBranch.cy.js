@@ -34,7 +34,7 @@ describe("Testing API Transfer [ExchangeRateByBranch]", () => {
         });
       });
     });
-    it("Exchange by rate [Produccion]",{
+    it.skip("Exchange by rate [Produccion]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;

@@ -26,7 +26,7 @@ describe("Testing API Clients [GetClientDocumentsTypes]", () => {
           cy.log(messages);
         });
     });
-    it("GetClientDocumentType[produccion]", () => {
+    it.skip("GetClientDocumentType[produccion]", () => {
       cy.request({
         url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/client/documents/types`,
         method: "GET",

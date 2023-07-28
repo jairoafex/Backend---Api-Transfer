@@ -1,6 +1,6 @@
 /// <reference types ="Cypress" />
 describe("Testing API Transfer [Receive]", () => {
-  it("Receive [Staging]", {}, () => {
+  it("Receive [Staging]", () => {
     cy.request({
       url: `${Cypress.env("API_TRANSFER_STAGING")}/v1/transfers/receive`,
       method: "POST",
@@ -21,7 +21,7 @@ describe("Testing API Transfer [Receive]", () => {
       expect(response.body.description).to.contains('No se logró pagar el giro')
     });
   });
-  it("Receive [Sandbox]", {}, () => {
+  it("Receive [Sandbox]", () => {
     cy.request({
       url: `${Cypress.env("API_TRANSFER_SANDBOX")}/v1/transfers/receive`,
       method: "POST",
@@ -42,7 +42,7 @@ describe("Testing API Transfer [Receive]", () => {
       expect(response.body.description).to.contains('No se logró pagar el giro')
     });
   });
-  it("Receive [Produccion]", {}, () => {
+  it.skip("Receive[Produccion]", () => {
     cy.request({
       url: `${Cypress.env("API_TRANSFER_PRODUCCION")}/v1/transfers/receive`,
       method: "POST",

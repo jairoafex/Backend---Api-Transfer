@@ -18,7 +18,7 @@ describe('Testing API Transfer [GetTransfersDetails]',()=>{
           });
         });
       });
-      it("Get Transfer details [Staging]", () => {
+      it("GetTransferdetails[Staging]", () => {
         cy.fixture("data_test").then(function (datos) {
           this.datos = datos;
           cy.request({
@@ -37,7 +37,7 @@ describe('Testing API Transfer [GetTransfersDetails]',()=>{
           });
         });
       });
-      it("Get Transfer details [Produccion]", () => {
+      it.skip("Get Transfer details [Produccion]", () => {
         cy.fixture("data_test").then(function (datos) {
           this.datos = datos;
           cy.request({

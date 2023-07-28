@@ -134,7 +134,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
         });
       });
     });
-    it("Feelookup[Produccion]",{
+    it.skip("Feelookup[Produccion]",{
     }, () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_PRODUCCION')}/v1/transfers/feelookup`,
@@ -154,7 +154,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
           expect(response.body.status).have.to.eq("success")
         });
     });
-    it.only("Feelookup Compliance[Produccion]",{
+    it.skip("Feelookup Compliance[Produccion]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;

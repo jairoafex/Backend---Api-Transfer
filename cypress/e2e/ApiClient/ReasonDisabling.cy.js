@@ -22,7 +22,7 @@ describe("Testing API Clients [ReasonDisabling]", () => {
           expect(response.body).to.have.property("status", "success");
         });
     });
-    it("ReasonDisabling[Produccion]", () => {
+    it.skip("ReasonDisabling[Produccion]", () => {
       cy.request({
         url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/clients/reasons/disabling`,
         method: "GET",

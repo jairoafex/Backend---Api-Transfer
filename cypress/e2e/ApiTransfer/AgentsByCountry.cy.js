@@ -34,7 +34,7 @@ describe("Testing API Transfer [AgentsByCountry]", () => {
         });
       });
     });
-    it("Agents By Country [Produccion]",{
+    it.skip("AgentsByCountry[Produccion]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;

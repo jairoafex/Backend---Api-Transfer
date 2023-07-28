@@ -1,6 +1,6 @@
 /// <reference types ="Cypress" />
 describe("Testing API Transfer [Feelookup Fields]", () => {
-    it("Feelookup Fields [Staging]",{
+    it("FeelookupFields[Staging]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
@@ -20,7 +20,7 @@ describe("Testing API Transfer [Feelookup Fields]", () => {
         });
       });
     });
-    it("Feelookup Fields [Sandbox]",{
+    it("FeelookupFields[Sandbox]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
