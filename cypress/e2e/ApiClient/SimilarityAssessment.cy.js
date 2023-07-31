@@ -21,7 +21,7 @@ describe("Testing API Clients [Similarity]", () => {
           });
         });
       });
-      it.skip("Validando similitud[Staging]", () => {
+      it("Validando similitud[Staging]", () => {
         cy.fixture("data_test").then(function (datos) {
           this.datos = datos;
           cy.request({
@@ -43,7 +43,7 @@ describe("Testing API Clients [Similarity]", () => {
           });
         });
       });
-      it("Validandosimilitud[Produccion]", () => {
+      it.skip("Validandosimilitud[Produccion]", () => {
         cy.fixture("data_test").then(function (datos) {
           this.datos = datos;
           cy.request({
