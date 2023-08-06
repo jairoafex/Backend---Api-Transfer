@@ -1,6 +1,8 @@
 {
   "idCliente_sandbox": "598fbc1a-2882-4233-ac22-4da1dc1af789",
   "idCliente_staging": "5dd415cb-3661-44e6-b185-42508a437fa2",
+  "idCliente_sandbox_full":"ac1e6007-0555-4f24-8e3f-221cb809629b",
+  "idCliente_staging_full":"e68fd51c-baf8-4a67-a5c2-1f8428e99e06",
   "idCliente_produccion": "688f022b-3c36-48a7-a922-52382f98b4a9",
   "idCliente_produccion_enabled": "0309a2d9-9db8-48a6-995b-aa387e248c25",
   "idCotizacion": "10442ed2-6efc-4a82-b7a6-63a44eb77dc7",

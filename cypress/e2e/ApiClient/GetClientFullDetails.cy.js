@@ -4,7 +4,7 @@ describe("Testing API Clients [GetClientFullDetails]", () => {
       cy.fixture("data_test").then(function(datos){
         this.datos=datos
         cy.request({
-        url: `${Cypress.env("API_CLIENTS_STAGING")}/clients/full/${datos.idCliente_staging}`,
+        url: `${Cypress.env("API_CLIENTS_STAGING")}/clients/full/${datos.idCliente_staging_full}`,
         method: "GET",
         headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
       }).then((response) => {
@@ -18,7 +18,7 @@ describe("Testing API Clients [GetClientFullDetails]", () => {
       cy.fixture("data_test").then(function(datos){
         this.datos=datos
         cy.request({
-        url: `${Cypress.env("API_CLIENTS_SANDBOX")}/clients/full/${datos.idCliente_sandbox}`,
+        url: `${Cypress.env("API_CLIENTS_SANDBOX")}/clients/full/${datos.idCliente_sandbox_full}`,
         method: "GET",
         headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
       }).then((response) => {
