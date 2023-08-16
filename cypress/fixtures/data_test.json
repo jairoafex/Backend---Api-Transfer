@@ -11,6 +11,7 @@
   "idDocument_staging": "420bd4f6-e1d1-464b-b236-289c34010115",
   "idDocument_sandbox": "9f95e61c-2e67-41c5-90ab-7031e3c2e957",
   "status": 1,
+  "actionFlow_documents":"RECHAZAR",
   "idquote": 1,
   "codigo_cliente": 1127389,
   "codigo_cliente_produccion":1587464,

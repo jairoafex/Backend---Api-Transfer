@@ -26,15 +26,15 @@ describe("Testing API Clients [UpdateDocumentStatus]", () => {
       cy.request({
         url: `${Cypress.env("API_CLIENTS_SANDBOX")}/client/${this.datos.idCliente_sandbox}/documents/${this.datos.idDocument_sandbox}/status`,
         method: "PUT",
+        failOnStatusCode:false,
         headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
         body: {
-          status: this.datos.status,
+          action: datos.actionFlow_documents,
         },
       }).then((response) => {
-        expect(response.status).to.eq(200);
+        expect(response.status).to.eq(400);
         expect(response.body).to.have.property("messages");
-        const messages = response.body.messages;
-        cy.log(messages);
+        expect(response.body.messages).have.to.eq("La acción RECHAZAR no es válida para el estado RECHAZADO. Las acciones válidas son: AUTORIZAR, DESHABILITAR.");
       });
     });
   });
