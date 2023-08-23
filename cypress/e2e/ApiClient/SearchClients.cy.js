@@ -30,7 +30,7 @@ describe("Testing API Clients [SearchClients]", () => {
             cy.log(id);
           });
         });
-        it.skip("SearchClients[Produccion]", () => {
+        it("SearchClients[Produccion]", () => {
           cy.request({
             url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/clients/search`,
             method: "POST",

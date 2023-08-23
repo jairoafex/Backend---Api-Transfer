@@ -34,7 +34,7 @@ describe("Testing API Transfer [AgentsConditions]", () => {
         });
       });
     });
-    it.skip("Agents Conditions [Produccion]",{
+    it("Agents Conditions [Produccion]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;

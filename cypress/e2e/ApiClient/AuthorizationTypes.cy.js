@@ -24,7 +24,7 @@ describe("Testing API Clients [AuthorizationTypes]", () => {
       cy.log(messages);
     });
   });
-  it.skip("AuthorizationTypes[Produccion]", () => {
+  it("AuthorizationTypes[Produccion]", () => {
     cy.request({
       url: `${Cypress.env("API_CLIENTS_SANDBOX")}/clients/authorization/types`,
       method: "GET",

@@ -18,7 +18,7 @@ describe("Testing API Clients [AddHistory]", () => {
       });
     });
   });
-  it("AddHistory[Sandbox]", () => {
+  it.skip("AddHistory[Sandbox]", () => {
     cy.fixture("data_test").then(function (datos) {
     this.datos = datos;
       cy.request({

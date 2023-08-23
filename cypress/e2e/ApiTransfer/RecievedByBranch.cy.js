@@ -34,7 +34,7 @@ describe("Testing API Transfer[ReceiveByBranch]", () => {
         });
       });
     });
-    it.skip("Recieved By Branch [Produccion]",{
+    it("Recieved By Branch [Produccion]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;

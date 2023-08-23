@@ -94,7 +94,7 @@ headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
     });
   });
 
-  it.skip("GetClientByDocument[Produccion]", () => {
+  it("GetClientByDocument[Produccion]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
       cy.request({
