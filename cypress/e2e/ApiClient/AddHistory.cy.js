@@ -1,7 +1,7 @@
 /// <reference types ="Cypress" />
 const userData=require('../../fixtures/AddHistory')
 describe("Testing API Clients [AddHistory]", () => {
-  it("Add History [Staging]", () => {
+  it("AddHistory [Staging]", () => {
     cy.fixture("data_test").then(function (datos) {
     this.datos = datos;
       cy.request({
@@ -18,7 +18,7 @@ describe("Testing API Clients [AddHistory]", () => {
       });
     });
   });
-  it.skip("AddHistory[Sandbox]", () => {
+  it("AddHistory[Sandbox]", () => {
     cy.fixture("data_test").then(function (datos) {
     this.datos = datos;
       cy.request({
