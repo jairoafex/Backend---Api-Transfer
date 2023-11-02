@@ -45,4 +45,19 @@ describe("Testing API Clients [SearchClients]", () => {
             cy.log(id);
           });
         });
+        it("SearchClients[Certificacion]", () => {
+          cy.request({
+            url: `${Cypress.env("API_CLIENTS_CERTIFICACION")}/clients/search`,
+            method: "POST",
+            headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_CERTIFICACION")}` },
+            body:{
+                    search: `${Math.floor(Math.random() * 1000)}`
+                }
+          }).then((response) => {
+            expect(response.status).to.eq(200);
+            expect(response.body.data[0]).to.have.property("id")
+            const id=response.body.data[0].id
+            cy.log(id);
+          });
+        });
   });

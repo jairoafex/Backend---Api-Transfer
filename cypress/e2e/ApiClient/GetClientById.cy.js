@@ -113,4 +113,44 @@ headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
       });
     });
   });
+  it("Get Client By id [Certificacion]", () => {
+    cy.fixture("data_test").then(function (datos) {
+      this.datos = datos;
+      cy.log("Data", this.datos.idCliente);
+      cy.request({
+        url: `${Cypress.env("API_CLIENTS_CERTIFICACION")}/clients/${this.datos.idCliente_produccion}`,
+        method: "GET",
+        headers: {
+          "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_CERTIFICACION")}`,
+        },
+      }).then((response) => {
+        expect(response.status).to.eq(200);
+        expect(
+          response.body.data.identification.identifications[0].number
+        ).to.be.equal(this.datos.documento_produccion);
+        expect(response.body).to.have.property("status", "success");
+        cy.log(response);
+      });
+    });
+  });
+
+  it("GetClientByDocument[Certificacion]", () => {
+    cy.fixture("data_test").then(function (datos) {
+      this.datos = datos;
+      cy.request({
+        url: `${Cypress.env("API_CLIENTS_CERTIFICACION")}/clients/search/identification`,
+        method: "POST",
+        headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_CERTIFICACION")}`,},
+        body: {
+          number: this.datos.documento_produccion,
+          type: this.datos.documento_tipo,
+        },
+      }).then((response) => {
+        expect(response.status).to.eq(200);
+        expect(response.body.data.id).to.be.equal(datos.idCliente_produccion);
+        expect(response.body).to.have.property("status", "success");
+        cy.log(response);
+      });
+    });
+  });
 });

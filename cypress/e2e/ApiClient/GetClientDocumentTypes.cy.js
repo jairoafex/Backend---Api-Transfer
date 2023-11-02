@@ -26,7 +26,7 @@ describe("Testing API Clients [GetClientDocumentsTypes]", () => {
           cy.log(messages);
         });
     });
-    it.skip("GetClientDocumentType[produccion]", () => {
+    it("GetClientDocumentType[Produccion]", () => {
       cy.request({
         url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/client/documents/types`,
         method: "GET",
@@ -41,5 +41,20 @@ describe("Testing API Clients [GetClientDocumentsTypes]", () => {
         cy.log(messages);
       });
   });
+  it("GetClientDocumentType[Certificacion]", () => {
+    cy.request({
+      url: `${Cypress.env("API_CLIENTS_CERTIFICACION")}/client/documents/types`,
+      method: "GET",
+      headers: {
+        "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_CERTIFICACION")}`,
+      },
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.body).to.have.property("messages");
+      expect(response.body.messages).to.be.equal('list of documents')
+      const messages = response.body.messages;
+      cy.log(messages);
+    });
+});
   });
   

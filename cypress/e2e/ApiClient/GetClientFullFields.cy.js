@@ -22,11 +22,22 @@ describe("Testing API Clients [GetClientFullFields]", () => {
           expect(response.body).to.have.property("status", "success");
         });
     });
-    it.skip("GetClientFullFields[Produccion]", () => {
+    it("GetClientFullFields[Produccion]", () => {
       cy.request({
         url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/clients/full/fields?type=person&risk=normal`,
         method: "GET",
        headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_PRODUCCION")}` },
+      }).then((response) => {
+        expect(response.status).to.eq(200);
+        expect(response.body.messages[0]).to.be.equal('fields for client-person-normal')
+        expect(response.body).to.have.property("status", "success");
+      });
+    });
+    it("GetClientFullFields[Certificacion]", () => {
+      cy.request({
+        url: `${Cypress.env("API_CLIENTS_CERTIFICACION")}/clients/full/fields?type=person&risk=normal`,
+        method: "GET",
+       headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_CERTIFICACION")}` },
       }).then((response) => {
         expect(response.status).to.eq(200);
         expect(response.body.messages[0]).to.be.equal('fields for client-person-normal')

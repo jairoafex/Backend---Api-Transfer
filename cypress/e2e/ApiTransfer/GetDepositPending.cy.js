@@ -26,5 +26,31 @@ describe('Testing API Transfer [GetDepositPending]',()=>{
           expect(response.body.message).to.be.equal('List of transfers')
         });
     });
+    it("GetDepositPending[Produccion]", () => {
+      cy.request({
+        url: `${Cypress.env("API_TRANSFER_PRODUCCION")}/v1/transfers/transfersDepositPending`,
+        method: "GET",
+        headers: {
+          "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFERS_PRODUCCION")}`, 
+        },
+      }).then((response) => {
+        expect(response.status).to.eq(200);
+        expect(response.body.status).to.be.equal('success')
+        expect(response.body.message).to.be.equal('List of transfers')
+      });
+  });
+  it("GetDepositPending[Certificacion]", () => {
+    cy.request({
+      url: `${Cypress.env("API_TRANSFER_PRODUCCION")}/v1/transfers/transfersDepositPending`,
+      method: "GET",
+      headers: {
+        "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFERS_PRODUCCION")}`, 
+      },
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.body.status).to.be.equal('success')
+      expect(response.body.message).to.be.equal('List of transfers')
+    });
+});
 
 })

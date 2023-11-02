@@ -1,5 +1,5 @@
 describe('Testing API Transfer [GetTransfersDetails]',()=>{
-    it("Get Transfer details [sandbox]", () => {
+    it("GetTransferDetails [sandbox]", () => {
         cy.fixture("data_test").then(function (datos) {
           this.datos = datos;
           cy.request({
@@ -18,7 +18,7 @@ describe('Testing API Transfer [GetTransfersDetails]',()=>{
           });
         });
       });
-      it("GetTransferdetails[Staging]", () => {
+      it("GetTransferDetails[Staging]", () => {
         cy.fixture("data_test").then(function (datos) {
           this.datos = datos;
           cy.request({
@@ -37,7 +37,7 @@ describe('Testing API Transfer [GetTransfersDetails]',()=>{
           });
         });
       });
-      it.skip("Get Transfer details [Produccion]", () => {
+      it("GetTransferDetails[Produccion]", () => {
         cy.fixture("data_test").then(function (datos) {
           this.datos = datos;
           cy.request({
@@ -45,6 +45,25 @@ describe('Testing API Transfer [GetTransfersDetails]',()=>{
             method: "GET",
             headers: {
               "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFERS_PRODUCCION")}`,
+              "x-afex-branch-code":this.datos.branchCode,
+              "x-afex-branch-id":this.datos.afexUserId
+              
+            },
+          }).then((response) => {
+            expect(response.status).to.eq(200);
+            expect(response.body.status).to.be.equal('success')
+            
+          });
+        });
+      });
+      it("GetTransferDetails[Certificacion]", () => {
+        cy.fixture("data_test").then(function (datos) {
+          this.datos = datos;
+          cy.request({
+            url: `${Cypress.env("API_TRANSFER_CERTIFICACION")}/v1/transfers/${this.datos.codigo_giro_produccion}`,
+            method: "GET",
+            headers: {
+              "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFERS_CERTIFICACION")}`,
               "x-afex-branch-code":this.datos.branchCode,
               "x-afex-branch-id":this.datos.afexUserId
               

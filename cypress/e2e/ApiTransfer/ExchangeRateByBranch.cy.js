@@ -34,7 +34,7 @@ describe("Testing API Transfer [ExchangeRateByBranch]", () => {
         });
       });
     });
-    it.skip("Exchange by rate [Produccion]",{
+    it("ExchangeByRate[Produccion]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
@@ -43,6 +43,23 @@ describe("Testing API Transfer [ExchangeRateByBranch]", () => {
           url: `${Cypress.env('API_TRANSFER_PRODUCCION')}/v1/transfers/exchangeRate/${this.datos.branchCode}`,
           method: "GET",
           headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFERS_PRODUCCION")}` }
+        }).then((response) => {
+          expect(response.status).to.eq(200);
+          expect(response.body).to.have.property("data");
+          const data = response.body.data
+          cy.log("data", data);
+        });
+      });
+    });
+    it("ExchangeByRate[Certificacion]",{
+    }, () => {
+      cy.fixture("data_test").then(function (datos) {
+        this.datos = datos;
+        cy.log("Data", this.datos.id);
+        cy.request({
+          url: `${Cypress.env('API_TRANSFER_CERTIFICACION')}/v1/transfers/exchangeRate/${this.datos.branchCode}`,
+          method: "GET",
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFERS_CERTIFICACION")}` }
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("data");

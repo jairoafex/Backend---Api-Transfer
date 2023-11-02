@@ -134,12 +134,32 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
         });
       });
     });
-    it.skip("Feelookup[Produccion]",{
+    it("Feelookup[Produccion]",{
     }, () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_PRODUCCION')}/v1/transfers/feelookup`,
           method: "POST",
           headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFERS_PRODUCCION")}` },
+          body: {
+              amount: 200,
+              branchId: "00",
+              branchCode: "AG",
+              receiverCountry: "CO",
+              receiverCity: "BOG",
+              includeFee:false,
+              originCurrency: "USD"
+          }
+        }).then((response) => {
+          expect(response.status).to.eq(200);
+          expect(response.body.status).have.to.eq("success")
+        });
+    });
+    it("Feelookup[Certificacion]",{
+    }, () => {
+        cy.request({
+          url: `${Cypress.env('API_TRANSFER_CERTIFICACION')}/v1/transfers/feelookup`,
+          method: "POST",
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFERS_CERTIFICACION")}` },
           body: {
               amount: 200,
               branchId: "00",

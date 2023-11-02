@@ -33,7 +33,7 @@ describe("Testing API Clients [GetHistory]", () => {
       });
     });
   });
-  it.skip("Get History [Produccion]", () => {
+  it("Get History [Produccion]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
       cy.request({

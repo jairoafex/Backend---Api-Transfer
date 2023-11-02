@@ -26,9 +26,21 @@ describe("Testing API Clients [AuthorizationTypes]", () => {
   });
   it("AuthorizationTypes[Produccion]", () => {
     cy.request({
-      url: `${Cypress.env("API_CLIENTS_SANDBOX")}/clients/authorization/types`,
+      url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/clients/authorization/types`,
       method: "GET",
-      headers: { Authorization: `${Cypress.env("AUTHORIZATION_CLIENTS")}` },
+      headers: { Authorization: `${Cypress.env("AUTHORIZATION_CLIENTS_PRODUCCION")}` },
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.body).to.have.property("status", "success");
+      const messages = response.body.messages;
+      cy.log(messages);
+    });
+  });
+  it("AuthorizationTypes[Certificacion]", () => {
+    cy.request({
+      url: `${Cypress.env("API_CLIENTS_CERTIFICACION")}/clients/authorization/types`,
+      method: "GET",
+      headers: { Authorization: `${Cypress.env("AUTHORIZATION_CLIENTS_CERTIFICACION")}` },
     }).then((response) => {
       expect(response.status).to.eq(200);
       expect(response.body).to.have.property("status", "success");

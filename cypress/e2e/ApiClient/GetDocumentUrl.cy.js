@@ -15,7 +15,7 @@ describe("Testing API Clients [GetDocumentURL]", () => {
           });
         });
   });
-  it("Get document Content[Sandbox]", () => {
+  it("GetDocumentUrl[Sandbox]", () => {
     cy.fixture("data_test").then(function (datos) {
       this.datos = datos;
       cy.log("Data", this.datos.id);
@@ -33,22 +33,41 @@ describe("Testing API Clients [GetDocumentURL]", () => {
       });
     });
 });
-it.skip("Get document Content[Produccion]", () => {
+it("GetDocumentUrl[Produccion]", () => {
   cy.fixture("data_test").then(function (datos) {
     this.datos = datos;
     cy.log("Data", this.datos.id);
     cy.request({
       //url: `/client/${this.datos.idCliente}/documents/${this.datos.idDocument}/url`,
-      url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/client/${this.datos.idCliente_produccion}/documents/${this.datos.idDocumentSandbox}/url`,
+      url: `${Cypress.env("API_CLIENTS_PRODUCCION")}/client/${this.datos.idCliente_produccion_document}/documents/${this.datos.idDocument_produccion}/url`,
       method: "GET",
-      failOnStatusCode:false,
+      //failOnStatusCode:false,
       headers: { 
         "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_PRODUCCION")}`
       },
     }).then((response) => {
-      expect(response.status).to.eq(400);
-      expect(response.body).to.have.property("messages");
-      expect(response.body.messages).have.to.eq("client does not have a document with the id provided");
+      expect(response.status).to.eq(200);
+      expect(response.body).to.have.property("data")
+      expect(response.body).to.have.property("status", "success");
+    });
+  });
+});
+it("GetDocumentUrl[Certificacion]", () => {
+  cy.fixture("data_test").then(function (datos) {
+    this.datos = datos;
+    cy.log("Data", this.datos.id);
+    cy.request({
+      //url: `/client/${this.datos.idCliente}/documents/${this.datos.idDocument}/url`,
+      url: `${Cypress.env("API_CLIENTS_CERTIFICACION")}/client/${this.datos.idCliente_produccion_document}/documents/${this.datos.idDocument_produccion}/url`,
+      method: "GET",
+      //failOnStatusCode:false,
+      headers: { 
+        "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_CERTIFICACION")}`
+      },
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.body).to.have.property("data")
+      expect(response.body).to.have.property("status", "success");
     });
   });
 });

@@ -34,7 +34,7 @@ describe("Testing API Transfer [RecipientsByCustomer]", () => {
         });
       });
     });
-    it.skip("Recipients by Customer [Produccion]",{
+    it("Recipients by Customer [Produccion]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
@@ -43,6 +43,23 @@ describe("Testing API Transfer [RecipientsByCustomer]", () => {
           url: `${Cypress.env('API_TRANSFER_PRODUCCION')}/v1/transfers/customers/${this.datos.codigo_cliente_produccion}/recipients`,
           method: "GET",
           headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFERS_PRODUCCION")}` }
+        }).then((response) => {
+          expect(response.status).to.eq(200);
+          expect(response.body).to.have.property("status", "success");
+          const status = response.body.status
+          cy.log("status", status);
+        });
+      });
+    });
+    it("Recipients by Customer [Certificacion]",{
+    }, () => {
+      cy.fixture("data_test").then(function (datos) {
+        this.datos = datos;
+        cy.log("Data", this.datos.id);
+        cy.request({
+          url: `${Cypress.env('API_TRANSFER_CERTIFICACION')}/v1/transfers/customers/${this.datos.codigo_cliente_produccion}/recipients`,
+          method: "GET",
+          headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFERS_CERTIFICACION")}` }
         }).then((response) => {
           expect(response.status).to.eq(200);
           expect(response.body).to.have.property("status", "success");

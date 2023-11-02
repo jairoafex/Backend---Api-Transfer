@@ -33,4 +33,15 @@ describe("Testing API Clients [ReasonDisabling]", () => {
         expect(response.body).to.have.property("status", "success");
       });
     });
+    it("ReasonDisabling[Certificacion]", () => {
+      cy.request({
+        url: `${Cypress.env("API_CLIENTS_CERTIFICACION")}/clients/reasons/disabling`,
+        method: "GET",
+       headers: { "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_CERTIFICACION")}` },
+      }).then((response) => {
+        expect(response.status).to.eq(200);
+        expect(response.body.messages[0]).to.be.equal('reasons disabling')
+        expect(response.body).to.have.property("status", "success");
+      });
+    });
   });
