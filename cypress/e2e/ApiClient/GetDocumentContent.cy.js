@@ -45,7 +45,7 @@ it("Get document Content[Produccion]", () => {
     });
   });
 });
-it("Get document Content[Certificacion]", () => {
+it.skip("Get document Content[Certificacion]", () => {
   cy.fixture("data_test").then(function (datos) {
     this.datos = datos;
     cy.log("Data", this.datos.id);

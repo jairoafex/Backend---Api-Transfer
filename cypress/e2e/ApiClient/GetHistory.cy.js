@@ -50,4 +50,21 @@ describe("Testing API Clients [GetHistory]", () => {
       });
     });
   });
+  it("Get History [Certificacion]", () => {
+    cy.fixture("data_test").then(function (datos) {
+      this.datos = datos;
+      cy.request({
+        //url: `/client/${this.datos.idCliente}/history`,
+        url: `${Cypress.env("API_CLIENTS_CERTIFICACION")}/client/${datos.idCliente_produccion}/history`,
+        method: "GET",
+        headers: {
+          "Authorization": `${Cypress.env("AUTHORIZATION_CLIENTS_CERTIFICACION")}`,
+        },
+      }).then((response) => {
+        expect(response.status).to.eq(200);
+        expect(response.body).to.have.property("messages");
+        expect(response.body).to.have.property("status", "success");
+      });
+    });
+  });
 });
