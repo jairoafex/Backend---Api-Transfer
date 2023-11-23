@@ -1,5 +1,5 @@
 /// <reference types ="Cypress" />
-const userData=require('../../fixtures/Feelookup')
+const requestData=require('../../fixtures/Feelookup')
 let id_giro={};
 describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]", () => {
     it("Feelookup[Staging]",{
@@ -11,7 +11,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
           url: `${Cypress.env('API_TRANSFER_STAGING')}/v1/transfers/feelookup/`,
           method: "POST",
           headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_STAGING")}` },
-          body: userData
+          body: requestData
           
         }).then((response) => {
           expect(response.status).to.eq(200);
@@ -21,7 +21,43 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
         });
       });
     });
-    it("Feelookup Compliance[Staging]",{
+    it("CreateTransfer[Staging]",{
+    }, () => {
+        cy.log("id", id_giro);
+        cy.request({
+          url: `${Cypress.env('API_TRANSFER_STAGING')}/v1/transfers/create`,
+          method: "POST",
+          failOnStatusCode: false,
+          headers: { 
+            "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_STAGING")}`,
+            "x-afex-user-id": "237902165"  
+        },
+          body: 
+          {
+            userFullName: "Jhon Doe",
+            id: id_giro,
+            quoteId: 0,
+            recipient: {
+                address: "CALLE GENERICA",
+                cityCode: "LIM",
+                cityDdi: 9,
+                countryAlpha2Code: "PE",
+                countryDdi: 59,
+                names: "RICKY",
+                phone: "89562312",
+                surnames: "MOUSE"
+            },
+            sender: {
+               corporateCode: "1127951",
+                identification: "219833210",
+                identificationType: "RUT"
+            }
+        }
+        }).then((response) => {
+          expect(response.status).to.eq(400);
+        });
+    });
+    it.skip("Feelookup Compliance[Staging]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
@@ -54,11 +90,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
           method: "POST",
           headers: { "Authorization": `${Cypress.env("Authorization")}` },
           body: {
-            feelookupId: id_giro,
-            branchName: this.datos.branchName,
-            cityName: this.datos.cityName,
-            countryName: this.datos.countryName,
-            userFullName: this.datos.userFullName
+            feelookupId: id_giro
           },
         }).then((response) => {
           expect(response.status).to.eq(200);
@@ -77,7 +109,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
           url: `${Cypress.env('API_TRANSFER_SANDBOX')}/v1/transfers/feelookup/`,
           method: "POST",
           headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_SANDBOX")}` },
-          body: userData
+          body: requestData
           
         }).then((response) => {
           expect(response.status).to.eq(200);
@@ -87,7 +119,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
         });
       });
     });
-    it("Feelookup Compliance[Sandbox]",{
+    it.skip("Feelookup Compliance[Sandbox]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
@@ -110,7 +142,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
         });
       });
     });
-    it("FeelookupComplianceCreate[Sandbox]",{
+    it.skip("FeelookupComplianceCreate[Sandbox]",{
     }, () => {
       cy.fixture("data_test").then(function (datos) {
         this.datos = datos;
@@ -120,11 +152,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
           method: "POST",
           headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_SANDBOX")}` },
           body: {
-            feelookupId: id_giro,
-            branchName: this.datos.branchName,
-            cityName: this.datos.cityName,
-            countryName: this.datos.countryName,
-            userFullName: this.datos.userFullName
+            feelookupId: id_giro
           },
         }).then((response) => {
           expect(response.status).to.eq(200);

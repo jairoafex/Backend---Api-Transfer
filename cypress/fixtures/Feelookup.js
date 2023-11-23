@@ -3,7 +3,7 @@ module.exports={
     branchId: "23",
     branchCode: "AG",
     receiverCountry: "PE",
-    receiverCity: "LIM",
+    receiverCity: "***",
     includeFee:false,
     originCurrency: "USD"
 }
