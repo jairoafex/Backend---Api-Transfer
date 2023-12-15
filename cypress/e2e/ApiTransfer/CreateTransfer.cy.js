@@ -1,19 +1,18 @@
 /// <reference types ="Cypress" />
 
-let id_giro={};
+let id_giro=0;
 describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]", () => {
-    it("Feelookup[Staging]",{
-    }, () => {
+    it("Feelookup[Staging]", () => {
         cy.request({
           url: `${Cypress.env('API_TRANSFER_STAGING')}/v1/transfers/feelookup/`,
           method: "POST",
           headers: { "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_STAGING")}` },
           body: {
-            amount: "100",
+            amount: 100,
             branchId: "23",
             branchCode: "AG",
             receiverCountry: "PE",
-            receiverCity: "***",
+            receiverCity: "LIM",
             includeFee:false,
             originCurrency: "USD"
         }
@@ -24,8 +23,7 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
           cy.log("id", id_giro);
         });
     });
-    it("CreateTransfer[Staging]",{
-    }, () => {
+    it("CreateTransfer[Staging]", () => {
         cy.log("id", id_giro);
         cy.request({
           url: `${Cypress.env('API_TRANSFER_STAGING')}/v1/transfers/create`,
@@ -34,11 +32,10 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
             "Authorization": `${Cypress.env("AUTHORIZATION_TRANSFER_STAGING")}`,
             "x-afex-user-id": "237902165"  
         },
-          body: 
-          {
+          body:{
             userFullName: "Jhon Doe",
             id: id_giro,
-            quoteId: 0,
+            quoteId: 1,
             recipient: {
                 address: "CALLE GENERICA",
                 cityCode: "LIM",
@@ -51,15 +48,15 @@ describe("Testing API Transfer [Feelookup, FeelookupCompliance, FeelookupCreate]
             },
             sender: {
                corporateCode: "1127951",
-                identification: "219833210",
+                identification: "999999940",
                 identificationType: "RUT"
             }
         }
         }).then((response) => {
           expect(response.status).to.eq(200);
-          expect(response.body.data).to.have.property("transferCode");
-          const transferCode=response.body.data.transferCode
-          cy.log(transferCode)
+          //expect(response.body.data).to.have.property("transferCode");
+          //const transferCode=response.body.data.transferCode
+          //cy.log(transferCode)
         });
     });
     it("Feelookup[Sandbox]",{

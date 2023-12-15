@@ -22,7 +22,7 @@
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
     "@shelex/cypress-allure-plugin": "^2.39.1",
-    "cypress": "^12.17.4",
+    "cypress": "^13.0.0",
     "cypress-json-results": "^1.2.1",
     "cypress-slack-notify": "^1.14.0",
     "faker": "^6.6.6",

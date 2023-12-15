@@ -109,14 +109,14 @@ module.exports = {
             value: "5466473"
         },
         {
+            id:"client-person-normal-identification-primaryOccupation",
+            value:"17"
+        },
+        {
             id: "client-person-normal-contact-email",
             "value": "test@jairo.com"
         },
         //profile
-        {
-            id: "client-person-normal-compliance-caution",
-            value: false
-        },
         {
             id: "client-person-normal-compliance-isPEP",
             value: false
